@@ -59,3 +59,8 @@ typings/
 
 # next.js build output
 .next
+
+# Yarn 2
+/.yarn/unplugged/
+/.yarn/build-state.yml
+/.yarn/install-state.gz

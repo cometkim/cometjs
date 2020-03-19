@@ -1,0 +1,15 @@
+{
+  "name": "@cometjs/monorepo",
+  "private": true,
+  "workspaces": [
+    "packages/*"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cometkim/cometjs.git"
+  },
+  "devDependencies": {
+    "@yarnpkg/pnpify": "^2.0.0-rc.19",
+    "typescript": "^3.8.3"
+  }
+}
