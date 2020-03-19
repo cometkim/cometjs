@@ -1,0 +1,13 @@
+{
+  "name": "@cometjs/react-utils",
+  "peerDependencies": {
+    "@types/react": ">=16.8.0"
+  },
+  "dependencies": {
+    "@cometjs/core": "workspace:0.0.0"
+  },
+  "devDependencies": {
+    "@types/react": "^16.9.23",
+    "typescript": "^3.8.3"
+  }
+}

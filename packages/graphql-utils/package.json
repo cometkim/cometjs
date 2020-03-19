@@ -1,0 +1,10 @@
+{
+  "name": "@cometjs/graphql-utils",
+  "description": "",
+  "dependencies": {
+    "@cometjs/core": "workspace:0.0.0"
+  },
+  "devDependencies": {
+    "typescript": "^3.8.3"
+  }
+}

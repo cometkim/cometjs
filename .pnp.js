@@ -21,12 +21,32 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
       {
         "name": "@cometjs/monorepo",
         "reference": "workspace:."
+      },
+      {
+        "name": "@cometjs/apollo-utils",
+        "reference": "workspace:packages/apollo-utils"
+      },
+      {
+        "name": "@cometjs/core",
+        "reference": "workspace:packages/core"
+      },
+      {
+        "name": "@cometjs/graphql-utils",
+        "reference": "workspace:packages/graphql-utils"
+      },
+      {
+        "name": "@cometjs/react-utils",
+        "reference": "workspace:packages/react-utils"
       }
     ],
     "enableTopLevelFallback": true,
     "ignorePatternData": "(^(?:\\.vscode\\/pnpify(?:\\/(?!\\.)(?:(?:(?!(?:^|\\/)\\.).)*?)|$))$)",
     "fallbackExclusionList": [
-      ["@cometjs/monorepo", ["workspace:."]]
+      ["@cometjs/apollo-utils", ["workspace:packages/apollo-utils"]],
+      ["@cometjs/core", ["workspace:packages/core"]],
+      ["@cometjs/graphql-utils", ["workspace:packages/graphql-utils"]],
+      ["@cometjs/monorepo", ["workspace:."]],
+      ["@cometjs/react-utils", ["workspace:packages/react-utils"]]
     ],
     "fallbackPool": [
       [
@@ -51,6 +71,66 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "linkType": "SOFT",
         }]
       ]],
+      ["@apollo/client", [
+        ["virtual:b42f0f10a20f5eeb2219d5db70023464fa676dd5e534b6c59df1a5916c5574a9fe6261d03707b47c79a2139f56739d71c49968039f8ee99774c3e89cd84aae46#npm:3.0.0-james.33.0", {
+          "packageLocation": "./.yarn/$$virtual/@apollo-client-virtual-d6d97b0e0b/0/cache/@apollo-client-npm-3.0.0-james.33.0-39e7be3c04-2.zip/node_modules/@apollo/client/",
+          "packageDependencies": [
+            ["@apollo/client", "virtual:b42f0f10a20f5eeb2219d5db70023464fa676dd5e534b6c59df1a5916c5574a9fe6261d03707b47c79a2139f56739d71c49968039f8ee99774c3e89cd84aae46#npm:3.0.0-james.33.0"],
+            ["@types/zen-observable", "npm:0.8.0"],
+            ["@wry/equality", "npm:0.1.9"],
+            ["fast-json-stable-stringify", "npm:2.1.0"],
+            ["graphql", null],
+            ["graphql-tag", "virtual:d6d97b0e0be227404a098d443c82be36e7c57141a1314b5ffbe7c0b80cfe46ec8bdff6386725d6dfb81caf15275ba3c9cca7bff42401a43865a1b0f7dd64785d#npm:2.10.3"],
+            ["optimism", "npm:0.11.5"],
+            ["react", null],
+            ["symbol-observable", "npm:1.2.0"],
+            ["ts-invariant", "npm:0.4.4"],
+            ["tslib", "npm:1.11.1"],
+            ["zen-observable", "npm:0.8.15"]
+          ],
+          "packagePeers": [
+            "graphql",
+            "react"
+          ],
+          "linkType": "HARD",
+        }]
+      ]],
+      ["@cometjs/apollo-utils", [
+        ["workspace:packages/apollo-utils", {
+          "packageLocation": "./packages/apollo-utils/",
+          "packageDependencies": [
+            ["@cometjs/apollo-utils", "workspace:packages/apollo-utils"],
+            ["@apollo/client", "virtual:b42f0f10a20f5eeb2219d5db70023464fa676dd5e534b6c59df1a5916c5574a9fe6261d03707b47c79a2139f56739d71c49968039f8ee99774c3e89cd84aae46#npm:3.0.0-james.33.0"],
+            ["@cometjs/core", "workspace:packages/core"],
+            ["@cometjs/graphql-utils", "workspace:packages/graphql-utils"]
+          ],
+          "packagePeers": [
+            "@apollo/client"
+          ],
+          "linkType": "SOFT",
+        }]
+      ]],
+      ["@cometjs/core", [
+        ["workspace:packages/core", {
+          "packageLocation": "./packages/core/",
+          "packageDependencies": [
+            ["@cometjs/core", "workspace:packages/core"],
+            ["typescript", "patch:typescript@npm%3A3.8.3#builtin<compat/typescript>::version=3.8.3&hash=270b6c"]
+          ],
+          "linkType": "SOFT",
+        }]
+      ]],
+      ["@cometjs/graphql-utils", [
+        ["workspace:packages/graphql-utils", {
+          "packageLocation": "./packages/graphql-utils/",
+          "packageDependencies": [
+            ["@cometjs/graphql-utils", "workspace:packages/graphql-utils"],
+            ["@cometjs/core", "workspace:packages/core"],
+            ["typescript", "patch:typescript@npm%3A3.8.3#builtin<compat/typescript>::version=3.8.3&hash=270b6c"]
+          ],
+          "linkType": "SOFT",
+        }]
+      ]],
       ["@cometjs/monorepo", [
         ["workspace:.", {
           "packageLocation": "./",
@@ -58,6 +138,21 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@cometjs/monorepo", "workspace:."],
             ["@yarnpkg/pnpify", "virtual:236ffb23991e44020122de94f575876fe73ed6d13995e5c5ca3b0e47da5cf9346310444b996e0c3f7bd98237a4f62a07e4ea51e2b9b6a0fead8e55bb39384377#npm:2.0.0-rc.19"],
             ["typescript", "patch:typescript@npm%3A3.8.3#builtin<compat/typescript>::version=3.8.3&hash=270b6c"]
+          ],
+          "linkType": "SOFT",
+        }]
+      ]],
+      ["@cometjs/react-utils", [
+        ["workspace:packages/react-utils", {
+          "packageLocation": "./packages/react-utils/",
+          "packageDependencies": [
+            ["@cometjs/react-utils", "workspace:packages/react-utils"],
+            ["@cometjs/core", "workspace:packages/core"],
+            ["@types/react", "npm:16.9.24"],
+            ["typescript", "patch:typescript@npm%3A3.8.3#builtin<compat/typescript>::version=3.8.3&hash=270b6c"]
+          ],
+          "packagePeers": [
+            "@types/react"
           ],
           "linkType": "SOFT",
         }]
@@ -76,6 +171,55 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageLocation": "./.yarn/cache/@types-emscripten-npm-1.39.3-10b6af4117-2.zip/node_modules/@types/emscripten/",
           "packageDependencies": [
             ["@types/emscripten", "npm:1.39.3"]
+          ],
+          "linkType": "HARD",
+        }]
+      ]],
+      ["@types/prop-types", [
+        ["npm:15.7.3", {
+          "packageLocation": "./.yarn/cache/@types-prop-types-npm-15.7.3-084e0015c6-2.zip/node_modules/@types/prop-types/",
+          "packageDependencies": [
+            ["@types/prop-types", "npm:15.7.3"]
+          ],
+          "linkType": "HARD",
+        }]
+      ]],
+      ["@types/react", [
+        ["npm:16.9.24", {
+          "packageLocation": "./.yarn/cache/@types-react-npm-16.9.24-1eecf424ce-2.zip/node_modules/@types/react/",
+          "packageDependencies": [
+            ["@types/react", "npm:16.9.24"],
+            ["@types/prop-types", "npm:15.7.3"],
+            ["csstype", "npm:2.6.9"]
+          ],
+          "linkType": "HARD",
+        }]
+      ]],
+      ["@types/zen-observable", [
+        ["npm:0.8.0", {
+          "packageLocation": "./.yarn/cache/@types-zen-observable-npm-0.8.0-97bc8a2fa9-2.zip/node_modules/@types/zen-observable/",
+          "packageDependencies": [
+            ["@types/zen-observable", "npm:0.8.0"]
+          ],
+          "linkType": "HARD",
+        }]
+      ]],
+      ["@wry/context", [
+        ["npm:0.5.0", {
+          "packageLocation": "./.yarn/cache/@wry-context-npm-0.5.0-14e1fec7cf-2.zip/node_modules/@wry/context/",
+          "packageDependencies": [
+            ["@wry/context", "npm:0.5.0"],
+            ["tslib", "npm:1.11.1"]
+          ],
+          "linkType": "HARD",
+        }]
+      ]],
+      ["@wry/equality", [
+        ["npm:0.1.9", {
+          "packageLocation": "./.yarn/cache/@wry-equality-npm-0.1.9-0583132e08-2.zip/node_modules/@wry/equality/",
+          "packageDependencies": [
+            ["@wry/equality", "npm:0.1.9"],
+            ["tslib", "npm:1.11.1"]
           ],
           "linkType": "HARD",
         }]
@@ -196,11 +340,42 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "linkType": "HARD",
         }]
       ]],
+      ["csstype", [
+        ["npm:2.6.9", {
+          "packageLocation": "./.yarn/cache/csstype-npm-2.6.9-cd62e2b4b3-2.zip/node_modules/csstype/",
+          "packageDependencies": [
+            ["csstype", "npm:2.6.9"]
+          ],
+          "linkType": "HARD",
+        }]
+      ]],
       ["esprima", [
         ["npm:4.0.1", {
           "packageLocation": "./.yarn/cache/esprima-npm-4.0.1-1084e98778-2.zip/node_modules/esprima/",
           "packageDependencies": [
             ["esprima", "npm:4.0.1"]
+          ],
+          "linkType": "HARD",
+        }]
+      ]],
+      ["fast-json-stable-stringify", [
+        ["npm:2.1.0", {
+          "packageLocation": "./.yarn/cache/fast-json-stable-stringify-npm-2.1.0-02e8905fda-2.zip/node_modules/fast-json-stable-stringify/",
+          "packageDependencies": [
+            ["fast-json-stable-stringify", "npm:2.1.0"]
+          ],
+          "linkType": "HARD",
+        }]
+      ]],
+      ["graphql-tag", [
+        ["virtual:d6d97b0e0be227404a098d443c82be36e7c57141a1314b5ffbe7c0b80cfe46ec8bdff6386725d6dfb81caf15275ba3c9cca7bff42401a43865a1b0f7dd64785d#npm:2.10.3", {
+          "packageLocation": "./.yarn/$$virtual/graphql-tag-virtual-b30ef4521d/0/cache/graphql-tag-npm-2.10.3-74c522e80a-2.zip/node_modules/graphql-tag/",
+          "packageDependencies": [
+            ["graphql-tag", "virtual:d6d97b0e0be227404a098d443c82be36e7c57141a1314b5ffbe7c0b80cfe46ec8bdff6386725d6dfb81caf15275ba3c9cca7bff42401a43865a1b0f7dd64785d#npm:2.10.3"],
+            ["graphql", null]
+          ],
+          "packagePeers": [
+            "graphql"
           ],
           "linkType": "HARD",
         }]
@@ -237,6 +412,16 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageLocation": "./.yarn/cache/nice-try-npm-1.0.5-963856b16f-2.zip/node_modules/nice-try/",
           "packageDependencies": [
             ["nice-try", "npm:1.0.5"]
+          ],
+          "linkType": "HARD",
+        }]
+      ]],
+      ["optimism", [
+        ["npm:0.11.5", {
+          "packageLocation": "./.yarn/cache/optimism-npm-0.11.5-b737d76174-2.zip/node_modules/optimism/",
+          "packageDependencies": [
+            ["optimism", "npm:0.11.5"],
+            ["@wry/context", "npm:0.5.0"]
           ],
           "linkType": "HARD",
         }]
@@ -297,6 +482,34 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "linkType": "HARD",
         }]
       ]],
+      ["symbol-observable", [
+        ["npm:1.2.0", {
+          "packageLocation": "./.yarn/cache/symbol-observable-npm-1.2.0-9e812a0a39-2.zip/node_modules/symbol-observable/",
+          "packageDependencies": [
+            ["symbol-observable", "npm:1.2.0"]
+          ],
+          "linkType": "HARD",
+        }]
+      ]],
+      ["ts-invariant", [
+        ["npm:0.4.4", {
+          "packageLocation": "./.yarn/cache/ts-invariant-npm-0.4.4-9f97371ec3-2.zip/node_modules/ts-invariant/",
+          "packageDependencies": [
+            ["ts-invariant", "npm:0.4.4"],
+            ["tslib", "npm:1.11.1"]
+          ],
+          "linkType": "HARD",
+        }]
+      ]],
+      ["tslib", [
+        ["npm:1.11.1", {
+          "packageLocation": "./.yarn/cache/tslib-npm-1.11.1-8e4faed70f-2.zip/node_modules/tslib/",
+          "packageDependencies": [
+            ["tslib", "npm:1.11.1"]
+          ],
+          "linkType": "HARD",
+        }]
+      ]],
       ["typescript", [
         ["patch:typescript@npm%3A3.8.3#builtin<compat/typescript>::version=3.8.3&hash=270b6c", {
           "packageLocation": "./.yarn/cache/typescript-patch-44be79f87b-2.zip/node_modules/typescript/",
@@ -312,6 +525,15 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageDependencies": [
             ["which", "npm:1.3.1"],
             ["isexe", "npm:2.0.0"]
+          ],
+          "linkType": "HARD",
+        }]
+      ]],
+      ["zen-observable", [
+        ["npm:0.8.15", {
+          "packageLocation": "./.yarn/cache/zen-observable-npm-0.8.15-3bec99c19c-2.zip/node_modules/zen-observable/",
+          "packageDependencies": [
+            ["zen-observable", "npm:0.8.15"]
           ],
           "linkType": "HARD",
         }]

@@ -1,0 +1,8 @@
+{
+  "name": "@cometjs/core",
+  "description": "WIP",
+  "version": "0.0.0",
+  "devDependencies": {
+    "typescript": "^3.8.3"
+  }
+}
