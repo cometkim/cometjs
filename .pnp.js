@@ -23,30 +23,30 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         "reference": "workspace:."
       },
       {
-        "name": "@cometjs/apollo-utils",
-        "reference": "workspace:packages/apollo-utils"
+        "name": "@cometjs/apollo",
+        "reference": "workspace:packages/apollo"
       },
       {
         "name": "@cometjs/core",
         "reference": "workspace:packages/core"
       },
       {
-        "name": "@cometjs/graphql-utils",
-        "reference": "workspace:packages/graphql-utils"
+        "name": "@cometjs/graphql",
+        "reference": "workspace:packages/graphql"
       },
       {
-        "name": "@cometjs/react-utils",
-        "reference": "workspace:packages/react-utils"
+        "name": "@cometjs/react",
+        "reference": "workspace:packages/react"
       }
     ],
     "enableTopLevelFallback": true,
     "ignorePatternData": "(^(?:\\.vscode\\/pnpify(?:\\/(?!\\.)(?:(?:(?!(?:^|\\/)\\.).)*?)|$))$)",
     "fallbackExclusionList": [
-      ["@cometjs/apollo-utils", ["workspace:packages/apollo-utils"]],
+      ["@cometjs/apollo", ["workspace:packages/apollo"]],
       ["@cometjs/core", ["workspace:packages/core"]],
-      ["@cometjs/graphql-utils", ["workspace:packages/graphql-utils"]],
+      ["@cometjs/graphql", ["workspace:packages/graphql"]],
       ["@cometjs/monorepo", ["workspace:."]],
-      ["@cometjs/react-utils", ["workspace:packages/react-utils"]]
+      ["@cometjs/react", ["workspace:packages/react"]]
     ],
     "fallbackPool": [
       [
@@ -72,15 +72,15 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         }]
       ]],
       ["@apollo/client", [
-        ["virtual:b42f0f10a20f5eeb2219d5db70023464fa676dd5e534b6c59df1a5916c5574a9fe6261d03707b47c79a2139f56739d71c49968039f8ee99774c3e89cd84aae46#npm:3.0.0-james.33.0", {
-          "packageLocation": "./.yarn/$$virtual/@apollo-client-virtual-d6d97b0e0b/0/cache/@apollo-client-npm-3.0.0-james.33.0-39e7be3c04-2.zip/node_modules/@apollo/client/",
+        ["virtual:946726fc146e6b547ad45e3fa5c176c75fd823b37da7f796bc8884286ae50b86af75517e10af58a235ad624d855bff37da8e30ad72d319c63ea959151487de66#npm:3.0.0-james.33.0", {
+          "packageLocation": "./.yarn/$$virtual/@apollo-client-virtual-22d70a33b1/0/cache/@apollo-client-npm-3.0.0-james.33.0-39e7be3c04-2.zip/node_modules/@apollo/client/",
           "packageDependencies": [
-            ["@apollo/client", "virtual:b42f0f10a20f5eeb2219d5db70023464fa676dd5e534b6c59df1a5916c5574a9fe6261d03707b47c79a2139f56739d71c49968039f8ee99774c3e89cd84aae46#npm:3.0.0-james.33.0"],
+            ["@apollo/client", "virtual:946726fc146e6b547ad45e3fa5c176c75fd823b37da7f796bc8884286ae50b86af75517e10af58a235ad624d855bff37da8e30ad72d319c63ea959151487de66#npm:3.0.0-james.33.0"],
             ["@types/zen-observable", "npm:0.8.0"],
             ["@wry/equality", "npm:0.1.9"],
             ["fast-json-stable-stringify", "npm:2.1.0"],
-            ["graphql", null],
-            ["graphql-tag", "virtual:d6d97b0e0be227404a098d443c82be36e7c57141a1314b5ffbe7c0b80cfe46ec8bdff6386725d6dfb81caf15275ba3c9cca7bff42401a43865a1b0f7dd64785d#npm:2.10.3"],
+            ["graphql", "npm:14.6.0"],
+            ["graphql-tag", "virtual:22d70a33b185c52d0b9da1745b8e27a95c5d8ea6ed63e4562ddcb5b8ed6fa709d8d472b12a24c2f0f20c20eaeddb3e3e7a83baad284e1ea7d19cfc65f5ba5155#npm:2.10.3"],
             ["optimism", "npm:0.11.5"],
             ["react", null],
             ["symbol-observable", "npm:1.2.0"],
@@ -95,17 +95,19 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "linkType": "HARD",
         }]
       ]],
-      ["@cometjs/apollo-utils", [
-        ["workspace:packages/apollo-utils", {
-          "packageLocation": "./packages/apollo-utils/",
+      ["@cometjs/apollo", [
+        ["workspace:packages/apollo", {
+          "packageLocation": "./packages/apollo/",
           "packageDependencies": [
-            ["@cometjs/apollo-utils", "workspace:packages/apollo-utils"],
-            ["@apollo/client", "virtual:b42f0f10a20f5eeb2219d5db70023464fa676dd5e534b6c59df1a5916c5574a9fe6261d03707b47c79a2139f56739d71c49968039f8ee99774c3e89cd84aae46#npm:3.0.0-james.33.0"],
+            ["@cometjs/apollo", "workspace:packages/apollo"],
+            ["@apollo/client", "virtual:946726fc146e6b547ad45e3fa5c176c75fd823b37da7f796bc8884286ae50b86af75517e10af58a235ad624d855bff37da8e30ad72d319c63ea959151487de66#npm:3.0.0-james.33.0"],
             ["@cometjs/core", "workspace:packages/core"],
-            ["@cometjs/graphql-utils", "workspace:packages/graphql-utils"]
+            ["@cometjs/graphql", "workspace:packages/graphql"],
+            ["graphql", "npm:14.6.0"]
           ],
           "packagePeers": [
-            "@apollo/client"
+            "@apollo/client",
+            "graphql"
           ],
           "linkType": "SOFT",
         }]
@@ -120,11 +122,11 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "linkType": "SOFT",
         }]
       ]],
-      ["@cometjs/graphql-utils", [
-        ["workspace:packages/graphql-utils", {
-          "packageLocation": "./packages/graphql-utils/",
+      ["@cometjs/graphql", [
+        ["workspace:packages/graphql", {
+          "packageLocation": "./packages/graphql/",
           "packageDependencies": [
-            ["@cometjs/graphql-utils", "workspace:packages/graphql-utils"],
+            ["@cometjs/graphql", "workspace:packages/graphql"],
             ["@cometjs/core", "workspace:packages/core"],
             ["typescript", "patch:typescript@npm%3A3.8.3#builtin<compat/typescript>::version=3.8.3&hash=270b6c"]
           ],
@@ -142,11 +144,11 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "linkType": "SOFT",
         }]
       ]],
-      ["@cometjs/react-utils", [
-        ["workspace:packages/react-utils", {
-          "packageLocation": "./packages/react-utils/",
+      ["@cometjs/react", [
+        ["workspace:packages/react", {
+          "packageLocation": "./packages/react/",
           "packageDependencies": [
-            ["@cometjs/react-utils", "workspace:packages/react-utils"],
+            ["@cometjs/react", "workspace:packages/react"],
             ["@cometjs/core", "workspace:packages/core"],
             ["@types/react", "npm:16.9.24"],
             ["typescript", "patch:typescript@npm%3A3.8.3#builtin<compat/typescript>::version=3.8.3&hash=270b6c"]
@@ -367,12 +369,22 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "linkType": "HARD",
         }]
       ]],
-      ["graphql-tag", [
-        ["virtual:d6d97b0e0be227404a098d443c82be36e7c57141a1314b5ffbe7c0b80cfe46ec8bdff6386725d6dfb81caf15275ba3c9cca7bff42401a43865a1b0f7dd64785d#npm:2.10.3", {
-          "packageLocation": "./.yarn/$$virtual/graphql-tag-virtual-b30ef4521d/0/cache/graphql-tag-npm-2.10.3-74c522e80a-2.zip/node_modules/graphql-tag/",
+      ["graphql", [
+        ["npm:14.6.0", {
+          "packageLocation": "./.yarn/cache/graphql-npm-14.6.0-df58f08e2a-2.zip/node_modules/graphql/",
           "packageDependencies": [
-            ["graphql-tag", "virtual:d6d97b0e0be227404a098d443c82be36e7c57141a1314b5ffbe7c0b80cfe46ec8bdff6386725d6dfb81caf15275ba3c9cca7bff42401a43865a1b0f7dd64785d#npm:2.10.3"],
-            ["graphql", null]
+            ["graphql", "npm:14.6.0"],
+            ["iterall", "npm:1.3.0"]
+          ],
+          "linkType": "HARD",
+        }]
+      ]],
+      ["graphql-tag", [
+        ["virtual:22d70a33b185c52d0b9da1745b8e27a95c5d8ea6ed63e4562ddcb5b8ed6fa709d8d472b12a24c2f0f20c20eaeddb3e3e7a83baad284e1ea7d19cfc65f5ba5155#npm:2.10.3", {
+          "packageLocation": "./.yarn/$$virtual/graphql-tag-virtual-980af07adb/0/cache/graphql-tag-npm-2.10.3-74c522e80a-2.zip/node_modules/graphql-tag/",
+          "packageDependencies": [
+            ["graphql-tag", "virtual:22d70a33b185c52d0b9da1745b8e27a95c5d8ea6ed63e4562ddcb5b8ed6fa709d8d472b12a24c2f0f20c20eaeddb3e3e7a83baad284e1ea7d19cfc65f5ba5155#npm:2.10.3"],
+            ["graphql", "npm:14.6.0"]
           ],
           "packagePeers": [
             "graphql"
@@ -403,6 +415,15 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageLocation": "./.yarn/cache/isexe-npm-2.0.0-b58870bd2e-2.zip/node_modules/isexe/",
           "packageDependencies": [
             ["isexe", "npm:2.0.0"]
+          ],
+          "linkType": "HARD",
+        }]
+      ]],
+      ["iterall", [
+        ["npm:1.3.0", {
+          "packageLocation": "./.yarn/cache/iterall-npm-1.3.0-a2cb04809f-2.zip/node_modules/iterall/",
+          "packageDependencies": [
+            ["iterall", "npm:1.3.0"]
           ],
           "linkType": "HARD",
         }]

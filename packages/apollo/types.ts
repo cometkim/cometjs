@@ -1,5 +1,5 @@
 // Type-only endpoints
 
-export * from '@cometjs/graphql-utils/types';
+export * from '@cometjs/graphql/types';
 
 export type { Result } from './result';

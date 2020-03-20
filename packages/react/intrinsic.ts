@@ -3,10 +3,8 @@ import type {
   RefForwardingComponent,
 } from 'react';
 
-type InferIntrinsicElement<T> = T extends ClassAttributes<infer TElement> ? TElement : never;
-
 /**
- * A type to help building a component that override intrinsic element implicitly.
+ * A helper type to build a component that wrap IntrinsicElements and forward its props implicitly.
  *
  * @example
  * ```tsx
@@ -16,7 +14,7 @@ type InferIntrinsicElement<T> = T extends ClassAttributes<infer TElement> ? TEle
  *   onChange?: (value: string) => void; // override the `React.ChangeEventHandler`
  * }
  *
- * const CustomInputComponent: OverrideIntrinsicComponent<'input', CustomInputProps> = ({
+ * const CustomInput: IntrinsicElementWrapperComponent<'input', CustomInputProps> = ({
  *   onChange,
  *   ...otherProps
  * }, forwardedRef) => {
@@ -25,17 +23,19 @@ type InferIntrinsicElement<T> = T extends ClassAttributes<infer TElement> ? TEle
  *   };
  *   return (
  *     <input
- *       ref={ref}
+ *       ref={forwardedRef}
  *       onChange={defaultChangeHandler}
  *       {...otherProps}
  *     />
  *   );
  * };
  *
- * export default React.forwardRef(CustomInputComponent);
+ * export default React.forwardRef(CustomInput);
  * ```
  */
-export type OverrideIntrinsicComponent<TTag extends keyof JSX.IntrinsicElements, TProps = {}> = RefForwardingComponent<
-  InferIntrinsicElement<JSX.IntrinsicElements[TTag]>,
+export type IntrinsicElementWrapperComponent<TTag extends keyof JSX.IntrinsicElements, TProps = {}> = RefForwardingComponent<
+  InferIntrinsicElementFromAttributes<JSX.IntrinsicElements[TTag]>,
   Omit<JSX.IntrinsicElements[TTag], keyof TProps> & TProps
 >;
+
+type InferIntrinsicElementFromAttributes<T> = T extends ClassAttributes<infer TElement> ? TElement : never;

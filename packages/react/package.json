@@ -1,5 +1,5 @@
 {
-  "name": "@cometjs/react-utils",
+  "name": "@cometjs/react",
   "peerDependencies": {
     "@types/react": ">=16.8.0"
   },

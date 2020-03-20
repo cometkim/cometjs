@@ -1,0 +1,17 @@
+{
+  "name": "@cometjs/apollo",
+  "description": "WIP",
+  "version": "0.0.0",
+  "peerDependencies": {
+    "@apollo/client": ">=3.0.0",
+    "graphql": ">=14.0.0"
+  },
+  "dependencies": {
+    "@cometjs/core": "workspace:0.0.0",
+    "@cometjs/graphql": "workspace:0.0.0"
+  },
+  "devDependencies": {
+    "@apollo/client": "^3.0.0-beta.41",
+    "graphql": "^14.6.0"
+  }
+}

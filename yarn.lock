@@ -27,15 +27,17 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@cometjs/apollo-utils@workspace:packages/apollo-utils":
+"@cometjs/apollo@workspace:packages/apollo":
   version: 0.0.0-use.local
-  resolution: "@cometjs/apollo-utils@workspace:packages/apollo-utils"
+  resolution: "@cometjs/apollo@workspace:packages/apollo"
   dependencies:
     "@apollo/client": ^3.0.0-beta.41
     "@cometjs/core": "workspace:0.0.0"
-    "@cometjs/graphql-utils": "workspace:packages/graphql-utils"
+    "@cometjs/graphql": "workspace:0.0.0"
+    graphql: ^14.6.0
   peerDependencies:
     "@apollo/client": ">=3.0.0"
+    graphql: ">=14.0.0"
   languageName: unknown
   linkType: soft
 
@@ -47,9 +49,9 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@cometjs/graphql-utils@workspace:packages/graphql-utils":
+"@cometjs/graphql@workspace:0.0.0, @cometjs/graphql@workspace:packages/graphql":
   version: 0.0.0-use.local
-  resolution: "@cometjs/graphql-utils@workspace:packages/graphql-utils"
+  resolution: "@cometjs/graphql@workspace:packages/graphql"
   dependencies:
     "@cometjs/core": "workspace:0.0.0"
     typescript: ^3.8.3
@@ -65,9 +67,9 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@cometjs/react-utils@workspace:packages/react-utils":
+"@cometjs/react@workspace:packages/react":
   version: 0.0.0-use.local
-  resolution: "@cometjs/react-utils@workspace:packages/react-utils"
+  resolution: "@cometjs/react@workspace:packages/react"
   dependencies:
     "@cometjs/core": "workspace:0.0.0"
     "@types/react": ^16.9.23
@@ -274,6 +276,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"graphql@npm:^14.6.0":
+  version: 14.6.0
+  resolution: "graphql@npm:14.6.0"
+  dependencies:
+    iterall: ^1.2.2
+  checksum: 2/24cab2758cea2ce592c59af28cac0fc80d2f2eac2f2441ce0152ce3c5a3a2416394aadf71b2d8db58f46c44ca3d20747eb168f58502f6eadafab0f11dea13791
+  languageName: node
+  linkType: hard
+
 "has-flag@npm:^4.0.0":
   version: 4.0.0
   resolution: "has-flag@npm:4.0.0"
@@ -292,6 +303,13 @@ __metadata:
   version: 2.0.0
   resolution: "isexe@npm:2.0.0"
   checksum: 2/7b437980bb77881a146fba85cfbdf01edc2b148673e9c2722a1e49661fea73adf524430a80fdbfb8ce9f60d43224e682c657c45030482bd39e0c488fc29b4afe
+  languageName: node
+  linkType: hard
+
+"iterall@npm:^1.2.2":
+  version: 1.3.0
+  resolution: "iterall@npm:1.3.0"
+  checksum: 2/25ae2d07cf97fc35d43fa7af814839689416b83d3ade0fec97a62c58b7b9fad5ff89dd0ede99f2d67cae2697ffa6987f0ab10876f40ae6466e802609a05b1006
   languageName: node
   linkType: hard
 
