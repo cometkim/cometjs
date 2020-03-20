@@ -29,6 +29,9 @@ export type PropOf<TComponent, TKey extends keyof PropsOf<TComponent>> = PropsOf
 /**
  * Infer possible ref type of `typeof MyComponent`.
  *
+ * @deprecated DefinitelyTyped now supports for this 🎉
+ * @see https://github.com/DefinitelyTyped/DefinitelyTyped/pull/43201
+ *
  * @example
  * ```tsx
  * // MyComponent should be wrapped by `React.forwardRef` HoC.
