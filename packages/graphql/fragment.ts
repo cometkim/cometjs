@@ -1,5 +1,4 @@
 import type { Callable, InferrableAny } from '@cometjs/core/common';
-import type { Some } from '@cometjs/core/option';
 
 /**
  * A type has serval subtypes based on `__typename` field.
@@ -52,7 +51,7 @@ export function mapFragmentWithDefault<
   TFragment extends Fragment<string>,
   TPossible extends PossibleTypeName<TFragment>,
   TFragmentMatcher extends {
-    [TKey in TPossible]?: ((fragment: Extract<TFragment, Fragment<TKey>>) => any) | Some<InferrableAny>;
+    [TKey in TPossible]?: ((fragment: Extract<TFragment, Fragment<TKey>>) => any) | InferrableAny;
   },
   RDefault,
 >(
