@@ -1,4 +1,4 @@
-import { mapFragment, mapFragmentWithDefault } from './fragment';
+import { mapUnion, mapUnionWithDefault } from './union';
 
 type Scalars = {
   ID: string,
@@ -46,15 +46,14 @@ type SearchResult = User | Chat | ChatMessage;
 let result = {} as SearchResult;
 
 // $ExpectType ChatMessage[]
-const a = mapFragment(result, {
+const a = mapUnion(result, {
   User: [] as ChatMessage[],
   Chat: result => result.messages,
   ChatMessage: result => [result],
 });
 
 // $ExpectType Role
-const b = mapFragmentWithDefault(result, {
+const b = mapUnionWithDefault(result, {
   User: result => result.role,
   _: Role.User,
 });
-

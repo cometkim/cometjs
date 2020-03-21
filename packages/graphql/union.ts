@@ -4,36 +4,36 @@ import type { Callable, InferrableAny } from '@cometjs/core/common';
  * A type has serval subtypes based on `__typename` field.
  * Such as the GraphQL's interface/union response.
  */
-export type Fragment<TPossible extends string> = {
+export type Union<TPossible extends string> = {
   __typename?: TPossible,
 };
 
 /**
  * Subtype mapper utility for GraphQL interface/union type response.
  *
- * @param fragment
- * @param fragmentMatcher Subtype mappers
+ * @param union
+ * @param subtypeMatcher Subtype mappers
  *
  * @return Return value of the mapper function for matched subtype
  */
-export function mapFragment<
-  TFragment extends Fragment<string>,
-  TPossible extends PossibleTypeName<TFragment>,
-  TFragmentMatcher extends {
-    [TKey in TPossible]: ((fragment: Extract<TFragment, Fragment<TKey>>) => any) | InferrableAny;
+export function mapUnion<
+  TUnion extends Union<string>,
+  TPossible extends SubtypeName<TUnion>,
+  TSubtypeMatcher extends {
+    [TKey in TPossible]: ((fragment: Extract<TUnion, Union<TKey>>) => any) | InferrableAny;
   },
 >(
-  fragment: TFragment,
-  fragmentMatcher: TFragmentMatcher,
-): MapReturnType<TFragmentMatcher> {
-  if (!fragment.__typename) {
+  union: TUnion,
+  subtypeMatcher: TSubtypeMatcher,
+): MapReturnType<TSubtypeMatcher> {
+  if (!union.__typename) {
     throw new Error(`The given fragment doesn't have __typename property`);
   }
 
-  const map = fragmentMatcher[fragment.__typename as TPossible];
+  const map = subtypeMatcher[union.__typename as TPossible];
 
   if (typeof map === 'function') {
-    return map(fragment as any);
+    return map(union as any);
   }
 
   return map as any;
@@ -42,45 +42,45 @@ export function mapFragment<
 /**
  * Subtype mapper utility for GraphQL interface/union type response.
  *
- * @param fragment
- * @param fragmentMatcher Subtype mappers that can be optional
+ * @param union
+ * @param subtypeMatcher Subtype mappers that can be optional
  *
  * @return Return value of the mapper for matched subtype or the default mapper
  */
-export function mapFragmentWithDefault<
-  TFragment extends Fragment<string>,
-  TPossible extends PossibleTypeName<TFragment>,
-  TFragmentMatcher extends {
-    [TKey in TPossible]?: ((fragment: Extract<TFragment, Fragment<TKey>>) => any) | InferrableAny;
+export function mapUnionWithDefault<
+  TUnion extends Union<string>,
+  TPossible extends SubtypeName<TUnion>,
+  TSubtypeMatcher extends {
+    [TKey in TPossible]?: ((union: Extract<TUnion, Union<TKey>>) => any) | InferrableAny;
   },
   RDefault,
 >(
-  fragment: TFragment,
-  fragmentMatcher: (
-    & TFragmentMatcher
+  union: TUnion,
+  subtypeMatcher: (
+    & TSubtypeMatcher
     & {
       _: (() => RDefault) | RDefault,
     }
   )
 ): (
-  | MapReturnType<TFragmentMatcher>
+  | MapReturnType<TSubtypeMatcher>
   | RDefault
 ) {
-  if (!fragment.__typename) {
+  if (!union.__typename) {
     throw new Error(`The given fragment doesn't have __typename property`);
   }
 
-  const defaultMap = fragmentMatcher['_'];
-  const map = fragmentMatcher[fragment.__typename as TPossible] ?? defaultMap;
+  const defaultMap = subtypeMatcher['_'];
+  const map = subtypeMatcher[union.__typename as TPossible] ?? defaultMap;
 
   if (typeof map === 'function') {
-    return (map as any)(fragment);
+    return (map as any)(union);
   }
   return map as any;
 };
 
 // Force-infer `__typename` property as literal than string
-type PossibleTypeName<T> = T extends Fragment<infer TType> ? TType : never;
+type SubtypeName<T> = T extends Union<infer TType> ? TType : never;
 
 // Force-infer mapped return type of callable properties
 type MapReturnType<TMap extends object> = (
