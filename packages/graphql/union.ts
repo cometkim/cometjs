@@ -1,4 +1,5 @@
 import type { Callable, InferrableAny } from '@cometjs/core/common';
+import { Some } from '@cometjs/core/option';
 
 /**
  * A type has serval subtypes based on `__typename` field.
@@ -63,7 +64,7 @@ export function mapUnionWithDefault<
     }
   )
 ): (
-  | MapReturnType<TSubtypeMatcher>
+  | Some<MapReturnType<TSubtypeMatcher>>
   | RDefault
 ) {
   if (!union.__typename) {

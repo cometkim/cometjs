@@ -24,6 +24,7 @@ type User = Node & {
   username: Scalars['String'],
   email: Scalars['String'],
   role: Role,
+  nickname?: Scalars['String'],
 };
 
 type Chat = Node & {
@@ -56,4 +57,10 @@ const a = mapUnion(result, {
 const b = mapUnionWithDefault(result, {
   User: result => result.role,
   _: Role.User,
+});
+
+// $ExpectType string
+const c = mapUnionWithDefault(result, {
+  User: result => result.nickname,
+  _: '',
 });
