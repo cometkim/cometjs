@@ -1,5 +1,7 @@
 // Type-first utilities to handle optional values
 
+import { mapToValue } from './map';
+
 export type None = null | undefined;
 export type Some<T> = Exclude<T, None>;
 export type Option<T> = Some<T> | None;
@@ -38,7 +40,7 @@ export function matchOption<T>(option: Option<T>): 'some' | 'none' {
  * Subtype mapper for optional value.
  *
  * @param option
- * @param mapFn A Function to map some, or an object to map both some and none.
+ * @param map A Function to map some, or an object to map both some and none.
  *
  * @example
  * ```ts
@@ -56,7 +58,7 @@ export function matchOption<T>(option: Option<T>): 'some' | 'none' {
  */
 export function mapOption<T, RSome, RNone = None>(
   option: Option<T>,
-  mapFn: (
+  map: (
     | ((t: Some<T>) => RSome)
     | ({
       some: RSome | ((t: Some<T>) => RSome),
@@ -64,18 +66,26 @@ export function mapOption<T, RSome, RNone = None>(
     })
   )
 ): RSome | RNone {
-  if (typeof mapFn === 'function') {
-    return isSome(option) ? mapFn(option) : null as unknown as RNone;
+  if (typeof map === 'function') {
+    return isSome(option)
+      ? map(option)
+      // Only None value can be here.
+      : null as unknown as RNone;
   }
-  if (typeof mapFn !== 'object') {
-    throw new Error(`The second argument only allows function or object but got: ${typeof mapFn}`);
+
+  if (typeof map !== 'object') {
+    throw new Error(
+      `The second argument only allows function or object but got: ${typeof map}`
+    );
   }
-  const _mapFn = mapFn[matchOption(option)];
-  if (!_mapFn) {
-    throw new Error(`The object doesn't have mapping to ${optionToString(option)}`);
+
+  const matchedMap = map[matchOption(option)];
+  if (!matchedMap) {
+    throw new Error(
+      `The object doesn't have map to ${optionToString(option)} type`
+    );
   }
-  if (typeof _mapFn === 'function') {
-    return (_mapFn as (t?: Some<T>) => RSome | RNone)(option ?? undefined);
-  }
-  return _mapFn;
+  return isSome(option)
+    ? mapToValue(matchedMap, option)
+    : mapToValue(matchedMap);
 }
