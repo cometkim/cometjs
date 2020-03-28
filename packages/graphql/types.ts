@@ -1,3 +1,3 @@
 // Type-only endpoint
 
-export type { Fragment } from './fragment';
+export type { GraphQLAbstractType, Union, Interface } from './abstract';

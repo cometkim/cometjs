@@ -1,4 +1,4 @@
-import { mapUnion, mapUnionWithDefault } from './union';
+import { mapUnion, mapUnionWithDefault } from './abstract';
 
 type Scalars = {
   ID: string,
@@ -62,5 +62,5 @@ const b = mapUnionWithDefault(result, {
 // $ExpectType string
 const c = mapUnionWithDefault(result, {
   User: result => result.nickname,
-  _: '',
+  _: 'Anonymous',
 });

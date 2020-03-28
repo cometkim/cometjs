@@ -1,6 +1,7 @@
 {
   "name": "@cometjs/graphql",
   "description": "",
+  "version": "0.0.0",
   "dependencies": {
     "@cometjs/core": "workspace:0.0.0"
   },
