@@ -1,15 +1,27 @@
 {
   "name": "@cometjs/core",
   "description": "cometjs core utils",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "main": "./src/index.ts",
   "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cometkim/cometjs.git"
+  },
   "scripts": {
     "build": "concurrently \"yarn:build:*\"",
     "build:dts": "tsc --emitDeclarationOnly --outDir lib",
     "build:node": "babel src --env-name main --extensions .ts --out-dir lib --out-file-extension .node --source-maps",
     "build:browser": "babel src --env-name browser --extensions .ts --out-dir lib --out-file-extension .min.js --source-maps",
-    "build:module": "babel src --env-name module --extensions .ts --out-dir lib --out-file-extension .mjs --source-maps"
+    "build:module": "babel src --env-name module --extensions .ts --out-dir lib --out-file-extension .mjs --source-maps",
+    "prepack": "rm -rf lib && yarn build"
+  },
+  "publishConfig": {
+    "main": "./lib/index.node",
+    "browser": "./lib/index.min.js",
+    "module": "./lib/index.mjs",
+    "types": "./lib/index.d.ts",
+    "access": "public"
   },
   "files": [
     "src",
@@ -26,11 +38,6 @@
     "babel-preset-minify": "^0.5.1",
     "concurrently": "^5.1.0",
     "typescript": "^3.8.3"
-  },
-  "publishConfig": {
-    "main": "./lib/index.node",
-    "browser": "./lib/index.min.js",
-    "module": "./lib/index.mjs",
-    "types": "./lib/index.d.ts"
   }
+
 }
