@@ -39,5 +39,4 @@
     "concurrently": "^5.1.0",
     "typescript": "^3.8.3"
   }
-
 }

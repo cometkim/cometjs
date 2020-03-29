@@ -22,7 +22,7 @@
     "lib"
   ],
   "dependencies": {
-    "@cometjs/core": "workspace:^0.0.0",
+    "@cometjs/core": "workspace:^0.0.1",
     "core-js": "^3.6.4"
   },
   "devDependencies": {

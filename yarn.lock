@@ -1127,7 +1127,7 @@ __metadata:
     "@babel/core": ^7.9.0
     "@babel/preset-env": ^7.9.0
     "@babel/preset-typescript": ^7.9.0
-    "@cometjs/core": "workspace:^0.0.0"
+    "@cometjs/core": "workspace:^0.0.1"
     "@cometjs/graphql-utils": "workspace:^0.0.0"
     "@types/graphql": ^14.5.0
     babel-preset-minify: ^0.5.1
@@ -1139,7 +1139,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@cometjs/core@workspace:^0.0.0, @cometjs/core@workspace:packages/core":
+"@cometjs/core@workspace:^0.0.1, @cometjs/core@workspace:packages/core":
   version: 0.0.0-use.local
   resolution: "@cometjs/core@workspace:packages/core"
   dependencies:
@@ -1162,7 +1162,7 @@ __metadata:
     "@babel/core": ^7.9.0
     "@babel/preset-env": ^7.9.0
     "@babel/preset-typescript": ^7.9.0
-    "@cometjs/core": "workspace:^0.0.0"
+    "@cometjs/core": "workspace:^0.0.1"
     babel-preset-minify: ^0.5.1
     concurrently: ^5.1.0
     core-js: ^3.6.4
@@ -1174,7 +1174,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@cometjs/monorepo@workspace:."
   dependencies:
-    "@yarnpkg/pnpify": ^2.0.0-rc.19
+    "@yarnpkg/pnpify": ^2.0.0-rc.20
     typescript: ^3.8.3
   languageName: unknown
   linkType: soft
@@ -1187,7 +1187,7 @@ __metadata:
     "@babel/core": ^7.9.0
     "@babel/preset-env": ^7.9.0
     "@babel/preset-typescript": ^7.9.0
-    "@cometjs/core": "workspace:^0.0.0"
+    "@cometjs/core": "workspace:^0.0.1"
     "@types/react": ^16.9.27
     babel-preset-minify: ^0.5.1
     concurrently: ^5.1.0
@@ -1246,20 +1246,20 @@ __metadata:
   linkType: hard
 
 "@wry/context@npm:^0.5.0":
-  version: 0.5.0
-  resolution: "@wry/context@npm:0.5.0"
+  version: 0.5.1
+  resolution: "@wry/context@npm:0.5.1"
   dependencies:
     tslib: ^1.9.3
-  checksum: 2/adb3eaeab746f60cdfd045c0ee8881e9508894db46516dd519cf71b75a090ba375965904f386a504f53b4ac63bb96458bd2f24ab1d236a410bb07784059320b5
+  checksum: 2/06183242a6c6b35c1a990a7531f2169d6a5bbed7c52c3be92ea08dab64c6b51707cf3603514def0d700c7454c8e292f9c42dc7cf0b614695c45d704b27cc11cf
   languageName: node
   linkType: hard
 
 "@wry/equality@npm:^0.1.9":
-  version: 0.1.9
-  resolution: "@wry/equality@npm:0.1.9"
+  version: 0.1.11
+  resolution: "@wry/equality@npm:0.1.11"
   dependencies:
     tslib: ^1.9.3
-  checksum: 2/7b888ee2442540ca775eec811d215bc24ea0b9cfaa811b6440d92386da97469ba68bd409f60b49936930418f57e3437747d8a884d40d819caeb2c31daa0fa28a
+  checksum: 2/3d1da5799967fc272ae53f698514c169c85a04c11c1db3e4641a21edc82af75bfb4db9221c4f87aa333f14c7b43b72311fa66dae1ae981fa6f24c2bc5863d92b
   languageName: node
   linkType: hard
 
@@ -1281,9 +1281,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@yarnpkg/pnpify@npm:^2.0.0-rc.19":
-  version: 2.0.0-rc.19
-  resolution: "@yarnpkg/pnpify@npm:2.0.0-rc.19"
+"@yarnpkg/pnpify@npm:^2.0.0-rc.20":
+  version: 2.0.0-rc.20
+  resolution: "@yarnpkg/pnpify@npm:2.0.0-rc.20"
   dependencies:
     "@yarnpkg/fslib": ^2.0.0-rc.17
     chalk: ^3.0.0
@@ -1299,7 +1299,7 @@ __metadata:
       optional: true
   bin:
     pnpify: ./lib/cli.js
-  checksum: 2/5218e470931c16e4f891f1c7f0330e819ff81a5146afd992dd7360fd6a2faaf6ed97f93fdf51b9be3c05531f4893fc330bf442c7a086fd92692d2f2dc01ca1b8
+  checksum: 2/26b1656ffe13ce6760b3abd94d6bbc0f63b567cb7cabecaf14517a61dc79cbefb09bd07732a300e922c3f4edc7c6119c4500f30f9fa39cd67194ae154c5accce
   languageName: node
   linkType: hard
 

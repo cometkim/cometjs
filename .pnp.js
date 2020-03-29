@@ -51,7 +51,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
     "fallbackPool": [
       [
         "@yarnpkg/pnpify",
-        "virtual:236ffb23991e44020122de94f575876fe73ed6d13995e5c5ca3b0e47da5cf9346310444b996e0c3f7bd98237a4f62a07e4ea51e2b9b6a0fead8e55bb39384377#npm:2.0.0-rc.19"
+        "virtual:236ffb23991e44020122de94f575876fe73ed6d13995e5c5ca3b0e47da5cf9346310444b996e0c3f7bd98237a4f62a07e4ea51e2b9b6a0fead8e55bb39384377#npm:2.0.0-rc.20"
       ],
       [
         "typescript",
@@ -65,7 +65,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         [null, {
           "packageLocation": "./",
           "packageDependencies": [
-            ["@yarnpkg/pnpify", "virtual:236ffb23991e44020122de94f575876fe73ed6d13995e5c5ca3b0e47da5cf9346310444b996e0c3f7bd98237a4f62a07e4ea51e2b9b6a0fead8e55bb39384377#npm:2.0.0-rc.19"],
+            ["@yarnpkg/pnpify", "virtual:236ffb23991e44020122de94f575876fe73ed6d13995e5c5ca3b0e47da5cf9346310444b996e0c3f7bd98237a4f62a07e4ea51e2b9b6a0fead8e55bb39384377#npm:2.0.0-rc.20"],
             ["typescript", "patch:typescript@npm%3A3.8.3#builtin<compat/typescript>::version=3.8.3&hash=270b6c"]
           ],
           "linkType": "SOFT",
@@ -77,7 +77,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageDependencies": [
             ["@apollo/client", "virtual:71a7a71fb9d3f08bc08e0f945d435445b52c07d26c0f167759db07f55d52780636a434cfd20223a95cebd089c18fa58963d378016b89349e9d2ca755c7e91335#npm:3.0.0-james.33.0"],
             ["@types/zen-observable", "npm:0.8.0"],
-            ["@wry/equality", "npm:0.1.9"],
+            ["@wry/equality", "npm:0.1.11"],
             ["fast-json-stable-stringify", "npm:2.1.0"],
             ["graphql", "npm:14.6.0"],
             ["graphql-tag", "virtual:580ccb77c128dd4f745f14df54a94b556eab2b59190fdab6232f9d1f46e7583cf25e3d6b4a2582c9ee4f78b231c8c29a14f26ff626174fd2fb142d9f51bff984#npm:2.10.3"],
@@ -1402,10 +1402,6 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["concurrently", "npm:5.1.0"],
             ["graphql", "npm:14.6.0"]
           ],
-          "packagePeers": [
-            "@apollo/client",
-            "graphql"
-          ],
           "linkType": "SOFT",
         }]
       ]],
@@ -1449,7 +1445,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageLocation": "./",
           "packageDependencies": [
             ["@cometjs/monorepo", "workspace:."],
-            ["@yarnpkg/pnpify", "virtual:236ffb23991e44020122de94f575876fe73ed6d13995e5c5ca3b0e47da5cf9346310444b996e0c3f7bd98237a4f62a07e4ea51e2b9b6a0fead8e55bb39384377#npm:2.0.0-rc.19"],
+            ["@yarnpkg/pnpify", "virtual:236ffb23991e44020122de94f575876fe73ed6d13995e5c5ca3b0e47da5cf9346310444b996e0c3f7bd98237a4f62a07e4ea51e2b9b6a0fead8e55bb39384377#npm:2.0.0-rc.20"],
             ["typescript", "patch:typescript@npm%3A3.8.3#builtin<compat/typescript>::version=3.8.3&hash=270b6c"]
           ],
           "linkType": "SOFT",
@@ -1469,11 +1465,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["babel-preset-minify", "npm:0.5.1"],
             ["concurrently", "npm:5.1.0"],
             ["core-js", "npm:3.6.4"],
-            ["react", null],
             ["typescript", "patch:typescript@npm%3A3.8.3#builtin<compat/typescript>::version=3.8.3&hash=270b6c"]
-          ],
-          "packagePeers": [
-            "react"
           ],
           "linkType": "SOFT",
         }]
@@ -1536,20 +1528,20 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         }]
       ]],
       ["@wry/context", [
-        ["npm:0.5.0", {
-          "packageLocation": "./.yarn/cache/@wry-context-npm-0.5.0-14e1fec7cf-2.zip/node_modules/@wry/context/",
+        ["npm:0.5.1", {
+          "packageLocation": "./.yarn/cache/@wry-context-npm-0.5.1-fc812a349e-2.zip/node_modules/@wry/context/",
           "packageDependencies": [
-            ["@wry/context", "npm:0.5.0"],
+            ["@wry/context", "npm:0.5.1"],
             ["tslib", "npm:1.11.1"]
           ],
           "linkType": "HARD",
         }]
       ]],
       ["@wry/equality", [
-        ["npm:0.1.9", {
-          "packageLocation": "./.yarn/cache/@wry-equality-npm-0.1.9-0583132e08-2.zip/node_modules/@wry/equality/",
+        ["npm:0.1.11", {
+          "packageLocation": "./.yarn/cache/@wry-equality-npm-0.1.11-e3cf830190-2.zip/node_modules/@wry/equality/",
           "packageDependencies": [
-            ["@wry/equality", "npm:0.1.9"],
+            ["@wry/equality", "npm:0.1.11"],
             ["tslib", "npm:1.11.1"]
           ],
           "linkType": "HARD",
@@ -1576,10 +1568,10 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         }]
       ]],
       ["@yarnpkg/pnpify", [
-        ["virtual:236ffb23991e44020122de94f575876fe73ed6d13995e5c5ca3b0e47da5cf9346310444b996e0c3f7bd98237a4f62a07e4ea51e2b9b6a0fead8e55bb39384377#npm:2.0.0-rc.19", {
-          "packageLocation": "./.yarn/$$virtual/@yarnpkg-pnpify-virtual-92f881be33/0/cache/@yarnpkg-pnpify-npm-2.0.0-rc.19-9b8ac596e2-2.zip/node_modules/@yarnpkg/pnpify/",
+        ["virtual:236ffb23991e44020122de94f575876fe73ed6d13995e5c5ca3b0e47da5cf9346310444b996e0c3f7bd98237a4f62a07e4ea51e2b9b6a0fead8e55bb39384377#npm:2.0.0-rc.20", {
+          "packageLocation": "./.yarn/$$virtual/@yarnpkg-pnpify-virtual-d72ec1516c/0/cache/@yarnpkg-pnpify-npm-2.0.0-rc.20-030c75c124-2.zip/node_modules/@yarnpkg/pnpify/",
           "packageDependencies": [
-            ["@yarnpkg/pnpify", "virtual:236ffb23991e44020122de94f575876fe73ed6d13995e5c5ca3b0e47da5cf9346310444b996e0c3f7bd98237a4f62a07e4ea51e2b9b6a0fead8e55bb39384377#npm:2.0.0-rc.19"],
+            ["@yarnpkg/pnpify", "virtual:236ffb23991e44020122de94f575876fe73ed6d13995e5c5ca3b0e47da5cf9346310444b996e0c3f7bd98237a4f62a07e4ea51e2b9b6a0fead8e55bb39384377#npm:2.0.0-rc.20"],
             ["@yarnpkg/fslib", "npm:2.0.0-rc.17"],
             ["chalk", "npm:3.0.0"],
             ["comment-json", "npm:2.4.2"],
@@ -4107,7 +4099,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageLocation": "./.yarn/cache/optimism-npm-0.11.5-b737d76174-2.zip/node_modules/optimism/",
           "packageDependencies": [
             ["optimism", "npm:0.11.5"],
-            ["@wry/context", "npm:0.5.0"]
+            ["@wry/context", "npm:0.5.1"]
           ],
           "linkType": "HARD",
         }]
