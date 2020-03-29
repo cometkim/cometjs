@@ -1400,7 +1400,8 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@types/graphql", "npm:14.5.0"],
             ["babel-preset-minify", "npm:0.5.1"],
             ["concurrently", "npm:5.1.0"],
-            ["graphql", "npm:14.6.0"]
+            ["graphql", "npm:14.6.0"],
+            ["typescript", "patch:typescript@npm%3A3.8.3#builtin<compat/typescript>::version=3.8.3&hash=270b6c"]
           ],
           "linkType": "SOFT",
         }]
