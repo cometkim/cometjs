@@ -1,2 +1,3 @@
 # cometjs
-cometkim's collection of frequently used JavaScript utilities
+
+CometKim's collections of frequently used JavaScript/TypeScript utilities.

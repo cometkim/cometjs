@@ -1,0 +1,37 @@
+{
+  "name": "@cometjs/graphql-utils",
+  "description": "CometKim's utility collections for GraphQL",
+  "version": "0.0.0",
+  "license": "MIT",
+  "main": "./src/index.ts",
+  "scripts": {
+    "build": "concurrently \"yarn:build:*\"",
+    "build:dts": "tsc --emitDeclarationOnly --outDir lib",
+    "build:node": "babel src --env-name main --extensions .ts --out-dir lib --out-file-extension .node --source-maps",
+    "build:browser": "babel src --env-name browser --extensions .ts --out-dir lib --out-file-extension .min.js --source-maps",
+    "build:module": "babel src --env-name module --extensions .ts --out-dir lib --out-file-extension .mjs --source-maps"
+  },
+  "publishConfig": {
+    "main": "./lib/index.node",
+    "browser": "./lib/index.min.js",
+    "module": "./lib/index.mjs",
+    "types": "./lib/index.d.ts"
+  },
+  "files": [
+    "src",
+    "lib"
+  ],
+  "dependencies": {
+    "@cometjs/core": "workspace:^0.0.0",
+    "core-js": "^3.6.4"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.8.4",
+    "@babel/core": "^7.9.0",
+    "@babel/preset-env": "^7.9.0",
+    "@babel/preset-typescript": "^7.9.0",
+    "babel-preset-minify": "^0.5.1",
+    "concurrently": "^5.1.0",
+    "typescript": "^3.8.3"
+  }
+}

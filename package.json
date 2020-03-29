@@ -8,6 +8,9 @@
     "type": "git",
     "url": "git+https://github.com/cometkim/cometjs.git"
   },
+  "scripts": {
+    "tsc:all": "tsc --noEmit"
+  },
   "devDependencies": {
     "@yarnpkg/pnpify": "^2.0.0-rc.19",
     "typescript": "^3.8.3"
