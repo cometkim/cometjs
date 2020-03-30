@@ -37,6 +37,10 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
       {
         "name": "@cometjs/react-utils",
         "reference": "workspace:packages/react-utils"
+      },
+      {
+        "name": "@cometjs/urql-utils",
+        "reference": "workspace:packages/urql-utils"
       }
     ],
     "enableTopLevelFallback": true,
@@ -46,7 +50,8 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
       ["@cometjs/core", ["workspace:packages/core"]],
       ["@cometjs/graphql-utils", ["workspace:packages/graphql-utils"]],
       ["@cometjs/monorepo", ["workspace:."]],
-      ["@cometjs/react-utils", ["workspace:packages/react-utils"]]
+      ["@cometjs/react-utils", ["workspace:packages/react-utils"]],
+      ["@cometjs/urql-utils", ["workspace:packages/urql-utils"]]
     ],
     "fallbackPool": [
       [
@@ -1471,6 +1476,27 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "linkType": "SOFT",
         }]
       ]],
+      ["@cometjs/urql-utils", [
+        ["workspace:packages/urql-utils", {
+          "packageLocation": "./packages/urql-utils/",
+          "packageDependencies": [
+            ["@cometjs/urql-utils", "workspace:packages/urql-utils"],
+            ["@babel/cli", "virtual:f87076b27c2623022c8aa51ff6dc61e0c2b8c9f0ed568a71714dbce874956b120bd0c8ce7e41c4907ec27e78d398802710540d667a8d839c7324fb0aecbe76bc#npm:7.8.4"],
+            ["@babel/core", "npm:7.9.0"],
+            ["@babel/preset-env", "virtual:f87076b27c2623022c8aa51ff6dc61e0c2b8c9f0ed568a71714dbce874956b120bd0c8ce7e41c4907ec27e78d398802710540d667a8d839c7324fb0aecbe76bc#npm:7.9.0"],
+            ["@babel/preset-typescript", "virtual:f87076b27c2623022c8aa51ff6dc61e0c2b8c9f0ed568a71714dbce874956b120bd0c8ce7e41c4907ec27e78d398802710540d667a8d839c7324fb0aecbe76bc#npm:7.9.0"],
+            ["@cometjs/core", "workspace:packages/core"],
+            ["@cometjs/graphql-utils", "workspace:packages/graphql-utils"],
+            ["@types/graphql", "npm:14.5.0"],
+            ["babel-preset-minify", "npm:0.5.1"],
+            ["concurrently", "npm:5.1.0"],
+            ["graphql", "npm:14.6.0"],
+            ["typescript", "patch:typescript@npm%3A3.8.3#builtin<compat/typescript>::version=3.8.3&hash=270b6c"],
+            ["urql", "virtual:6b672ce5f9acf121a1b3a6f0052447f41fd4c40509526abecc7f84a2c49e88d2e5398bc76b62a0dd5f791c3259cac4452f0f86573586ab9d9c029182fac02fd7#npm:1.9.5"]
+          ],
+          "linkType": "SOFT",
+        }]
+      ]],
       ["@types/color-name", [
         ["npm:1.1.1", {
           "packageLocation": "./.yarn/cache/@types-color-name-npm-1.1.1-00b0925070-2.zip/node_modules/@types/color-name/",
@@ -1524,6 +1550,20 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageLocation": "./.yarn/cache/@types-zen-observable-npm-0.8.0-97bc8a2fa9-2.zip/node_modules/@types/zen-observable/",
           "packageDependencies": [
             ["@types/zen-observable", "npm:0.8.0"]
+          ],
+          "linkType": "HARD",
+        }]
+      ]],
+      ["@urql/core", [
+        ["virtual:f0e6ba76e18f2e2dfd4f9ef12145ff48649f52fea94adb3babf4f214bf55fd61f6d173551c23e007069d032192129bf20171a5b8eee09128825bc790a3c29ed0#npm:1.10.7", {
+          "packageLocation": "./.yarn/$$virtual/@urql-core-virtual-78ad1de762/0/cache/@urql-core-npm-1.10.7-c5c122e0de-2.zip/node_modules/@urql/core/",
+          "packageDependencies": [
+            ["@urql/core", "virtual:f0e6ba76e18f2e2dfd4f9ef12145ff48649f52fea94adb3babf4f214bf55fd61f6d173551c23e007069d032192129bf20171a5b8eee09128825bc790a3c29ed0#npm:1.10.7"],
+            ["graphql", "npm:14.6.0"],
+            ["wonka", "npm:4.0.9"]
+          ],
+          "packagePeers": [
+            "graphql"
           ],
           "linkType": "HARD",
         }]
@@ -5157,6 +5197,23 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "linkType": "HARD",
         }]
       ]],
+      ["urql", [
+        ["virtual:6b672ce5f9acf121a1b3a6f0052447f41fd4c40509526abecc7f84a2c49e88d2e5398bc76b62a0dd5f791c3259cac4452f0f86573586ab9d9c029182fac02fd7#npm:1.9.5", {
+          "packageLocation": "./.yarn/$$virtual/urql-virtual-f0e6ba76e1/0/cache/urql-npm-1.9.5-67997d818f-2.zip/node_modules/urql/",
+          "packageDependencies": [
+            ["urql", "virtual:6b672ce5f9acf121a1b3a6f0052447f41fd4c40509526abecc7f84a2c49e88d2e5398bc76b62a0dd5f791c3259cac4452f0f86573586ab9d9c029182fac02fd7#npm:1.9.5"],
+            ["@urql/core", "virtual:f0e6ba76e18f2e2dfd4f9ef12145ff48649f52fea94adb3babf4f214bf55fd61f6d173551c23e007069d032192129bf20171a5b8eee09128825bc790a3c29ed0#npm:1.10.7"],
+            ["graphql", "npm:14.6.0"],
+            ["react", null],
+            ["wonka", "npm:4.0.9"]
+          ],
+          "packagePeers": [
+            "graphql",
+            "react"
+          ],
+          "linkType": "HARD",
+        }]
+      ]],
       ["use", [
         ["npm:3.1.1", {
           "packageLocation": "./.yarn/cache/use-npm-3.1.1-7ba643714c-2.zip/node_modules/use/",
@@ -5232,6 +5289,15 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageDependencies": [
             ["wide-align", "npm:1.1.3"],
             ["string-width", "npm:1.0.2"]
+          ],
+          "linkType": "HARD",
+        }]
+      ]],
+      ["wonka", [
+        ["npm:4.0.9", {
+          "packageLocation": "./.yarn/cache/wonka-npm-4.0.9-56d5dd2c95-2.zip/node_modules/wonka/",
+          "packageDependencies": [
+            ["wonka", "npm:4.0.9"]
           ],
           "linkType": "HARD",
         }]

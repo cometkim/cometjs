@@ -1199,6 +1199,28 @@ __metadata:
   languageName: unknown
   linkType: soft
 
+"@cometjs/urql-utils@workspace:packages/urql-utils":
+  version: 0.0.0-use.local
+  resolution: "@cometjs/urql-utils@workspace:packages/urql-utils"
+  dependencies:
+    "@babel/cli": ^7.8.4
+    "@babel/core": ^7.9.0
+    "@babel/preset-env": ^7.9.0
+    "@babel/preset-typescript": ^7.9.0
+    "@cometjs/core": "workspace:^0.0.1"
+    "@cometjs/graphql-utils": "workspace:^0.0.1"
+    "@types/graphql": ^14.5.0
+    babel-preset-minify: ^0.5.1
+    concurrently: ^5.1.0
+    graphql: ^14.6.0
+    typescript: ^3.8.3
+    urql: ^1.9.5
+  peerDependencies:
+    graphql: ">=14.0.0"
+    urql: "*"
+  languageName: unknown
+  linkType: soft
+
 "@types/color-name@npm:^1.1.1":
   version: 1.1.1
   resolution: "@types/color-name@npm:1.1.1"
@@ -1243,6 +1265,17 @@ __metadata:
   version: 0.8.0
   resolution: "@types/zen-observable@npm:0.8.0"
   checksum: 2/63a7bf7d119c4239201952b004902a85be41643f8bfaee14b1881ea5a35508b6dce2cb63b9402152d7ccff8afde03ead9e3192c2666532fb5227667f297eb32f
+  languageName: node
+  linkType: hard
+
+"@urql/core@npm:^1.10.5":
+  version: 1.10.7
+  resolution: "@urql/core@npm:1.10.7"
+  dependencies:
+    wonka: ^4.0.9
+  peerDependencies:
+    graphql: ^0.11.0 || ^0.12.0 || ^0.13.0 || ^14.0.0
+  checksum: 2/8c12297eb1e517082d21aeb8f9b6b8e99cfacd0df28ecaa3b5bfc36a254788185d50f7a08a340b209c2f823e32788b7c93ea9a8d2ceb87384b9cc51a2bf20fd1
   languageName: node
   linkType: hard
 
@@ -4474,6 +4507,19 @@ typescript@^3.8.3:
   languageName: node
   linkType: hard
 
+"urql@npm:^1.9.5":
+  version: 1.9.5
+  resolution: "urql@npm:1.9.5"
+  dependencies:
+    "@urql/core": ^1.10.5
+    wonka: ^4.0.9
+  peerDependencies:
+    graphql: ^0.11.0 || ^0.12.0 || ^0.13.0 || ^14.0.0
+    react: ">= 16.8.0"
+  checksum: 2/19dcba16b3145399854b49d73fb2aa4e528b8e18178660c1c8ce0544512dfabd57a54bd9247beea655a8f75e1070d292f3212cd18ec678201bd810a2a2a300be
+  languageName: node
+  linkType: hard
+
 "use@npm:^3.1.0":
   version: 3.1.1
   resolution: "use@npm:3.1.1"
@@ -4542,6 +4588,13 @@ typescript@^3.8.3:
   dependencies:
     string-width: ^1.0.2 || 2
   checksum: 2/4f850f84da84b7471d7b92f55e381e7ba286210470fe77a61e02464ef66d10e96057a0d137bc013fbbedb7363a26e79c0e8b21d99bb572467d3fee0465b8fd27
+  languageName: node
+  linkType: hard
+
+"wonka@npm:^4.0.9":
+  version: 4.0.9
+  resolution: "wonka@npm:4.0.9"
+  checksum: 2/daaf387c6aef3ce420d729651400c1cc2c1c3e2122940332e15b0a7d9ce7a8856d247c8e3f2dc67ebd1f429d3d7c6fd7579978d1d10889498ee9020a6f825f25
   languageName: node
   linkType: hard
 
