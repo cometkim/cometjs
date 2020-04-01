@@ -1128,7 +1128,7 @@ __metadata:
     "@babel/preset-env": ^7.9.0
     "@babel/preset-typescript": ^7.9.0
     "@cometjs/core": "workspace:^0.0.2"
-    "@cometjs/graphql-utils": "workspace:^0.0.1"
+    "@cometjs/graphql-utils": "workspace:^0.0.2"
     "@types/graphql": ^14.5.0
     babel-preset-minify: ^0.5.1
     concurrently: ^5.1.0
@@ -1158,7 +1158,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@cometjs/graphql-utils@workspace:^0.0.1, @cometjs/graphql-utils@workspace:packages/graphql-utils":
+"@cometjs/graphql-utils@workspace:^0.0.2, @cometjs/graphql-utils@workspace:packages/graphql-utils":
   version: 0.0.0-use.local
   resolution: "@cometjs/graphql-utils@workspace:packages/graphql-utils"
   dependencies:
@@ -1218,7 +1218,7 @@ __metadata:
     "@babel/preset-env": ^7.9.0
     "@babel/preset-typescript": ^7.9.0
     "@cometjs/core": "workspace:^0.0.2"
-    "@cometjs/graphql-utils": "workspace:^0.0.1"
+    "@cometjs/graphql-utils": "workspace:^0.0.2"
     "@types/graphql": ^14.5.0
     concurrently: ^5.1.0
     graphql: ^14.6.0
