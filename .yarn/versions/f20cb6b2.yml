@@ -1,6 +1,2 @@
 releases:
-  "@cometjs/apollo-client-utils": patch
-  "@cometjs/core": patch
-  "@cometjs/graphql-utils": patch
-  "@cometjs/react-utils": patch
-  "@cometjs/urql-utils": patch
+
