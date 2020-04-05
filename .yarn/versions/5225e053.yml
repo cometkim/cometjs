@@ -1,3 +1,2 @@
 releases:
-  "@cometjs/core": patch
   "@cometjs/react-utils": patch

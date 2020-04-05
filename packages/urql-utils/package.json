@@ -32,7 +32,7 @@
     "urql": "^1.9.5"
   },
   "dependencies": {
-    "@cometjs/core": "workspace:^0.0.2",
+    "@cometjs/core": "workspace:^0.0.3",
     "@cometjs/graphql-utils": "workspace:^0.0.2"
   },
   "devDependencies": {
