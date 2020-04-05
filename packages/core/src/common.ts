@@ -24,3 +24,8 @@ export type Primitive = (
  * Helpful when need `any` as value type but should be inferred more precisely
  */
 export type InferrableAny = Primitive | object;
+
+/**
+ * Safely intersect prop types
+ */
+export type OverrideProps<TBaseProps, TNewProps> = Omit<TBaseProps, keyof TNewProps> & TNewProps;
