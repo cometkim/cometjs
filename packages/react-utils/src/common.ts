@@ -1,4 +1,5 @@
 import type * as React from 'react';
+import type { OverrideProps } from '@cometjs/core';
 
 /**
  * Infer possible prop types of `typeof MyComponent`.
@@ -44,3 +45,28 @@ export type RefOf<TRefForwardingComponent> = TRefForwardingComponent extends Rea
   ? TRef
   : never
   : never;
+
+/**
+ * Safely override exist prop types
+ *
+ * @example
+ * import BaseComponent from './BaseComponent';
+ *
+ * ```tsx
+ * type MyComponentProps = OverrideComponentProps<typeof BaseComponent, {
+ *   message: string;
+ * }>;
+ *
+ * const MyComponent: React.FC<MyComponentProps> = ({
+ *   message,
+ *   ...baseProps
+ * }) => {
+ *   return (
+ *     <BaseComponent {...baseProps}>
+ *       {message}
+ *     </BaseComponent>
+ *   );
+ * };
+ * ```
+ */
+export type OverrideComponentProps<TComponent extends React.ComponentType, TProps> = OverrideProps<PropsOf<TComponent>, TProps>;
