@@ -66,9 +66,9 @@ export function mapResult<
 >(
   result: UseQueryState<TData> | UseMutationState<TData>,
   map: {
-    data: (data: Some<TData>) => RData,
-    error: (error: CombinedError) => RError,
-    fetching: () => RFetching,
+    data: RData | ((data: Some<TData>) => RData),
+    error: RError | ((error: CombinedError) => RError),
+    fetching: RFetching | (() => RFetching),
   }
 ): RData | RError | RFetching {
   const safeResult = castQueryResult(result);
