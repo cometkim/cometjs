@@ -1,26 +1,62 @@
-import type { CombinedError } from 'urql';
-import type { Some, None } from '@cometjs/core';
+import type { CombinedError, UseQueryState } from 'urql';
+import type { Some } from '@cometjs/core';
+import { mapToValue } from '@cometjs/core';
 
-/**
- * Same with UseQueryState<T> but more ...
- */
-export type Result<TData> = (
-  | {
-    data: Some<TData>,
-    error: None,
-    fetching: false,
-  }
-  | {
-    data: None,
-    error: CombinedError,
-    fetching: false,
-  }
-  | {
-    data: None,
-    error: None,
-    fetching: true,
-  }
+type FetchingResult = {
+  data: undefined,
+  error: undefined,
+  fetching: true,
+};
+
+type ErrorResult = {
+  data: undefined,
+  error: CombinedError,
+  fetching: false,
+}
+
+type DataResult<T> = {
+  data: Some<T>,
+  error: undefined,
+  fetching: false,
+};
+
+export type Result<T> = (
+  | FetchingResult
+  | ErrorResult
+  | DataResult<T>
 );
+
+export function isFetchingResult(result: Result<any>): result is FetchingResult {
+  return result.fetching === true;
+}
+
+export function isErrorResult(result: Result<any>): result is ErrorResult {
+  return Boolean(result.error);
+}
+
+export function isDataResult<T>(result: Result<T>): result is DataResult<T> {
+  return Boolean(result.data);
+}
+
+export function castQueryResult<T>(result: UseQueryState<T>): Result<T> {
+  // Casting instead of guard because:
+  // - result is Result<T> is not allowed
+  // - result is Omit<UseQueryState<T>, 'data'|'error'|'fetching'> & Result<T> would not inferred well.
+  const reasons: string[] = [];
+  if (!('fetching' in result)) {
+    reasons.push('it is not compatible with LoadingResult because `fetching` field is missing');
+  }
+  if (!('error' in result)) {
+    reasons.push('it is not compatible with ErrorResult because `error` field is missing');
+  }
+  if (!('data' in result)) {
+    reasons.push('it is not compatible with DataResult<T> because `data` field is missing');
+  }
+  if (reasons.length) {
+    throw new Error(`Given object is not compatible with Result<T> because:\n${reasons.join('\n  -')}`);
+  }
+  return result as Result<T>;
+}
 
 export function mapResult<
   TData,
@@ -28,24 +64,19 @@ export function mapResult<
   RError,
   RFetching
 >(
-  result: Result<TData>,
+  result: UseQueryState<TData>,
   map: {
     data: (data: Some<TData>) => RData,
     error: (error: CombinedError) => RError,
     fetching: () => RFetching,
   }
 ): RData | RError | RFetching {
-  if (result.fetching === true) {
-    return map.fetching();
+  const safeResult = castQueryResult(result);
+  if (isFetchingResult(safeResult)) {
+    return mapToValue(map.fetching);
+  } else if (isErrorResult(safeResult)) {
+    return mapToValue(map.error, safeResult.error);
+  } else {
+    return mapToValue(map.data, safeResult.data);
   }
-
-  if (result.error) {
-    return map.error(result.error);
-  }
-
-  if (result.data) {
-    return map.data(result.data);
-  }
-
-  throw new Error('Given object is not compatible with urql\'s UseQueryState');
 }

@@ -26,11 +26,11 @@ export type Result<T> = (
   | DataResult<T>
 );
 
-export function isLoadingResult<T>(result: Result<T>): result is LoadingResult {
+export function isLoadingResult(result: Result<any>): result is LoadingResult {
   return result.loading === true;
 }
 
-export function isErrorResult<T>(result: Result<T>): result is ErrorResult {
+export function isErrorResult(result: Result<any>): result is ErrorResult {
   return Boolean(result.error);
 }
 
@@ -49,7 +49,7 @@ export function castQueryResult<T>(result: QueryResult<T>): Result<T> {
   if (!('error' in result)) {
     reasons.push('is not compatible with ErrorResult because `error` field is missing');
   }
-  if (!('loading' in result)) {
+  if (!('data' in result)) {
     reasons.push('is not compatible with DataResult<T> because `data` field is missing');
   }
   if (reasons.length) {
