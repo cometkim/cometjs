@@ -49,7 +49,7 @@ export function castQueryResult<T>(result: QueryResult<T>): Result<T> {
   if (!('error' in result)) {
     reasons.push('is not compatible with ErrorResult because `error` field is missing');
   }
-  if (!('loading' in result)) {
+  if (!('data' in result)) {
     reasons.push('is not compatible with DataResult<T> because `data` field is missing');
   }
   if (reasons.length) {
