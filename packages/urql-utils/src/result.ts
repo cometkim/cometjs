@@ -1,4 +1,4 @@
-import type { CombinedError, UseQueryState } from 'urql';
+import type { CombinedError, UseQueryState, UseMutationState } from 'urql';
 import type { Some } from '@cometjs/core';
 import { mapToValue } from '@cometjs/core';
 
@@ -38,7 +38,7 @@ export function isDataResult<T>(result: Result<T>): result is DataResult<T> {
   return Boolean(result.data);
 }
 
-export function castQueryResult<T>(result: UseQueryState<T>): Result<T> {
+export function castQueryResult<T>(result: UseQueryState<T> | UseMutationState<T>): Result<T> {
   // Casting instead of guard because:
   // - result is Result<T> is not allowed
   // - result is Omit<UseQueryState<T>, 'data'|'error'|'fetching'> & Result<T> would not inferred well.
@@ -64,7 +64,7 @@ export function mapResult<
   RError,
   RFetching
 >(
-  result: UseQueryState<TData>,
+  result: UseQueryState<TData> | UseMutationState<TData>,
   map: {
     data: (data: Some<TData>) => RData,
     error: (error: CombinedError) => RError,
