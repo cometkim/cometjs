@@ -15,7 +15,8 @@ module.exports = {
   ],
   "rules": {
     "indent": "off",
-    "@typescript-eslint/indent": ["error", 2],
+    // See https://github.com/typescript-eslint/typescript-eslint/issues/1824
+    // "@typescript-eslint/indent": ["error", 2],
     "semi": "off",
     "@typescript-eslint/semi": ["error", "always"],
     "quotes": "off",
