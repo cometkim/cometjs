@@ -30,8 +30,8 @@ type User = Node & {
 type Chat = Node & {
   __typename?: 'Chat',
   id: Scalars['ID'],
-  users: Array<User>,
-  messages: Array<ChatMessage>,
+  users: User[],
+  messages: ChatMessage[],
 };
 
 type ChatMessage = Node & {
@@ -44,7 +44,7 @@ type ChatMessage = Node & {
 
 type SearchResult = User | Chat | ChatMessage;
 
-let result = {} as SearchResult;
+const result = {} as SearchResult;
 
 // $ExpectType ChatMessage[]
 const a = mapUnion(result, {
