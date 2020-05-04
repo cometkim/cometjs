@@ -1,0 +1,41 @@
+{
+  "name": "@cometjs/eslint-config",
+  "description": "CometKim's pre-configured ESLint settings",
+  "version": "0.0.1",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cometkim/cometjs.git",
+    "directory": "packages/eslint-config"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "files": [
+    "index.js",
+    "configs"
+  ],
+  "peerDependencies": {
+    "eslint": "^5.0.0 || ^6.0.0",
+    "react": ">=16.8.0",
+    "typescript": ">=3.7.0"
+  },
+  "peerDependenciesMeta": {
+    "react": {
+      "optional": true
+    },
+    "typescript": {
+      "optional": true
+    }
+  },
+  "dependencies": {
+    "@typescript-eslint/eslint-plugin": "^2.30.0",
+    "@typescript-eslint/parser": "^2.30.0",
+    "babel-eslint": "^10.1.0",
+    "confusing-browser-globals": "^1.0.9",
+    "eslint-plugin-flowtype": "^4.7.0",
+    "eslint-plugin-jsx-a11y": "^6.2.3",
+    "eslint-plugin-react": "^7.19.0",
+    "eslint-plugin-react-hooks": "^4.0.0"
+  }
+}
