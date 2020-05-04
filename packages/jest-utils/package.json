@@ -6,7 +6,8 @@
   "main": "./src/index.ts",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/cometkim/cometjs.git"
+    "url": "git+https://github.com/cometkim/cometjs.git",
+    "directory": "packages/jest-utils"
   },
   "author": {
     "name": "Hyeseong Kim",
