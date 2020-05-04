@@ -32,18 +32,21 @@ export function mapAbstractType<
   TAbstract extends GraphQLAbstractType<string>,
   TSubtype extends SubtypeName<TAbstract>,
   TSubtypeMatcher extends {
-    [TKey in TSubtype]: ((fragment: Extract<TAbstract, GraphQLAbstractType<TKey>>) => any) | InferrableAny;
+    [TKey in TSubtype]: (
+      | ((fragment: Extract<TAbstract, GraphQLAbstractType<TKey>>) => any)
+      | InferrableAny
+    );
   },
 >(
   object: TAbstract,
   subtypeMatcher: TSubtypeMatcher,
 ): MapReturnType<TSubtypeMatcher> {
   if (!object.__typename) {
-    throw new Error(`The given fragment doesn't have __typename property`);
+    throw new Error('The given fragment doesn\'t have __typename property');
   }
   const map = subtypeMatcher[object.__typename as TSubtype];
   return mapToValue(map, object as any) as MapReturnType<TSubtypeMatcher>;
-};
+}
 export const mapUnion = mapAbstractType;
 export const mapInterface = mapAbstractType;
 
@@ -60,7 +63,10 @@ export function mapAbstractTypeWithDefault<
   TAbstract extends GraphQLAbstractType<string>,
   TSubtype extends SubtypeName<TAbstract>,
   TSubtypeMatcher extends {
-    [TKey in TSubtype]?: ((union: Extract<TAbstract, GraphQLAbstractType<TKey>>) => any) | InferrableAny;
+    [TKey in TSubtype]?: (
+      | ((union: Extract<TAbstract, GraphQLAbstractType<TKey>>) => any)
+      | InferrableAny
+    );
   },
   RDefault,
 >(
@@ -70,13 +76,13 @@ export function mapAbstractTypeWithDefault<
     & {
       _: ((object: TAbstract) => RDefault) | RDefault,
     }
-  )
+  ),
 ): (
   | Some<MapReturnType<TSubtypeMatcher>>
   | RDefault
 ) {
   if (!object.__typename) {
-    throw new Error(`The given fragment doesn't have __typename property`);
+    throw new Error('The given fragment doesn\'t have __typename property');
   }
   const defaultMap = subtypeMatcher['_'];
   const map = subtypeMatcher[object.__typename as TSubtype];
@@ -87,6 +93,6 @@ export function mapAbstractTypeWithDefault<
   const result = mapToValue(map, object as any) as Option<MapReturnType<TSubtypeMatcher>>;
   // fallback to default when the mapped result is none
   return result ?? mapToValue(defaultMap, object);
-};
+}
 export const mapUnionWithDefault = mapAbstractTypeWithDefault;
 export const mapInterfaceWithDefault = mapAbstractTypeWithDefault;

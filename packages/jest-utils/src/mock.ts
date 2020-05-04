@@ -6,6 +6,12 @@ export type DeeplyMocked<T> = (
   T
 );
 
+function mockIfFunction(value: unknown) {
+  if (typeof value === 'function') {
+    return jest.fn();
+  }
+}
+
 /**
  * Deeply clone a object/function with replacing every function to `jest.fn()`
  *
@@ -40,10 +46,4 @@ export function deeplyMock<T>(modulePath: string) {
   const mocked = cloneWithMock(actual);
   jest.mock(modulePath, () => mocked);
   return [mocked, actual] as const;
-}
-
-function mockIfFunction(value: unknown) {
-  if (typeof value === 'function') {
-    return jest.fn();
-  }
 }

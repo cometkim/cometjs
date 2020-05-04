@@ -40,11 +40,13 @@ export type PropOf<TComponent, TKey extends keyof PropsOf<TComponent>> = PropsOf
  * <MyComponent ref={ref}/>
  * ```
  */
-export type RefOf<TRefForwardingComponent> = TRefForwardingComponent extends React.ForwardRefExoticComponent<infer TProps>
+export type RefOf<TRefForwardingComponent> = (
+  TRefForwardingComponent extends React.ForwardRefExoticComponent<infer TProps>
   ? TProps extends { ref?: React.Ref<infer TRef> }
   ? TRef
   : never
-  : never;
+  : never
+);
 
 /**
  * Safely override exist prop types
@@ -69,4 +71,7 @@ export type RefOf<TRefForwardingComponent> = TRefForwardingComponent extends Rea
  * };
  * ```
  */
-export type OverrideComponentProps<TComponent extends React.ComponentType, TProps> = OverrideProps<PropsOf<TComponent>, TProps>;
+export type OverrideComponentProps<
+  TComponent extends React.ComponentType,
+  TProps
+> = OverrideProps<PropsOf<TComponent>, TProps>;

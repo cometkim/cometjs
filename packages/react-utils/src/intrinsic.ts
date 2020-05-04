@@ -31,9 +31,14 @@ import type { OverrideProps } from '@cometjs/core';
  * export default React.forwardRef(CustomInput);
  * ```
  */
-export type IntrinsicElementWrapperComponent<TTag extends keyof JSX.IntrinsicElements, TProps = {}> = React.RefForwardingComponent<
+export type IntrinsicElementWrapperComponent<
+  TTag extends keyof JSX.IntrinsicElements,
+  TProps = {}
+> = React.RefForwardingComponent<
   InferIntrinsicElementFromAttributes<JSX.IntrinsicElements[TTag]>,
   OverrideProps<JSX.IntrinsicElements[TTag], TProps>
 >;
 
-type InferIntrinsicElementFromAttributes<T> = T extends React.ClassAttributes<infer TElement> ? TElement : never;
+type InferIntrinsicElementFromAttributes<T> = T extends React.ClassAttributes<infer TElement>
+  ? TElement
+  : never;

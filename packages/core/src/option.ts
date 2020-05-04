@@ -64,7 +64,7 @@ export function mapOption<T, RSome, RNone = None>(
       some: RSome | ((t: Some<T>) => RSome),
       none: RNone | (() => RNone),
     })
-  )
+  ),
 ): RSome | RNone {
   if (typeof map === 'function') {
     return isSome(option)
@@ -75,14 +75,14 @@ export function mapOption<T, RSome, RNone = None>(
 
   if (typeof map !== 'object') {
     throw new Error(
-      `The second argument only allows function or object but got: ${typeof map}`
+      `The second argument only allows function or object but got: ${typeof map}`,
     );
   }
 
   const matchedMap = map[matchOption(option)];
   if (!matchedMap) {
     throw new Error(
-      `The object doesn't have map to ${optionToString(option)} type`
+      `The object doesn't have map to ${optionToString(option)} type`,
     );
   }
   return isSome(option)

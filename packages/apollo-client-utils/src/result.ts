@@ -12,7 +12,7 @@ type ErrorResult = {
   data: undefined,
   error: ApolloError,
   loading: false,
-}
+};
 
 type DataResult<T> = {
   data: Some<T>,
@@ -53,7 +53,9 @@ export function castQueryResult<T>(result: QueryResult<T>): Result<T> {
     reasons.push('is not compatible with DataResult<T> because `data` field is missing');
   }
   if (reasons.length) {
-    throw new Error(`Given object is not compatible with Result<T> because:\n${reasons.join('\n  -')}`);
+    throw new Error(
+      `Given object is not compatible with Result<T> because:\n${reasons.join('\n  -')}`,
+    );
   }
   return result as Result<T>;
 }
@@ -69,7 +71,7 @@ export function mapResult<
     data: RData | ((data: Some<TData>) => RData),
     error: RError | ((error: ApolloError) => RError),
     loading: RLoading | (() => RLoading),
-  }
+  },
 ): RData | RError | RLoading {
   const safeResult = castQueryResult(result);
   if (isLoadingResult(safeResult)) {
