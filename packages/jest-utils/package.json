@@ -1,0 +1,44 @@
+{
+  "name": "@cometjs/jest-utils",
+  "description": "CometKim's utility collections for Jest",
+  "version": "0.0.1",
+  "license": "MIT",
+  "main": "./src/index.ts",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cometkim/cometjs.git"
+  },
+  "author": {
+    "name": "Hyeseong Kim",
+    "email": "cometkim.kr@gmail.com"
+  },
+  "scripts": {
+    "build": "concurrently \"yarn:build:*\"",
+    "build:dts": "tsc --emitDeclarationOnly --outDir lib",
+    "build:node": "babel src --env-name node --extensions .ts --out-dir lib --source-maps",
+    "build:module": "babel src --env-name module --extensions .ts --out-dir lib --out-file-extension .mjs --source-maps",
+    "prepack": "rm -rf lib && yarn build"
+  },
+  "publishConfig": {
+    "main": "./lib/index.js",
+    "types": "./lib/index.d.ts",
+    "access": "public"
+  },
+  "peerDependencies": {
+    "jest": ">=20.0.0"
+  },
+  "dependencies": {
+    "core-js": "^3.6.5",
+    "lodash-es": "^4.17.15"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.8.4",
+    "@babel/core": "^7.9.6",
+    "@babel/preset-env": "^7.9.6",
+    "@babel/preset-typescript": "^7.9.0",
+    "@types/jest": "^25.2.1",
+    "@types/lodash-es": "^4.17.3",
+    "@types/node": "^13.13.4",
+    "typescript": "^3.8.3"
+  }
+}
