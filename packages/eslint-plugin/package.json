@@ -16,11 +16,15 @@
     "configs"
   ],
   "peerDependencies": {
-    "eslint": "^5.0.0 || ^6.0.0",
+    "@babel/core": "^7.0.0",
+    "eslint": "^5.0.0 || ^6.0.0 || ^7.0.0-rc.0",
     "react": ">=16.8.0",
     "typescript": ">=3.7.0"
   },
   "peerDependenciesMeta": {
+    "@babel/core": {
+      "optional": true
+    },
     "react": {
       "optional": true
     },
