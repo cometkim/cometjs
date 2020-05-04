@@ -42,11 +42,10 @@ export function isDataResult<T>(result: Result<T>): result is DataResult<T> {
   return Boolean(result.data);
 }
 
-export function castQueryResult<T>(result: UseQueryState<T> | UseMutationState<T>): Result<T> {
+export function castQueryResult<T>(result: UseQueryState<T> | UseMutationState<T>) {
   // Casting instead of guard because:
   // - `result is Result<T>` is not allowed
-  // - `result is Omit<UseQueryState<T>, 'data'|'error'|'fetching'> & Result<T>`
-  //   would not inferred well.
+  // - `result is OverrideProps<UseQueryState<T>, Result<T>>` would not inferred well.
   const reasons: string[] = [];
   if (!('fetching' in result)) {
     reasons.push('it is not compatible with LoadingResult because `fetching` field is missing');

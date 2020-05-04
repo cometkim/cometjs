@@ -10,7 +10,16 @@ module.exports = {
     'eslint:recommended',
   ],
   'rules': {
-    'max-len': ['error', 100],
+    'max-len': ['error', {
+      'code': 100,
+      'tabWidth': 2,
+      'ignoreComments': true,
+      'ignoreTrailingComments': true,
+      'ignoreUrls': true,
+      'ignoreStrings': true,
+      'ignoreTemplateLiterals': true,
+      'ignoreRegExpLiterals': true,
+    }],
     'indent': ['error', 2],
     'semi': ['error', 'always'],
     'quotes': ['error', 'single'],
