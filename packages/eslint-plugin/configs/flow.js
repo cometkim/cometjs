@@ -1,5 +1,5 @@
-{
-  "parser": "babel-eslint",
+module.exports = {
+  "parser": require.resolve("babel-eslint"),
   "plugins": [
     "@cometjs",
     "flowtype"

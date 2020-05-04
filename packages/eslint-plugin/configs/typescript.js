@@ -1,5 +1,5 @@
-{
-  "parser": "@typescript-eslint/parser",
+module.exports = {
+  "parser": require.resolve("@typescript-eslint/parser"),
   "parserOptions": {
     "warnOnUnsupportedTypeScriptVersion": true
   },
