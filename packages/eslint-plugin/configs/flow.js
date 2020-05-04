@@ -1,16 +1,16 @@
 module.exports = {
-  'parser': require.resolve('babel-eslint'),
-  'plugins': [
+  parser: require.resolve('babel-eslint'),
+  plugins: [
     '@cometjs',
     'flowtype',
   ],
-  'extends': [
+  extends: [
     'plugin:@cometjs/base',
     'plugin:flowtype/recommended',
   ],
-  'settings': {
-    'flowtype': {
-      'onlyFilesWithFlowAnnotation': true,
+  settings: {
+    flowtype: {
+      onlyFilesWithFlowAnnotation: true,
     },
   },
 };
