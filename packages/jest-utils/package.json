@@ -24,6 +24,10 @@
     "types": "./lib/index.d.ts",
     "access": "public"
   },
+  "files": [
+    "src",
+    "lib"
+  ],
   "peerDependencies": {
     "jest": ">=20.0.0"
   },
