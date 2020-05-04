@@ -1,12 +1,12 @@
 {
-  "name": "@cometjs/eslint-config",
+  "name": "@cometjs/eslint-plugin",
   "description": "CometKim's pre-configured ESLint settings",
   "version": "0.0.1",
   "license": "MIT",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/cometkim/cometjs.git",
-    "directory": "packages/eslint-config"
+    "directory": "packages/eslint-plugin"
   },
   "publishConfig": {
     "access": "public"

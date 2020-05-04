@@ -1470,9 +1470,9 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@cometjs/eslint-config@workspace:packages/eslint-config":
+"@cometjs/eslint-plugin@workspace:packages/eslint-plugin":
   version: 0.0.0-use.local
-  resolution: "@cometjs/eslint-config@workspace:packages/eslint-config"
+  resolution: "@cometjs/eslint-plugin@workspace:packages/eslint-plugin"
   dependencies:
     "@typescript-eslint/eslint-plugin": ^2.30.0
     "@typescript-eslint/parser": ^2.30.0
