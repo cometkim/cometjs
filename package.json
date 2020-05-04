@@ -9,7 +9,9 @@
     "url": "git+https://github.com/cometkim/cometjs.git"
   },
   "scripts": {
-    "tsc:all": "tsc --noEmit"
+    "tsc:all": "tsc --noEmit",
+    "lint": "eslint packages",
+    "lint:fix": "eslint packages --fix"
   },
   "devDependencies": {
     "@babel/core": "^7.9.6",
