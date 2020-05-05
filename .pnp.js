@@ -2493,6 +2493,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@types/jest", "npm:25.2.1"],
             ["@types/lodash-es", "npm:4.17.3"],
             ["@types/node", "npm:13.13.4"],
+            ["concurrently", "npm:5.2.0"],
             ["core-js", "npm:3.6.5"],
             ["lodash-es", "npm:4.17.15"],
             ["typescript", "patch:typescript@npm%3A3.8.3#builtin<compat/typescript>::version=3.8.3&hash=8cac75"]
@@ -4066,6 +4067,22 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageLocation": "./.yarn/cache/concurrently-npm-5.1.0-8a6e72eb15-3.zip/node_modules/concurrently/",
           "packageDependencies": [
             ["concurrently", "npm:5.1.0"],
+            ["chalk", "npm:2.4.2"],
+            ["date-fns", "npm:2.11.1"],
+            ["lodash", "npm:4.17.15"],
+            ["read-pkg", "npm:4.0.1"],
+            ["rxjs", "npm:6.5.4"],
+            ["spawn-command", "npm:0.0.2"],
+            ["supports-color", "npm:6.1.0"],
+            ["tree-kill", "npm:1.2.2"],
+            ["yargs", "npm:13.3.2"]
+          ],
+          "linkType": "HARD",
+        }],
+        ["npm:5.2.0", {
+          "packageLocation": "./.yarn/cache/concurrently-npm-5.2.0-870d7c5941-3.zip/node_modules/concurrently/",
+          "packageDependencies": [
+            ["concurrently", "npm:5.2.0"],
             ["chalk", "npm:2.4.2"],
             ["date-fns", "npm:2.11.1"],
             ["lodash", "npm:4.17.15"],
