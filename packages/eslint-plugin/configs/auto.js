@@ -11,10 +11,6 @@ module.exports = {
       extends: ['plugin:@cometjs/typescript'],
     },
     {
-      files: ['**/*.js?(x)'],
-      extends: ['plugin:@cometjs/flow'],
-    },
-    {
       files: ['**/*.{jsx,tsx}'],
       extends: ['plugin:@cometjs/react'],
     },
