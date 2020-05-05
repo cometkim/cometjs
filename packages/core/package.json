@@ -9,6 +9,10 @@
     "url": "git+https://github.com/cometkim/cometjs.git",
     "directory": "packages/core"
   },
+  "author": {
+    "name": "Hyeseong Kim",
+    "email": "cometkim.kr@gmail.com"
+  },
   "scripts": {
     "build": "concurrently \"yarn:build:*\"",
     "build:dts": "tsc --emitDeclarationOnly --outDir lib",

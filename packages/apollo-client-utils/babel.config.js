@@ -25,18 +25,6 @@ module.exports = {
       ],
     },
 
-    browser: {
-      presets: [
-        ['@babel/preset-env', {
-          modules: 'umd',
-          targets: {
-            browsers: '> 0.25%, ie >= 11, not dead',
-          },
-        }],
-        'babel-preset-minify',
-      ],
-    },
-
     module: {
       presets: [
         ['@babel/preset-env', {

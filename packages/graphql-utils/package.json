@@ -9,18 +9,20 @@
     "url": "git+https://github.com/cometkim/cometjs.git",
     "directory": "packages/graphql-utils"
   },
+  "author": {
+    "name": "Hyeseong Kim",
+    "email": "cometkim.kr@gmail.com"
+  },
   "scripts": {
     "build": "concurrently \"yarn:build:*\"",
     "build:dts": "tsc --emitDeclarationOnly --outDir lib",
     "build:node": "babel src --env-name node --extensions .ts --out-dir lib --out-file-extension .js --source-maps",
     "build:module": "babel src --env-name module --extensions .ts --out-dir lib --out-file-extension .mjs --source-maps",
-    "build:browser": "BABEL_ENV=browser rollup -c",
     "prepack": "rm -rf lib && yarn build"
   },
   "publishConfig": {
     "main": "./lib/index.js",
     "module": "./lib/index.mjs",
-    "browser": "./lib/index.umd.js",
     "types": "./lib/index.d.ts",
     "access": "public"
   },
@@ -37,12 +39,7 @@
     "@babel/core": "^7.9.0",
     "@babel/preset-env": "^7.9.0",
     "@babel/preset-typescript": "^7.9.0",
-    "babel-preset-minify": "^0.5.1",
     "concurrently": "^5.1.0",
-    "rollup": "^2.3.2",
-    "rollup-plugin-babel": "^4.4.0",
-    "rollup-plugin-node-resolve": "^5.2.0",
-    "rollup-plugin-sourcemaps": "^0.5.0",
     "typescript": "^3.8.3"
   }
 }
