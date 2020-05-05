@@ -25,5 +25,33 @@ module.exports = {
         jest: true,
       },
     },
+    {
+      files: [
+        'gatsby-node.{js,jsx,ts,tsx}',
+      ],
+      env: {
+        node: true,
+        browser: false,
+      },
+    },
+    {
+      files: [
+        'gatsby-ssr.{js,jsx,ts,tsx}',
+      ],
+      env: {
+        'node': true,
+        'browser': true,
+        'shared-node-browser': true,
+      },
+    },
+    {
+      files: [
+        'gatsby-browser.{js,jsx,ts,tsx}',
+      ],
+      env: {
+        node: false,
+        browser: true,
+      },
+    },
   ],
 };
