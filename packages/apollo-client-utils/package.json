@@ -35,7 +35,7 @@
     "graphql": ">=14.0.0"
   },
   "dependencies": {
-    "@cometjs/core": "workspace:^0.0.3",
+    "@cometjs/core": "workspace:^0.1.0",
     "@cometjs/graphql-utils": "workspace:^0.0.2"
   },
   "devDependencies": {
