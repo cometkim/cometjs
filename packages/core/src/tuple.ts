@@ -1,4 +1,8 @@
-import type { Unwrap, Wrap, BoxType } from './common';
+import type {
+  Wrap,
+  Unwrap,
+  BoxType,
+} from './common';
 
 // Borrowed core utilities from $mol_type
 // See https://github.com/eigenmethod/mol/tree/master/type
@@ -52,22 +56,22 @@ export type TupleMapPromise<
   Tuple extends readonly any[],
   Result extends readonly any[] = []
 > = {
-  0: Result
+  0: Result,
   1: TupleMapPromise<
     TupleTail<Tuple>,
     TupleAppend<Result, Promise<TupleHead<Tuple>>>
-  >
+  >,
 }[Tuple['length'] extends 0 ? 0 : 1];
 
 export type TupleMapReturnType<
   Tuple extends readonly any[],
   Result extends readonly any[] = []
 > = {
-  0: Result
+  0: Result,
   1: TupleMapReturnType<
     TupleTail<Tuple>,
     TupleAppend<Result, ReturnType<TupleHead<Tuple>>>
-  >
+  >,
 }[Tuple['length'] extends 0 ? 0 : 1];
 
 export type TupleMapPick<
@@ -75,23 +79,23 @@ export type TupleMapPick<
   Key extends string,
   Result extends readonly any[] = []
 > = {
-  0: Result
+  0: Result,
   1: TupleMapPick<
     TupleTail<Tuple>,
     Key,
     TupleAppend<Result, Pick<TupleHead<Tuple>, Key>>
-  >
+  >,
 }[Tuple['length'] extends 0 ? 0 : 1];
 
 export type TupleMapUnwrap<
   Tuple extends readonly any[],
   Result extends readonly any[] = []
 > = {
-  0: Result
+  0: Result,
   1: TupleMapUnwrap<
     TupleTail<Tuple>,
     TupleAppend<Result, Unwrap<TupleHead<Tuple>>>
-  >
+  >,
 }[Tuple['length'] extends 0 ? 0 : 1];
 
 export type TupleMapWrap<
@@ -99,10 +103,10 @@ export type TupleMapWrap<
   Box extends BoxType<any>,
   Result extends readonly any[] = []
 > = {
-  0: Result
+  0: Result,
   1: TupleMapWrap<
     TupleTail<Tuple>,
     Box,
     TupleAppend<Result, Wrap<TupleHead<Tuple>, Box>>
-  >
+  >,
 }[Tuple['length'] extends 0 ? 0 : 1];

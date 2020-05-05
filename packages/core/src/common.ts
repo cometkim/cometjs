@@ -37,6 +37,7 @@ export type OverrideProps<TBaseProps, TNewProps> = Omit<TBaseProps, keyof TNewPr
  */
 export type BoxType<T = any> = (
   | Promise<T>
+  // eslint-disable-next-line @typescript-eslint/array-type
   | Array<T>
   | Set<T>
   | Option<T>
@@ -58,6 +59,7 @@ export type Unwrap<T> = (
  */
 export type Wrap<T, Box extends BoxType<T>> = (
   Box extends Promise<any> ? Promise<T> :
+  // eslint-disable-next-line @typescript-eslint/array-type
   Box extends Array<any> ? Array<T> :
   Box extends Set<any> ? Set<T> :
   Box extends Option<any> ? Option<T> :
