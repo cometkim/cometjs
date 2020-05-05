@@ -7,7 +7,7 @@ import pkg from './package.json';
 const extensions = ['.ts'];
 
 const config = {
-  input: 'src/index.ts',
+  input: pkg.main,
   output: {
     name: pkg.name,
     file: pkg.publishConfig.browser,

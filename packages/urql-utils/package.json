@@ -9,12 +9,15 @@
     "url": "git+https://github.com/cometkim/cometjs.git",
     "directory": "packages/urql-utils"
   },
+  "author": {
+    "name": "Hyeseong Kim",
+    "email": "cometkim.kr@gmail.com"
+  },
   "scripts": {
     "build": "concurrently \"yarn:build:*\"",
     "build:dts": "tsc --emitDeclarationOnly --skipLibCheck --outDir lib",
     "build:node": "babel src --env-name node --extensions .ts --out-dir lib --out-file-extension .js --source-maps",
     "build:module": "babel src --env-name module --extensions .ts --out-dir lib --out-file-extension .mjs --source-maps",
-    "build:browser": "BABEL_ENV=browser rollup -c",
     "prepack": "rm -rf lib && yarn build"
   },
   "publishConfig": {
@@ -44,10 +47,6 @@
     "@types/graphql": "^14.5.0",
     "concurrently": "^5.1.0",
     "graphql": "^14.6.0",
-    "rollup": "^2.3.2",
-    "rollup-plugin-babel": "^4.4.0",
-    "rollup-plugin-node-resolve": "^5.2.0",
-    "rollup-plugin-sourcemaps": "^0.5.0",
     "typescript": "^3.8.3",
     "urql": "^1.9.5"
   }

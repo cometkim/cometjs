@@ -8,6 +8,10 @@
     "url": "git+https://github.com/cometkim/cometjs.git",
     "directory": "packages/eslint-plugin"
   },
+  "author": {
+    "name": "Hyeseong Kim",
+    "email": "cometkim.kr@gmail.com"
+  },
   "publishConfig": {
     "access": "public"
   },

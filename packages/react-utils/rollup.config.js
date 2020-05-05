@@ -7,19 +7,25 @@ import pkg from './package.json';
 const extensions = ['.ts', '.tsx'];
 
 const config = {
-  input: 'src/index.ts',
+  input: pkg.main,
   output: {
     name: pkg.name,
     file: pkg.publishConfig.browser,
     format: 'umd',
     sourcemap: true,
   },
+  external: [
+    'react',
+  ],
   plugins: [
     resolve({
       extensions,
     }),
     babel({
       extensions,
+      exclude: [
+        'node_modules/**',
+      ],
     }),
     sourcemaps(),
   ],
