@@ -1436,8 +1436,8 @@ __metadata:
   dependencies:
     "@apollo/client": ^3.0.0-beta.41
     "@babel/cli": ^7.8.4
-    "@babel/core": ^7.9.0
-    "@babel/preset-env": ^7.9.0
+    "@babel/core": ^7.9.6
+    "@babel/preset-env": ^7.9.6
     "@babel/preset-typescript": ^7.9.0
     "@cometjs/core": "workspace:^0.1.0"
     "@cometjs/graphql-utils": "workspace:^0.1.0"
