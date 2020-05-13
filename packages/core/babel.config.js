@@ -1,4 +1,5 @@
 module.exports = {
+  inputSourceMap: true,
   sourceMaps: true,
 
   // Additional comments can be found in source map and type definitions.
