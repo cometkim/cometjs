@@ -36,6 +36,7 @@
     "react": ">=16.8.0"
   },
   "dependencies": {
+    "@babel/runtime-corejs3": "^7.9.6",
     "@cometjs/core": "workspace:^0.1.0",
     "core-js": "^3.6.4"
   },

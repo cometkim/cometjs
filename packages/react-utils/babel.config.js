@@ -24,14 +24,6 @@ module.exports = {
           },
         }],
       ],
-      plugins: [
-        ['@babel/plugin-transform-runtime', {
-          corejs: {
-            version: 3,
-            proposals: true,
-          },
-        }],
-      ],
     },
 
     module: {
@@ -42,15 +34,6 @@ module.exports = {
           targets: {
             esmodules: true,
           },
-        }],
-      ],
-      plugins: [
-        ['@babel/plugin-transform-runtime', {
-          corejs: {
-            version: 3,
-            proposals: true,
-          },
-          useEsModules: true,
         }],
       ],
     },

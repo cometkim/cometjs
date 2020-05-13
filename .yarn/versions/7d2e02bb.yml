@@ -1,3 +1,4 @@
 releases:
-  "@cometjs/core": major
+  "@cometjs/core": prerelease
+  "@cometjs/graphql-utils": minor
   "@cometjs/react-utils": minor
