@@ -1,2 +1,2 @@
-undecided:
-  - "@cometjs/core"
+releases:
+  "@cometjs/core": minor
