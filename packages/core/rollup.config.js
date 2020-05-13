@@ -22,9 +22,6 @@ const config = {
       babelHelpers: 'bundled',
     }),
   ],
-  external: [
-    '@babel/runtime-corejs3',
-  ],
 };
 
 export default config;
