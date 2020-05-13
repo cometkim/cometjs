@@ -1,6 +1,6 @@
-import resolve from 'rollup-plugin-node-resolve';
-import babel from 'rollup-plugin-babel';
-import sourcemaps from 'rollup-plugin-sourcemaps';
+import resolve from '@rollup/plugin-node-resolve';
+import babel from '@rollup/plugin-babel';
+import globals from 'rollup-plugin-node-globals';
 
 import pkg from './package.json';
 
@@ -13,21 +13,25 @@ const config = {
     file: pkg.publishConfig.browser,
     format: 'umd',
     sourcemap: true,
+    globals: {
+      react: 'React',
+    },
   },
-  external: [
-    'react',
-  ],
   plugins: [
     resolve({
       extensions,
     }),
     babel({
       extensions,
+      babelHelpers: 'bundled',
       exclude: [
         'node_modules/**',
       ],
     }),
-    sourcemaps(),
+    globals(),
+  ],
+  external: [
+    'react',
   ],
 };
 
