@@ -1,22 +1,22 @@
-export interface Cache<T, I = never> {
+export interface Resource<T, I = never> {
   read(input: I): T;
 }
 
-type CacheStatus = (
-  | 'loading'
-  | 'fullfilled'
+type ResourceStatus = (
+  | 'pending'
+  | 'fulfilled'
   | 'rejected'
 );
 
-export function createCacheFromPromise<T>(promise: Promise<T>): Cache<T> {
-  let status = 'loading' as CacheStatus;
+export function createPromiseResource<T>(promise: Promise<T>): Resource<T> {
+  let status = 'pending' as ResourceStatus;
   let error: unknown;
   let data: T;
 
   promise
     .then(fullfilled => {
       data = fullfilled;
-      status = 'fullfilled';
+      status = 'fulfilled';
     })
     .catch(e => {
       error = e;
@@ -26,9 +26,9 @@ export function createCacheFromPromise<T>(promise: Promise<T>): Cache<T> {
   return {
     read() {
       switch (status) {
-        case 'loading': throw promise;
+        case 'pending': throw promise;
         case 'rejected': throw error;
-        case 'fullfilled': return data;
+        case 'fulfilled': return data;
       }
     }
   }
