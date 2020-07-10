@@ -2,9 +2,8 @@ module.exports = {
   parser: require.resolve('@typescript-eslint/parser'),
   parserOptions: {
     warnOnUnsupportedTypeScriptVersion: true,
-    project: [
-      '**/tsconfig.json',
-    ],
+    // It is better to setup project path manually
+    // project: [],
   },
   plugins: [
     '@cometjs',
