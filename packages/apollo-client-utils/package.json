@@ -36,7 +36,7 @@
   },
   "dependencies": {
     "@cometjs/core": "workspace:^0.1.0",
-    "@cometjs/graphql-utils": "workspace:^0.1.0"
+    "@cometjs/graphql-utils": "workspace:^0.1.1"
   },
   "devDependencies": {
     "@apollo/client": "^3.0.0-beta.41",
