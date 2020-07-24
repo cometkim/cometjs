@@ -1,0 +1,5 @@
+releases:
+  "@cometjs/jest-utils": patch
+
+undecided:
+  - "@cometjs/core"

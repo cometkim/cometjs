@@ -42,7 +42,7 @@ export function cloneWithMock<T>(module: T) {
  * ```
  */
 export function deeplyMock<T>(modulePath: string) {
-  const actual = require.requireActual(modulePath) as T;
+  const actual = jest.requireActual(modulePath) as T;
   const mocked = cloneWithMock(actual);
   jest.mock(modulePath, () => mocked);
   return [mocked, actual] as const;
