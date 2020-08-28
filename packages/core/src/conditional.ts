@@ -7,11 +7,11 @@ export type Falsy = (
   | 0
 );
 
-export type Trusthy<T = InferrableAny> = Exclude<T, Falsy>;
+export type Truhty<T = InferrableAny> = Exclude<T, Falsy>;
 
-export type Conditional<T> = Trusthy<T> | Falsy;
+export type Conditional<T> = Truhty<T> | Falsy;
 
-export function isTrusthy<T>(condition: Conditional<T>): condition is Trusthy<T> {
+export function isTruhty<T>(condition: Conditional<T>): condition is Truhty<T> {
   return Boolean(condition);
 }
 
