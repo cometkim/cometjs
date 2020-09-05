@@ -1,4 +1,5 @@
 import type { Option } from './option';
+import type { Condition } from './condition';
 
 /**
  * Any object that can be called
