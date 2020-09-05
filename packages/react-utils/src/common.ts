@@ -12,7 +12,7 @@ import type { OverrideProps } from '@cometjs/core';
  * type MyComponentProps = PropsOf<typeof MyComponent>;
  * ```
  */
-export type PropsOf<TComponent extends React.ElementType> = React.ComponentProps<TComponent>
+export type PropsOf<TComponent extends React.ElementType> = React.ComponentProps<TComponent>;
 
 /**
  * Infer a single prop type of `typeof MyComponent`.

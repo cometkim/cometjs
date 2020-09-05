@@ -11,6 +11,9 @@ export type TupleHead<TTuple extends readonly any[]> = (
     ? never
     : TTuple[0]
 );
+
+// Borrowed core utilities from $mol_type
+// See https://github.com/eigenmethod/mol/tree/master/type
 export type TupleTail<TTuple extends readonly any[]> = (
   (
     (...tail: TTuple) => any
@@ -20,34 +23,22 @@ export type TupleTail<TTuple extends readonly any[]> = (
     ? TTail
     : never
 );
+export namespace $Experimental {
+  // TupleHead<T> and TupleTail<T> implementation using variadic tuple.
+  // It's much simpler but type inference is uncertain compared to the previous version.
+  export type TupleHead<Tuple extends readonly unknown[]> = Tuple extends [infer Head, ...infer _] ? Head : never;
+  export type TupleTail<Tuple extends readonly unknown[]> = Tuple extends [any?, ...infer Tail] ? Tail : never;
+}
+
 export type TupleAppend<
   TTuple extends readonly any[],
-  TItem extends any
-> = (
-  (
-    (head: any, ...tail: TTuple) => void
-  ) extends (
-    (...extended: infer Extended) => void
-  )
-  ? {
-    [TIndex in keyof Extended]: TIndex extends keyof TTuple
-      ? TTuple[TIndex]
-      : TItem
-    }
-  : never
-);
+  TItem
+> = [TItem, ...TTuple];
+
 export type TuplePrepend<
   TTuple extends readonly any[],
-  TItem extends any
-> = (
-  (
-    (head: TItem, ...args: TTuple) => any
-  ) extends (
-    (...args: infer Result) => any
-  )
-    ? Result
-    : never
-);
+  TItem
+> = [...TTuple, TItem];
 
 // Simulate Flow's `$TupleMap<T, F>` utility.
 // Copy-pasted bunch of utils using the same pattern because the TypeScript doesn't have `$Call` type.
@@ -59,7 +50,7 @@ export type TupleMapPromise<
   0: Result,
   1: TupleMapPromise<
     TupleTail<Tuple>,
-    TupleAppend<Result, Promise<TupleHead<Tuple>>>
+    TupleAppend<Result, Promise<$Experimental.TupleHead<Tuple>>>
   >,
 }[Tuple['length'] extends 0 ? 0 : 1];
 
@@ -69,7 +60,7 @@ export type TupleMapReturnType<
 > = {
   0: Result,
   1: TupleMapReturnType<
-    TupleTail<Tuple>,
+    $Experimental.TupleTail<Tuple>,
     TupleAppend<Result, ReturnType<TupleHead<Tuple>>>
   >,
 }[Tuple['length'] extends 0 ? 0 : 1];
@@ -79,9 +70,8 @@ export type TupleMapPick<
   Key extends string,
   Result extends readonly any[] = []
 > = {
-  0: Result,
-  1: TupleMapPick<
-    TupleTail<Tuple>,
+  0: Result, 1: TupleMapPick<
+    $Experimental.TupleTail<Tuple>,
     Key,
     TupleAppend<Result, Pick<TupleHead<Tuple>, Key>>
   >,
@@ -93,8 +83,8 @@ export type TupleMapUnwrap<
 > = {
   0: Result,
   1: TupleMapUnwrap<
-    TupleTail<Tuple>,
-    TupleAppend<Result, Unwrap<TupleHead<Tuple>>>
+    $Experimental.TupleTail<Tuple>,
+    TupleAppend<Result, Unwrap<$Experimental.TupleHead<Tuple>>>
   >,
 }[Tuple['length'] extends 0 ? 0 : 1];
 
@@ -105,8 +95,20 @@ export type TupleMapWrap<
 > = {
   0: Result,
   1: TupleMapWrap<
-    TupleTail<Tuple>,
+    $Experimental.TupleTail<Tuple>,
     Box,
-    TupleAppend<Result, Wrap<TupleHead<Tuple>, Box>>
+    TupleAppend<Result, Wrap<$Experimental.TupleHead<Tuple>, Box>>
   >,
+}[Tuple['length'] extends 0 ? 0 : 1];
+
+// Credits to [Gal Schlezinger](https://github.com/schniz)
+// See https://twitter.com/galstar/status/1299265344226439169
+export type MakeTuple<T, N extends number, Result extends readonly T[] = []> = {
+  0: Result,
+  1: MakeTuple<T, N, [T, ...Result]>,
+}[Result['length'] extends N ? 0 : 1];
+
+export type TupleReplace<Tuple extends readonly any[], T, Result extends readonly T[] = []> = {
+  0: Result,
+  1: TupleReplace<$Experimental.TupleTail<Tuple>, T, [T, ...Result]>,
 }[Tuple['length'] extends 0 ? 0 : 1];

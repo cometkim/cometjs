@@ -1,4 +1,5 @@
 import type { Option } from './option';
+import type { Condition } from './condition';
 
 /**
  * Any object that can be called
@@ -27,41 +28,44 @@ export type Primitive = (
  */
 export type InferrableAny = Primitive | object;
 
+// Simulate Flow's `$NonMaybeType<mixed>`.
+// Theoretically same as `Exclude<unknown, null | undefined>` that doesn't work on current version of TypeScript.
+export type NonMaybeType = {};
+// Also same as
+// export type NonMaybeType = Exclude<InferrableAny, None>;
+
 /**
  * Safely intersect prop types
  */
 export type OverrideProps<TBaseProps, TNewProps> = Omit<TBaseProps, keyof TNewProps> & TNewProps;
 
 /**
- * Well-known `U<T>`-like wrapper types
+ * Well-known `U<T>`-like nominal types
  */
 export type BoxType<T = any> = (
   | Promise<T>
   // eslint-disable-next-line @typescript-eslint/array-type
   | Array<T>
   | Set<T>
-  | Option<T>
 );
 
 /**
- * Unwrap T from well-known `U<T>`-like wrapper type
+ * Unwrap BoxType<T>.
  */
 export type Unwrap<T> = (
   T extends Promise<infer U> ? U :
   T extends Array<infer U> ? U :
   T extends Set<infer U> ? U :
-  T extends Option<infer U> ? U :
   T
 );
 
 /**
- * Wrap T using well-known `U<T>`-like wrapper type.
+ * Wrap T by BoxType.
  */
-export type Wrap<T, Box extends BoxType<T>> = (
+export type Wrap<T, Box extends BoxType> = (
   Box extends Promise<any> ? Promise<T> :
   // eslint-disable-next-line @typescript-eslint/array-type
   Box extends Array<any> ? Array<T> :
   Box extends Set<any> ? Set<T> :
-  Box extends Option<any> ? Option<T> :
   never
 );
