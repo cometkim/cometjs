@@ -27,6 +27,12 @@ export type Primitive = (
  */
 export type InferrableAny = Primitive | object;
 
+// Simulate Flow's `$NonMaybeType<mixed>`.
+// Theoretically same as `Exclude<unknown, null | undefined>` that doesn't work on current version of TypeScript.
+export type NonMaybeType = {};
+// Also same as
+// export type NonMaybeType = Exclude<InferrableAny, None>;
+
 /**
  * Safely intersect prop types
  */
