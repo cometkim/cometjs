@@ -1,0 +1,5 @@
+releases:
+  "@cometjs/core": minor
+
+undecided:
+  - "@cometjs/react-utils"
