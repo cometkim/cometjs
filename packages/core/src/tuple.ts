@@ -23,7 +23,7 @@ export type TupleTail<TTuple extends readonly any[]> = (
     ? TTail
     : never
 );
-export namespace $Experimental {
+declare namespace $Experimental {
   // TupleHead<T> and TupleTail<T> implementation using variadic tuple.
   // It's much simpler but type inference is uncertain compared to the previous version.
   export type TupleHead<Tuple extends readonly unknown[]> = Tuple extends [infer Head, ...infer _] ? Head : never;

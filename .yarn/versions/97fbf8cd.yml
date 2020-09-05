@@ -1,6 +1,3 @@
-releases:
-  "@cometjs/react-utils": minor
-
 undecided:
   - "@cometjs/core"
   - "@cometjs/jest-utils"
