@@ -69,3 +69,5 @@ export type Wrap<T, Box extends BoxType> = (
   Box extends Set<any> ? Set<T> :
   never
 );
+
+export type $FixMe = any;

@@ -83,9 +83,9 @@ export type TupleMapUnwrap<
 > = {
   0: Result,
   1: TupleMapUnwrap<
-    $Experimental.TupleTail<Tuple>,
-    TupleAppend<Result, Unwrap<$Experimental.TupleHead<Tuple>>>
-  >,
+  $Experimental.TupleTail<Tuple>,
+  TupleAppend<Result, Unwrap<$Experimental.TupleHead<Tuple>>>
+>,
 }[Tuple['length'] extends 0 ? 0 : 1];
 
 export type TupleMapWrap<
@@ -98,11 +98,17 @@ export type TupleMapWrap<
     $Experimental.TupleTail<Tuple>,
     Box,
     TupleAppend<Result, Wrap<$Experimental.TupleHead<Tuple>, Box>>
-  >,
+>,
 }[Tuple['length'] extends 0 ? 0 : 1];
+
+// Borrowed from https://github.com/microsoft/TypeScript/pull/40002#issue-466243948
+export type TupleOf<T, N extends number> = N extends N ? number extends N ? T[] : _TupleOf<T, N> : never;
+export type _TupleOf<T, N extends number> = MakeTuple<T, N>;
 
 // Credits to [Gal Schlezinger](https://github.com/schniz)
 // See https://twitter.com/galstar/status/1299265344226439169
+//
+// @deprecated favor of TupleOf<T, N>
 export type MakeTuple<T, N extends number, Result extends readonly T[] = []> = {
   0: Result,
   1: MakeTuple<T, N, [T, ...Result]>,
