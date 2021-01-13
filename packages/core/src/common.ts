@@ -1,6 +1,3 @@
-import type { Option } from './option';
-import type { Condition } from './condition';
-
 /**
  * Any object that can be called
  */
@@ -31,8 +28,6 @@ export type InferrableAny = Primitive | object;
 // Simulate Flow's `$NonMaybeType<mixed>`.
 // Theoretically same as `Exclude<unknown, null | undefined>` that doesn't work on current version of TypeScript.
 export type NonMaybeType = {};
-// Also same as
-// export type NonMaybeType = Exclude<InferrableAny, None>;
 
 /**
  * Safely intersect prop types
@@ -56,7 +51,7 @@ export type Unwrap<T> = (
   T extends Promise<infer U> ? U :
   T extends Array<infer U> ? U :
   T extends Set<infer U> ? U :
-  T
+  never
 );
 
 /**
@@ -69,3 +64,40 @@ export type Wrap<T, Box extends BoxType> = (
   Box extends Set<any> ? Set<T> :
   never
 );
+
+export type OneOrMany<T> = T | T[];
+
+export type IfEquals<X, Y, A = X, B = never> = (<T>() => T extends X ? 1 : 2) extends <T>() => T extends Y ? 1 : 2 ? A : B;
+
+/**
+ * @see https://stackoverflow.com/a/49725198/5734400
+ */
+export type RequireAtLeastOne<T, Keys extends keyof T = keyof T> = (
+  & Pick<T, Exclude<keyof T, Keys>>
+  & {
+    [K in Keys]-?: Required<Pick<T, K>> & Partial<Pick<T, Exclude<Keys, K>>>
+  }[Keys]
+);
+
+/**
+ * @see https://stackoverflow.com/a/49725198/5734400
+ */
+export type RequireOnlyOne<T, Keys extends keyof T = keyof T> = (
+  & Pick<T, Exclude<keyof T, Keys>>
+  & {
+    [K in Keys]-?: (
+      & Required<Pick<T, K>>
+      & Partial<Record<Exclude<Keys, K>, undefined>>
+    )
+  }[Keys]
+);
+
+/**
+ * A callable object do nothing
+ */
+export const noop: Callable = () => {};
+
+/**
+ * identity
+ */
+export const ident = <X>(x: X) => x;

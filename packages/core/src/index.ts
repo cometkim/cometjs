@@ -1,4 +1,5 @@
 export * from './common';
-export * from './option';
-export * from './map';
-export * from './condition';
+export * as Function from './function';
+export * as Option from './option';
+export * as Condition from './condition';
+export * as Tuple from './tuple';

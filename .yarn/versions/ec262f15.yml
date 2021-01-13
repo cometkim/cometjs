@@ -1,0 +1,9 @@
+releases:
+  "@cometjs/core": major
+
+undecided:
+  - "@cometjs/apollo-client-utils"
+  - "@cometjs/graphql-utils"
+  - "@cometjs/react-utils"
+  - "@cometjs/urql-utils"
+  - "@cometjs/web-utils"
