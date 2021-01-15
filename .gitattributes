@@ -1,10 +1,2 @@
-*                             text=auto
-/yarn.lock                    linguist-generated
-/.pnp.js                      binary linguist-generated
-/.yarn/releases/**            binary linguist-generated
-/.yarn/cache/**               linguist-vendored
-/.yarn/plugins/**             binary linguist-generated
-/.vscode/pnpify/**            binary linguist-generated
-/.vscode/sdks/**              binary linguist-generated
-/.vscode/*.json               linguist-language=JSON5
-/.tsconfig.json               linguist-language=JSON5
+/.pnp.js  binary linguist-generated
+/.yarn/** binary linguist-vendored

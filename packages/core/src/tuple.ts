@@ -4,6 +4,9 @@ import type {
   BoxType,
 } from './common';
 
+/* eslint-disable @typescript-eslint/no-explicit-any */
+/* eslint-disable @typescript-eslint/no-namespace */
+
 // Borrowed core utilities from $mol_type
 // See https://github.com/eigenmethod/mol/tree/master/type
 export type Head<Tuple extends readonly any[]> = (
@@ -23,11 +26,21 @@ export type Tail<Tuple extends readonly any[]> = (
     ? Tail
     : never
 );
+
 declare namespace $Experimental {
-  // TupleHead<T> and TupleTail<T> implementation using variadic tuple.
+  // `Head<T>` and `Tail<T>` implementation using variadic tuple.
   // It's much simpler but type inference is uncertain compared to the previous version.
-  export type Head<Tuple extends readonly unknown[]> = Tuple extends [infer Head, ...infer _] ? Head : never;
-  export type Tail<Tuple extends readonly unknown[]> = Tuple extends [any?, ...infer Tail] ? Tail : never;
+
+  export type Head<Tuple extends readonly unknown[]> = (
+    Tuple extends [infer Head, ...infer _]
+      ? Head
+      : never
+  );
+  export type Tail<Tuple extends readonly unknown[]> = (
+    Tuple extends [any?, ...infer Tail]
+      ? Tail
+      : never
+  );
 }
 
 export type Append<

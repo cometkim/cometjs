@@ -26,7 +26,9 @@
     "test": "tap",
     "dev": "microbundle watch",
     "build": "microbundle",
-    "prepack": "rm -rf lib && yarn build"
+    "prepack": "rm -rf lib && yarn build",
+    "lint": "eslint .",
+    "tsc": "tsc --noEmit"
   },
   "files": [
     "lib"

@@ -1,7 +1,4 @@
 {
-  "env": {
-    "node": true
-  },
-  "plugins": ["@cometjs"],
+  "root": true,
   "extends": "plugin:@cometjs/auto"
 }

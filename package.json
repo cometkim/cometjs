@@ -9,20 +9,23 @@
     "url": "git+https://github.com/cometkim/cometjs.git"
   },
   "scripts": {
-    "tsc:all": "tsc --noEmit",
+    "tsc": "tsc --noEmit --skipLibCheck",
     "lint": "eslint packages",
     "lint:fix": "eslint packages --fix"
   },
   "devDependencies": {
     "@babel/core": "^7.11.4",
     "@cometjs/eslint-plugin": "workspace:packages/eslint-plugin",
+    "@types/jest": "^26.0.14",
+    "@types/react": "^16.9.49",
+    "@types/react-dom": "^16.9.8",
     "@typescript-eslint/eslint-plugin": "^3.10.1",
-    "@yarnpkg/pnpify": "^2.0.0-rc.22",
-    "eslint": "7.0.0-rc.0",
+    "@yarnpkg/pnpify": "^2.4.0",
+    "eslint": "^7.17.0",
     "eslint-plugin-flowtype": "^5.2.0",
     "eslint-plugin-jsx-a11y": "^6.3.1",
     "eslint-plugin-react": "^7.20.6",
     "eslint-plugin-react-hooks": "^4.1.0",
-    "typescript": "^4.0.2"
+    "typescript": "^4.1.3"
   }
 }

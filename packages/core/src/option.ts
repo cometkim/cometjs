@@ -6,7 +6,7 @@ export type None = null | undefined;
 export type Some<X> = Exclude<X, None>;
 export type T<X> = Some<X> | None;
 
-export function of<X>(x: X) {
+export function of<X>(x: X): T<X> {
   return x as T<X>;
 }
 
@@ -25,7 +25,7 @@ export function isNone<X>(option: T<X>): option is None {
  *
  * @return Given `Option<string>`, returns `"Some(string)"` or `"None"`
  */
-export function toString<X>(option: T<X>) {
+export function toString<X>(option: T<X>): string {
   return isSome(option) ? `Some(${typeof option})` : 'None';
 }
 
@@ -96,7 +96,7 @@ export function getExn<X>(option: T<X>, errorFactory?: () => Error): Some<X> {
   return map(option, {
     some: v => v,
     none: () => {
-      const error = errorFactory?.() ?? new Error(`You tried to get T of Option<T>. T is ${option}`);
+      const error = errorFactory?.() ?? new Error('You tried to get T of Option<T>, ut T is none');
       throw error;
     },
   });

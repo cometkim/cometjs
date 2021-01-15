@@ -1,3 +1,5 @@
 {
-  "tsserver.tsdk": "../.vscode/pnpify/typescript/bin/tsserver"
+  "tsserver.tsdk": ".yarn/sdks/typescript/lib",
+  "eslint.packageManager": "yarn",
+  "eslint.nodePath": ".yarn/sdks"
 }

@@ -10,16 +10,20 @@ export type Falsy = (
   | 0n
   | ''
 );
+
 export type Truthy<X = InferrableAny> = Exclude<X, Falsy>;
-export type Condition<X> = Truthy<X> | Falsy;
-export type T<X> = Condition<X>;
+
+export type T<X> = (
+  | Truthy<X>
+  | Falsy
+);
 
 export function isTruthy<X>(condition: T<X>): condition is Truthy<X> {
-  return Boolean(condition);
+  return !!condition;
 }
 
 export function isFalsy<X>(condition: T<X>): condition is Falsy {
-  return !Boolean(condition);
+  return !condition;
 }
 
 export function map<X, R>(condition: T<X>, fn: Fn.T<Truthy<R>, X>): T<R> {

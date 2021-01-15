@@ -2,6 +2,7 @@
  * Any object that can be called
  */
 export interface Callable {
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   (...args: any[]): any;
 }
 
@@ -23,10 +24,14 @@ export type Primitive = (
  *
  * Helpful when need `any` as value type but should be inferred more precisely
  */
+// eslint-disable-next-line @typescript-eslint/ban-types
 export type InferrableAny = Primitive | object;
 
-// Simulate Flow's `$NonMaybeType<mixed>`.
-// Theoretically same as `Exclude<unknown, null | undefined>` that doesn't work on current version of TypeScript.
+/**
+ * Simulate Flow's `$NonMaybeType<mixed>`.
+ * Theoretically same as `Exclude<unknown, null | undefined>` that doesn't work on current version of TypeScript.
+ */
+// eslint-disable-next-line @typescript-eslint/ban-types
 export type NonMaybeType = {};
 
 /**
@@ -37,6 +42,7 @@ export type OverrideProps<TBaseProps, TNewProps> = Omit<TBaseProps, keyof TNewPr
 /**
  * Well-known `U<T>`-like nominal types
  */
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 export type BoxType<T = any> = (
   | Promise<T>
   // eslint-disable-next-line @typescript-eslint/array-type
@@ -58,16 +64,28 @@ export type Unwrap<T> = (
  * Wrap T by BoxType.
  */
 export type Wrap<T, Box extends BoxType> = (
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   Box extends Promise<any> ? Promise<T> :
-  // eslint-disable-next-line @typescript-eslint/array-type
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any, @typescript-eslint/array-type
   Box extends Array<any> ? Array<T> :
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   Box extends Set<any> ? Set<T> :
   never
 );
 
 export type OneOrMany<T> = T | T[];
 
-export type IfEquals<X, Y, A = X, B = never> = (<T>() => T extends X ? 1 : 2) extends <T>() => T extends Y ? 1 : 2 ? A : B;
+/**
+ * Check type-level equally of given two types.
+ *
+ * the first one (or `A` if specified) is going to return type if true,
+ * or returns `never` (of `B` if specified)
+ */
+export type IfEquals<X, Y, A = X, B = never> = (
+  (<T>() => T extends X ? 1 : 2) extends (<T>() => T extends Y ? 1 : 2)
+  ? A
+  : B
+);
 
 /**
  * @see https://stackoverflow.com/a/49725198/5734400
@@ -95,9 +113,10 @@ export type RequireOnlyOne<T, Keys extends keyof T = keyof T> = (
 /**
  * A callable object do nothing
  */
+// eslint-disable-next-line @typescript-eslint/no-empty-function
 export const noop: Callable = () => {};
 
 /**
  * identity
  */
-export const ident = <X>(x: X) => x;
+export const ident = <X>(x: X): X => x;

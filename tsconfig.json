@@ -1,14 +1,15 @@
 {
   "compilerOptions": {
     "target": "ESNext",
-    "lib": ["ESNext"],
-    "module": "commonjs",
-    "declaration": true,
+    "lib": ["ESNext", "DOM"],
+    "moduleResolution": "node",
+    "incremental": true,
+    "composite": true,
     "strict": true,
     "esModuleInterop": true,
-    "allowSyntheticDefaultImports": true,
+    "allowSyntheticDefaultImports": true
   },
   "exclude": [
-    "packages/*/lib",
-  ],
+    "packages/**/lib"
+  ]
 }

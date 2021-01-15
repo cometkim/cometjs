@@ -3,6 +3,9 @@ import t from 'tap';
 import { ident } from './common';
 import * as Option from './option';
 
+/* eslint-disable @typescript-eslint/ban-ts-comment */
+/* eslint-disable @typescript-eslint/no-unsafe-return */
+
 t.test('Option.isSome', async t => {
   t.assert(Option.isSome(1));
   t.assert(Option.isSome(''));

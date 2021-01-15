@@ -3,6 +3,8 @@ import { expectType } from 'tsd';
 import { IfEquals } from './common';
 import * as Tuple from './tuple';
 
+/* eslint-disable @typescript-eslint/no-explicit-any */
+
 type T1 = Tuple.MapWrap<[string, number, 1, 2, null], Promise<any>>;
 expectType<IfEquals<
   T1,
