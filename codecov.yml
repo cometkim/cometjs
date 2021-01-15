@@ -11,3 +11,6 @@ coverage:
       "@cometjs/core":
         target: "100%"
         flags: core
+
+ignore:
+  - .yarn
