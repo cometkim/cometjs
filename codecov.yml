@@ -1,0 +1,13 @@
+flags:
+  core:
+    paths:
+      - packages/core
+
+coverage:
+  status:
+    project:
+      default: off
+
+      "@cometjs/core":
+        target: "100%"
+        flags: core
