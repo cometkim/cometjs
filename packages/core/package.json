@@ -36,6 +36,7 @@
   "devDependencies": {
     "@types/node": "^14.14.20",
     "@types/tap": "^14.10.1",
+    "eslint": "^7.17.0",
     "microbundle": "^0.13.0",
     "tap": "^14.11.0",
     "tsd": "^0.14.0",
