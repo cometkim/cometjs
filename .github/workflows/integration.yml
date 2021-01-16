@@ -66,4 +66,4 @@ jobs:
       - name: Send reports to CodeCov
         uses: codecov/codecov-action@v1
         with:
-          flags: core
+          flags: core,graphql-utils

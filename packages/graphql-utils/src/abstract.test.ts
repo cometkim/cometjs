@@ -1,0 +1,132 @@
+import t from 'tap';
+
+import { mapUnion, mapUnionWithDefault } from './abstract';
+
+type Scalars = {
+  ID: string,
+  String: string,
+  Boolean: boolean,
+  Int: number,
+  Float: number,
+};
+
+type Node = {
+  id: Scalars['ID'],
+};
+
+enum Role {
+  User = 'USER',
+  Admin = 'ADMIN'
+}
+
+type User = Node & {
+  __typename?: 'User',
+  id: Scalars['ID'],
+  username: Scalars['String'],
+  email: Scalars['String'],
+  role: Role,
+  nickname?: Scalars['String'],
+};
+
+type Chat = Node & {
+  __typename?: 'Chat',
+  id: Scalars['ID'],
+  users: User[],
+  messages: ChatMessage[],
+};
+
+type ChatMessage = Node & {
+  __typename?: 'ChatMessage',
+  id: Scalars['ID'],
+  content: Scalars['String'],
+  user: User,
+};
+
+type SearchResult = User | Chat | ChatMessage;
+
+const users: User[] = [
+  {
+    __typename: 'User',
+    id: 'User:1',
+    username: 'Hyeseong Kim',
+    email: 'hey@hyeseong.kim',
+    role: Role.Admin,
+  },
+];
+
+const messages: ChatMessage[] = [
+  {
+    __typename: 'ChatMessage',
+    id: 'ChatMessage:1',
+    content: '아아아 타입스크립트...',
+    user: users[0],
+  },
+];
+
+const chats: Chat[] = [
+  {
+    __typename: 'Chat',
+    id: 'Chat:1',
+    users,
+    messages,
+  },
+];
+
+const results: SearchResult[] = [
+  ...users,
+  ...messages,
+  ...chats,
+];
+
+t.test('mapUnion', async t => {
+  t.test('map values', async t => {
+    results
+      .map(result => mapUnion(result, {
+        User: user => user.username,
+        Chat: chat => chat.users[0].username,
+        ChatMessage: message => message.user.username,
+      }))
+      .every(result => t.equals(result, 'Hyeseong Kim'));
+  });
+
+  t.test('invalid', async t => {
+    const invalid: SearchResult = {
+      __typename: undefined,
+      id: 'User:2',
+      username: 'Invalid User',
+      email: 'nah',
+      role: Role.User,
+    };
+
+    t.throws(() => mapUnion(invalid, {
+      User: 1,
+      Chat: 2,
+      ChatMessage: 3,
+    }));
+  });
+});
+
+t.test('mapUnionWithDefault', async t => {
+  t.test('map values', async t => {
+    results
+      .map(result => mapUnionWithDefault(result, {
+        User: user => user.username,
+        _: 'Hyeseong Kim',
+      }))
+      .every(result => t.equals(result, 'Hyeseong Kim'));
+  });
+
+  t.test('invalid', async t => {
+    const invalid: SearchResult = {
+      __typename: undefined,
+      id: 'User:2',
+      username: 'Invalid User',
+      email: 'nah',
+      role: Role.User,
+    };
+
+    t.throws(() => mapUnionWithDefault(invalid, {
+      _: true,
+    }));
+  });
+});

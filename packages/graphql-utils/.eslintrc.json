@@ -1,0 +1,16 @@
+{
+  "parserOptions": {
+    "project": "./tsconfig.json"
+  },
+  "overrides": [
+    {
+      "files": [
+        "**/*.test.ts"
+      ],
+      "rules": {
+        "@typescript-eslint/no-floating-promises": "off",
+        "@typescript-eslint/require-await": "off"
+      }
+    }
+  ]
+}

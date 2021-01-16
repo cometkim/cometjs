@@ -2,6 +2,9 @@ flags:
   core:
     paths:
       - packages/core
+  graphql-utils:
+    paths:
+      - packages/graphql-utils
 
 coverage:
   status:
@@ -11,6 +14,10 @@ coverage:
       "@cometjs/core":
         target: "100%"
         flags: core
+
+      "@cometjs/graphql-utils":
+        target: "100%"
+        flags: graphql-utils
 
 ignore:
   - .yarn

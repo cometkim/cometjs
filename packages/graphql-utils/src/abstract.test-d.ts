@@ -1,4 +1,7 @@
-import { mapUnion, mapUnionWithDefault } from '../src/abstract';
+import { expectType } from 'tsd';
+import type { IfEquals } from '@cometjs/core';
+
+import { mapUnion, mapUnionWithDefault } from './abstract';
 
 type Scalars = {
   ID: string,
@@ -6,7 +9,6 @@ type Scalars = {
   Boolean: boolean,
   Int: number,
   Float: number,
-  Date: any,
 };
 
 type Node = {
@@ -38,7 +40,6 @@ type ChatMessage = Node & {
   __typename?: 'ChatMessage',
   id: Scalars['ID'],
   content: Scalars['String'],
-  time: Scalars['Date'],
   user: User,
 };
 
@@ -46,21 +47,21 @@ type SearchResult = User | Chat | ChatMessage;
 
 const result = {} as SearchResult;
 
-// $ExpectType ChatMessage[]
-const a = mapUnion(result, {
+const t1 = mapUnion(result, {
   User: [] as ChatMessage[],
   Chat: result => result.messages,
   ChatMessage: result => [result],
 });
+expectType<IfEquals<typeof t1, ChatMessage[], true>>(true);
 
-// $ExpectType Role
-const b = mapUnionWithDefault(result, {
+const t2 = mapUnionWithDefault(result, {
   User: result => result.role,
   _: Role.User,
 });
+expectType<IfEquals<typeof t2, Role, true>>(true);
 
-// $ExpectType string
-const c = mapUnionWithDefault(result, {
-  User: result => result.nickname,
-  _: 'Anonymous',
+const t3 = mapUnionWithDefault(result, {
+  User: user => user.username,
+  _: () => 'Anonymous',
 });
+expectType<IfEquals<typeof t3, string, true>>(true);
