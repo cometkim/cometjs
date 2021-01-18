@@ -5,6 +5,9 @@ flags:
   graphql-utils:
     paths:
       - packages/graphql-utils
+  jest-utils:
+    paths:
+      - packages/jest-utils
 
 coverage:
   status:
@@ -18,6 +21,10 @@ coverage:
       "@cometjs/graphql-utils":
         target: "100%"
         flags: graphql-utils
+
+      "@cometjs/jest-utils":
+        target: "100%"
+        flags: jest-utils
 
 ignore:
   - .yarn

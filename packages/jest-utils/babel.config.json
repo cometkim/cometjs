@@ -4,32 +4,10 @@
   "presets": [
     "@babel/preset-typescript",
     ["@babel/preset-env", {
-      "useBuiltIns": "usage",
-      "corejs": 3,
+      "targets": {
+        "node": 12
+      },
       "shippedProposals": true
     }]
-  ],
-  "env": {
-    "node": {
-      "presets": [
-        ["@babel/preset-env", {
-          "modules": "commonjs",
-          "targets": {
-            "node": 10
-          }
-        }]
-      ]
-    },
-    "module": {
-      "presets": [
-        ["@babel/preset-env", {
-          "modules": false,
-          "bugfixes": true,
-          "targets": {
-            "esmodules": true
-          }
-        }]
-      ]
-    }
-  }
+  ]
 }

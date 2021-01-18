@@ -1,4 +1,6 @@
-import cloneDeepWith from 'lodash-es/cloneDeepWith';
+/* eslint-disable @typescript-eslint/ban-types */
+
+import cloneDeepWith from 'lodash/cloneDeepWith';
 
 export type DeeplyMocked<T> = (
   T extends ((...args: infer TArgs) => infer TReturn) ? jest.Mock<TReturn, TArgs> :
@@ -12,38 +14,39 @@ function mockIfFunction(value: unknown) {
   }
 }
 
-/**
- * Deeply clone a object/function with replacing every function to `jest.fn()`
- *
- * @param module an interface
- */
-export function cloneWithMock<T>(module: T) {
+function cloneWithMock<T>(module: T): DeeplyMocked<T> {
   return cloneDeepWith(module, mockIfFunction) as DeeplyMocked<T>;
 }
 
 /**
- * Mocking a module with deeply-mocked clone.
- * Use this instead of `jest.mock(...)`.
+ * Replace a module implimatations with `jest.fn`
+ * Use this instead of `jest.doMock(...)`.
  *
  * @param modulePath module path to replace with mock
  *
  * @example
  * ```ts
- * const [fsMock, fs] = deeplyMocked<typeof import('fs')>('fs');
+ * beforeEach(() => {
+ *  jest.resetModules();
+ * });
  *
- * test('a function use file system', () => {
- *   fsMock.readFileSync.mockImplementationOnce(path => {
+ * test('a function use file system', async () => {
+ *   const fs = deepMock<typeof import('fs')>('fs');
+ *   fs.readFileSync.mockImplementationOnce(path => {
  *     return `File from ${path}`;
  *   });
+ *
+ *   const { readContent } = await import('my-module-depends-on-fs');
+ *
  *   const result = readContent('somewhere');
- *   expect(fsMock.readFileSync).toBeCalled();
  *   expect(result).toEqual('File from somewhere');
+ *   expect(fs.readFileSync).toBeCalledWith('somewhere');
  * });
  * ```
  */
-export function deeplyMock<T>(modulePath: string) {
-  const actual = jest.requireActual(modulePath) as T;
-  const mocked = cloneWithMock(actual);
-  jest.mock(modulePath, () => mocked);
-  return [mocked, actual] as const;
+export function deepMock<T>(modulePath: string): DeeplyMocked<T> {
+  const actual = jest.requireActual<T>(modulePath);
+  const mock = cloneWithMock(actual);
+  jest.mock(modulePath, () => mock);
+  return mock;
 }

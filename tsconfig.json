@@ -1,8 +1,9 @@
 {
   "compilerOptions": {
     "target": "ESNext",
-    "lib": ["ESNext", "DOM"],
+    "module": "ESNext",
     "moduleResolution": "node",
+    "lib": ["ESNext", "DOM"],
     "incremental": true,
     "composite": true,
     "strict": true,
