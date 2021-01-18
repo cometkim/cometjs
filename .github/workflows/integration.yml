@@ -58,10 +58,10 @@ jobs:
           node-version: 15.x
 
       - name: Test all packages
-        run: yarn workspaces foreach -p run test
-
-      - name: Generate coverage reports
-        run: yarn workspaces foreach -p run test --coverage-report=json
+        run: |
+          yarn test
+          yarn test --coverage-report=json
+          yarn test:jest-utils
 
       - name: Send reports to CodeCov
         uses: codecov/codecov-action@v1
