@@ -57,13 +57,17 @@ jobs:
         with:
           node-version: 15.x
 
+      - name: Build package dependencies
+        run: |
+          yarn workspaces foreach --topological-dev --parallel run build
+
       - name: Test all packages
         run: |
           yarn test
           yarn test --coverage-report=json
           yarn test:jest-utils
 
-      - name: Send reports to CodeCov
+      - name: Send coverage reports to CodeCov
         uses: codecov/codecov-action@v1
         with:
-          flags: core,graphql-utils,jest-utils
+          flags: core,react-utils,graphql-utils,jest-utils
