@@ -8,6 +8,9 @@ flags:
   jest-utils:
     paths:
       - packages/jest-utils
+  react-utils:
+    paths:
+      - packages/react-utils
 
 coverage:
   status:
@@ -25,6 +28,10 @@ coverage:
       "@cometjs/jest-utils":
         target: "100%"
         flags: jest-utils
+
+      "@cometjs/react-utils":
+        target: "100%"
+        flags: react-utils
 
 ignore:
   - .yarn
