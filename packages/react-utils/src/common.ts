@@ -9,10 +9,9 @@ import type { OverrideProps } from '@cometjs/core';
  * @example
  * ```tsx
  * import MyComponent from './MyComponent';
- * type MyComponentProps = PropsOf<typeof MyComponent>;
- * ```
+ * type MyComponentProps = PropsOf<typeof MyComponent>; ```
  */
-export type PropsOf<TComponent extends React.ElementType> = React.ComponentProps<TComponent>;
+export type PropsOf<TComponent extends React.ComponentType> = React.ComponentProps<TComponent>;
 
 /**
  * Infer a single prop type of `typeof MyComponent`.
@@ -23,7 +22,10 @@ export type PropsOf<TComponent extends React.ElementType> = React.ComponentProps
  * type MyComponentChangeHandler = PropOf<typeof MyComponent, 'onChange'>;
  * ```
  */
-export type PropOf<TComponent extends React.ElementType, TKey extends keyof PropsOf<TComponent>> = PropsOf<TComponent>[TKey];
+export type PropOf<
+  TComponent extends React.ComponentType,
+  TKey extends keyof PropsOf<TComponent>
+> = PropsOf<TComponent>[TKey];
 
 /**
  * Infer possible ref type of `typeof MyComponent`.
@@ -42,7 +44,9 @@ export type PropOf<TComponent extends React.ElementType, TKey extends keyof Prop
  * <MyComponent ref={ref}/>
  * ```
  */
-export type RefOf<TRefForwardingComponent extends React.ElementType> = React.ElementRef<TRefForwardingComponent>;
+export type RefOf<TRefForwardingComponent extends React.ElementType> = (
+  React.ElementRef<TRefForwardingComponent>
+);
 
 /**
  * Safely override exist prop types

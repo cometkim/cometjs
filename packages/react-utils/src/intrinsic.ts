@@ -32,11 +32,11 @@ import type { OverrideProps } from '@cometjs/core';
  * ```
  */
 export type IntrinsicElementWrapperComponent<
-  TTag extends keyof JSX.IntrinsicElements,
-  TProps = {}
-> = React.RefForwardingComponent<
-  InferIntrinsicElementFromAttributes<JSX.IntrinsicElements[TTag]>,
-  OverrideProps<JSX.IntrinsicElements[TTag], TProps>
+  TElement extends keyof JSX.IntrinsicElements,
+  TProps = {} // eslint-disable-line @typescript-eslint/ban-types
+> = React.ForwardRefRenderFunction<
+  InferIntrinsicElementFromAttributes<JSX.IntrinsicElements[TElement]>,
+  OverrideProps<JSX.IntrinsicElements[TElement], TProps>
 >;
 
 type InferIntrinsicElementFromAttributes<T> = T extends React.ClassAttributes<infer TElement>
