@@ -1,5 +1,4 @@
-import { expectType } from 'tsd';
-import type { IfEquals } from '@cometjs/core';
+import { expectEquals } from '@cometjs/core';
 
 import { mapUnion, mapUnionWithDefault } from './abstract';
 
@@ -52,16 +51,16 @@ const t1 = mapUnion(result, {
   Chat: result => result.messages,
   ChatMessage: result => [result],
 });
-expectType<IfEquals<typeof t1, ChatMessage[], true>>(true);
+expectEquals<typeof t1, ChatMessage[]>();
 
 const t2 = mapUnionWithDefault(result, {
   User: result => result.role,
   _: Role.User,
 });
-expectType<IfEquals<typeof t2, Role, true>>(true);
+expectEquals<typeof t2, Role>();
 
 const t3 = mapUnionWithDefault(result, {
   User: user => user.username,
   _: () => 'Anonymous',
 });
-expectType<IfEquals<typeof t3, string, true>>(true);
+expectEquals<typeof t3, string>();
