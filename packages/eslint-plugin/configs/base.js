@@ -49,5 +49,6 @@ module.exports = {
       },
     }],
     'no-console': 'warn',
+    'no-unused-vars': ['error', { argsIgnorePattern: '^_' }],
   },
 };
