@@ -32,12 +32,11 @@
     "lib"
   ],
   "peerDependencies": {
-    "graphql": ">=14.0.0",
+    "graphql": "^14.0.0 || ^15.0.0",
     "urql": "^1.9.5"
   },
   "dependencies": {
-    "@cometjs/core": "workspace:^0.2.0",
-    "@cometjs/graphql-utils": "workspace:^0.1.1"
+    "@cometjs/core": "workspace:packages/core"
   },
   "devDependencies": {
     "@babel/cli": "^7.10.5",
