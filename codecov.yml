@@ -11,6 +11,9 @@ flags:
   react-utils:
     paths:
       - packages/react-utils
+  apollo-client-utils:
+    paths:
+      - packages/apollo-client-utils
 
 coverage:
   status:
@@ -32,6 +35,10 @@ coverage:
       "@cometjs/react-utils":
         target: "100%"
         flags: react-utils
+
+      "@cometjs/apollo-client-utils":
+        target: "100%"
+        flags: apollo-client-utils
 
 ignore:
   - .yarn

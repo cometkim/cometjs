@@ -1,9 +1,14 @@
 {
   "name": "@cometjs/apollo-client-utils",
-  "description": "CometKim's utility collections for Apollo Client",
+  "description": "CometKim's utility collection for Apollo Client",
   "version": "0.1.0",
   "license": "MIT",
-  "main": "./src/index.ts",
+  "source": "src/index.ts",
+  "main": "lib/index.js",
+  "exports": "lib/index.modern.js",
+  "module": "lib/index.module.js",
+  "unpkg": "lib/index.umd.js",
+  "types": "lib/index.d.ts",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/cometkim/cometjs.git",
@@ -11,42 +16,44 @@
   },
   "author": {
     "name": "Hyeseong Kim",
-    "email": "cometkim.kr@gmail.com"
+    "email": "hey@hyeseong.com"
   },
   "scripts": {
-    "build": "concurrently \"yarn:build:*\"",
-    "build:dts": "tsc --emitDeclarationOnly --skipLibCheck --outDir lib",
-    "build:node": "babel src --env-name main --extensions .ts --out-dir lib --out-file-extension .js --source-maps",
-    "build:module": "babel src --env-name module --extensions .ts --out-dir lib --out-file-extension .mjs --source-maps",
+    "lint": "eslint .",
+    "test": "tap",
+    "dev": "microbundle watch",
+    "build": "microbundle",
     "prepack": "rm -rf lib && yarn build"
   },
   "publishConfig": {
-    "main": "./lib/index.js",
-    "module": "./lib/index.mjs",
-    "types": "./lib/index.d.ts",
     "access": "public"
   },
   "files": [
-    "src",
     "lib"
   ],
   "peerDependencies": {
-    "@apollo/client": "^3.0.0 || ^3.0.0-beta.41",
-    "graphql": ">=14.0.0"
+    "@apollo/client": "^3.0.0",
+    "graphql": "^14.0.0 || ^15.0.0"
   },
   "dependencies": {
-    "@cometjs/core": "workspace:^0.2.0",
-    "@cometjs/graphql-utils": "workspace:^0.1.1"
+    "@cometjs/core": "workspace:packages/core",
+    "@cometjs/graphql-utils": "workspace:packages/graphql-utils"
   },
   "devDependencies": {
-    "@apollo/client": "^3.0.0-beta.41",
-    "@babel/cli": "^7.10.5",
-    "@babel/core": "^7.11.4",
-    "@babel/preset-env": "^7.11.0",
-    "@babel/preset-typescript": "^7.10.4",
+    "@apollo/client": "^3.3.7",
     "@types/graphql": "^14.5.0",
-    "concurrently": "^5.3.0",
-    "graphql": "^14.6.0",
-    "typescript": "^4.0.2"
+    "@types/react": "^17.0.1",
+    "@types/react-test-renderer": "^17.0.0",
+    "@types/sinon": "^9.0.10",
+    "@types/tap": "^14.10.2",
+    "eslint": "^7.18.0",
+    "graphql": "^15.5.0",
+    "microbundle": "^0.13.0",
+    "react": "^17.0.1",
+    "react-error-boundary": "^3.1.0",
+    "react-test-renderer": "^17.0.1",
+    "sinon": "^9.2.4",
+    "tap": "^14.11.0",
+    "typescript": "^4.1.3"
   }
 }

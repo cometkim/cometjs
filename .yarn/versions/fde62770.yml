@@ -1,11 +1,11 @@
 releases:
+  "@cometjs/apollo-client-utils": major
   "@cometjs/core": major
   "@cometjs/eslint-plugin": minor
   "@cometjs/graphql-utils": major
   "@cometjs/react-utils": major
 
 undecided:
-  - "@cometjs/apollo-client-utils"
   - "@cometjs/jest-utils"
   - "@cometjs/urql-utils"
   - "@cometjs/web-utils"
