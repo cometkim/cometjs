@@ -24,7 +24,7 @@
     "email": "hey@hyeseong.kim"
   },
   "scripts": {
-    "test": "BABEL_ENV=test jest",
+    "test": "jest",
     "build": "microbundle --globals @cometjs/core=cometjsCore",
     "prepack": "yarn build"
   },
@@ -38,8 +38,7 @@
     "urql": "^2.0.0"
   },
   "dependencies": {
-    "@cometjs/core": "workspace:packages/core",
-    "core-js": "^3.10.0"
+    "@cometjs/core": "workspace:packages/core"
   },
   "devDependencies": {
     "@babel/core": "^7.11.4",
@@ -53,7 +52,7 @@
     "@types/react-test-renderer": "^17.0.1",
     "@types/webpack-env": "^1.16.0",
     "babel-jest": "^26.6.3",
-    "graphql": "^14.6.0",
+    "graphql": "^15.5.0",
     "jest": "^26.6.3",
     "microbundle": "^0.13.0",
     "react": "^17.0.1",

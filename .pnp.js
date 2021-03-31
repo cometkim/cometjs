@@ -2943,8 +2943,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@types/react-test-renderer", "npm:17.0.1"],
             ["@types/webpack-env", "npm:1.16.0"],
             ["babel-jest", "virtual:caddf51df4928b33a437ca87b8f5ddfb6205ebd6d8231f74d4ee7223f3866e6f815b221aa1e2bd33e98915f701e95bae72a93d2288b49a34a6246bdbc2a4a132#npm:26.6.3"],
-            ["core-js", "npm:3.10.0"],
-            ["graphql", "npm:14.7.0"],
+            ["graphql", "npm:15.5.0"],
             ["jest", "npm:26.6.3"],
             ["microbundle", "npm:0.13.0"],
             ["react", "npm:17.0.1"],
@@ -3005,7 +3004,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageDependencies": [
             ["@graphql-typed-document-node/core", "virtual:3fc6de70cc3c6f3742321cd9853bc63a4dbb0a08f37a96ff332b43123fdc8d52bc0ca3f4add88650782d4eccda0a644ee902e2cb759e64dba8b0e493fe155f5e#npm:3.1.0"],
             ["@types/graphql", null],
-            ["graphql", "npm:14.7.0"]
+            ["graphql", "npm:15.5.0"]
           ],
           "packagePeers": [
             "@types/graphql",
@@ -4292,7 +4291,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@urql/core", "virtual:d40803caa783c7c0af30d7caa44e84be85b40848c92256dd79546c446939fd5f74f22c4ee5d70a55871594df726a035f4e0a8169522f892aae11952901e00f88#npm:2.0.0"],
             ["@graphql-typed-document-node/core", "virtual:3fc6de70cc3c6f3742321cd9853bc63a4dbb0a08f37a96ff332b43123fdc8d52bc0ca3f4add88650782d4eccda0a644ee902e2cb759e64dba8b0e493fe155f5e#npm:3.1.0"],
             ["@types/graphql", null],
-            ["graphql", "npm:14.7.0"],
+            ["graphql", "npm:15.5.0"],
             ["wonka", "npm:4.0.15"]
           ],
           "packagePeers": [
@@ -6073,15 +6072,6 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageLocation": "./.yarn/cache/copy-descriptor-npm-0.1.1-864db4ab66-c052cf571f.zip/node_modules/copy-descriptor/",
           "packageDependencies": [
             ["copy-descriptor", "npm:0.1.1"]
-          ],
-          "linkType": "HARD",
-        }]
-      ]],
-      ["core-js", [
-        ["npm:3.10.0", {
-          "packageLocation": "./.yarn/unplugged/core-js-npm-3.10.0-2088bcb2de/node_modules/core-js/",
-          "packageDependencies": [
-            ["core-js", "npm:3.10.0"]
           ],
           "linkType": "HARD",
         }]
@@ -8167,14 +8157,6 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         }]
       ]],
       ["graphql", [
-        ["npm:14.7.0", {
-          "packageLocation": "./.yarn/cache/graphql-npm-14.7.0-5e981fc8a0-3b7d50f98f.zip/node_modules/graphql/",
-          "packageDependencies": [
-            ["graphql", "npm:14.7.0"],
-            ["iterall", "npm:1.3.0"]
-          ],
-          "linkType": "HARD",
-        }],
         ["npm:15.4.0", {
           "packageLocation": "./.yarn/cache/graphql-npm-15.4.0-ffa0f9cd71-1a307dcfe2.zip/node_modules/graphql/",
           "packageDependencies": [
@@ -9332,15 +9314,6 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["istanbul-reports", "npm:3.0.2"],
             ["html-escaper", "npm:2.0.2"],
             ["istanbul-lib-report", "npm:3.0.0"]
-          ],
-          "linkType": "HARD",
-        }]
-      ]],
-      ["iterall", [
-        ["npm:1.3.0", {
-          "packageLocation": "./.yarn/cache/iterall-npm-1.3.0-a2cb04809f-25ae2d07cf.zip/node_modules/iterall/",
-          "packageDependencies": [
-            ["iterall", "npm:1.3.0"]
           ],
           "linkType": "HARD",
         }]
@@ -14911,7 +14884,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@types/graphql", null],
             ["@types/react", "npm:17.0.3"],
             ["@urql/core", "virtual:d40803caa783c7c0af30d7caa44e84be85b40848c92256dd79546c446939fd5f74f22c4ee5d70a55871594df726a035f4e0a8169522f892aae11952901e00f88#npm:2.0.0"],
-            ["graphql", "npm:14.7.0"],
+            ["graphql", "npm:15.5.0"],
             ["react", "npm:17.0.1"],
             ["wonka", "npm:4.0.15"]
           ],
