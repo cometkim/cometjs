@@ -17,7 +17,11 @@
   },
   "author": {
     "name": "Hyeseong Kim",
-    "email": "cometkim.kr@gmail.com"
+    "email": "hey@hyeseong.kim"
+  },
+  "bugs": {
+    "url": "https://github.com/cometkim/cometjs/issues",
+    "email": "hey@hyeseong.kim"
   },
   "scripts": {
     "test": "BABEL_ENV=test jest",
