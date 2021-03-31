@@ -19,7 +19,6 @@
     "@babel/core": "^7.11.4",
     "@cometjs/eslint-plugin": "workspace:packages/eslint-plugin",
     "@types/jest": "^26.0.14",
-    "@types/react": "^16.9.49",
     "@types/react-dom": "^16.9.8",
     "@typescript-eslint/eslint-plugin": "^4.15.2",
     "@yarnpkg/pnpify": "^2.4.0",
