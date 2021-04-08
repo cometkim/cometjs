@@ -1,8 +1,10 @@
+import { noop } from '@cometjs/core';
 import * as React from 'react';
 import type { ReactTestRenderer } from 'react-test-renderer';
 import { create as makeRenderer, act } from 'react-test-renderer';
+import type { Client } from 'urql';
 import { Provider, CombinedError, useQuery } from 'urql';
-import { makeSubject } from 'wonka';
+import { never, makeSubject } from 'wonka';
 
 import { UseQueryContext, useQuery5, mapResult5 } from '../src';
 
@@ -61,7 +63,7 @@ describe('useQuery5', () => {
   test('data or error isn\' accptted on idle state', () => {
     const mockClient = {
       executeQuery: jest.fn(() => never),
-    };
+    } as unknown as Client;
 
     let renderer: ReactTestRenderer;
     act(() => {
@@ -83,10 +85,11 @@ describe('useQuery5', () => {
           value={(...args) => {
             void useQuery(...args);
             return [{
-              data: {
-                value: 'foo',
-              },
-            }]
+              data: { value: 'foo' } as any,
+              error: undefined,
+              fetching: false,
+              stale: false,
+            }, noop];
           }}
         >
           <Provider value={mockClient}>
@@ -105,10 +108,13 @@ describe('useQuery5', () => {
           value={(...args) => {
             void useQuery(...args);
             return [{
+              data: undefined,
               error: new CombinedError({
                 networkError: new Error('something wrong'),
               }),
-            }]
+              fetching: false,
+              stale: false,
+            }, noop];
           }}
         >
           <Provider value={mockClient}>
@@ -126,7 +132,7 @@ describe('useQuery5', () => {
     const subject = makeSubject<Subject>();
     const mockClient = {
       executeQuery: jest.fn(() => subject.source),
-    };
+    } as unknown as Client;
 
     let renderer: ReactTestRenderer;
     act(() => {
@@ -157,7 +163,7 @@ describe('useQuery5', () => {
     const subject = makeSubject<Subject>();
     const mockClient = {
       executeQuery: jest.fn(() => subject.source),
-    };
+    } as unknown as Client;
 
     let renderer: ReactTestRenderer;
     act(() => {
@@ -179,8 +185,7 @@ describe('useQuery5', () => {
     act(() => {
       subject.next({
         data: {
-          foo: 'foo',
-          bar: null,
+          value: 'foo',
         },
       });
     });
@@ -207,7 +212,7 @@ describe('useQuery5', () => {
     const subject = makeSubject<Subject>();
     const mockClient = {
       executeQuery: jest.fn(() => subject.source),
-    };
+    } as unknown as Client;
 
     let renderer: ReactTestRenderer;
 
@@ -301,7 +306,7 @@ describe('useQuery5', () => {
     const subject = makeSubject<Subject>();
     const mockClient = {
       executeQuery: jest.fn(() => subject.source),
-    };
+    } as unknown as Client;
 
     let renderer: ReactTestRenderer;
 

@@ -1,14 +1,15 @@
 {
   "name": "@cometjs/graphql-utils",
+  "amdName": "cometjsGraphQLUtils",
   "description": "CometKim's utility collections for GraphQL",
   "version": "0.1.1",
   "license": "MIT",
-  "source": "src/index.ts",
-  "main": "lib/index.js",
-  "exports": "lib/index.modern.js",
-  "module": "lib/index.module.js",
-  "unpkg": "lib/index.umd.js",
-  "types": "lib/index.d.ts",
+  "source": "./src/index.ts",
+  "main": "./lib/index.js",
+  "exports": "./lib/index.modern.js",
+  "module": "./lib/index.module.js",
+  "unpkg": "./lib/index.umd.js",
+  "types": "./lib/index.d.ts",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/cometkim/cometjs.git",
@@ -23,24 +24,20 @@
     "email": "hey@hyeseong.kim"
   },
   "scripts": {
-    "test": "tap",
     "dev": "microbundle watch",
     "build": "microbundle",
-    "prepack": "rm -rf lib && yarn build",
-    "lint": "eslint .",
-    "tsc": "tsc --noEmit"
+    "prepack": "yarn build"
   },
   "files": [
+    "src",
     "lib"
   ],
   "dependencies": {
     "@cometjs/core": "workspace:packages/core"
   },
   "devDependencies": {
-    "@types/tap": "^14.10.1",
-    "eslint": "^7.17.0",
+    "eslint": "^7.23.0",
     "microbundle": "^0.13.0",
-    "tap": "^14.11.0",
-    "typescript": "^4.1.3"
+    "typescript": "^4.2.3"
   }
 }

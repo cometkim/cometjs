@@ -42,3 +42,4 @@ coverage:
 
 ignore:
   - .yarn
+  - __mock__

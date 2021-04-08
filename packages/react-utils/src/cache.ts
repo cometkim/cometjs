@@ -9,7 +9,7 @@ type ResourceStatus = (
 );
 
 export function makeResourceFromPromise<T>(promise: Promise<T>): Resource<T> {
-  let status = 'pending' as ResourceStatus;
+  let status: ResourceStatus = 'pending';
   let error: unknown;
   let data: T;
 

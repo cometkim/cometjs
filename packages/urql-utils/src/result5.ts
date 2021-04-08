@@ -1,6 +1,6 @@
 import * as React from 'react';
 import type { CombinedError, UseQueryArgs } from 'urql';
-import { Function as Fn } from '@cometjs/core';
+import { Fn } from '@cometjs/core';
 
 import { UseQueryContext } from './urqlContext';
 

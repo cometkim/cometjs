@@ -1,5 +1,5 @@
 import type { InferrableAny } from '@cometjs/core';
-import { Function as Fn } from '@cometjs/core';
+import { Fn } from '@cometjs/core';
 
 /**
  * An abstract type has serval subtypes based on `__typename` field.

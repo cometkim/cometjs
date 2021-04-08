@@ -9,25 +9,29 @@
     "url": "git+https://github.com/cometkim/cometjs.git"
   },
   "scripts": {
-    "test": "tap",
-    "test:jest-utils": "yarn workspace @cometjs/jest-utils run test",
-    "tsc": "tsc --noEmit --skipLibCheck",
+    "test": "jest",
+    "type-check": "tsc --noEmit --skipLibCheck",
     "lint": "eslint packages",
-    "lint:fix": "eslint packages --fix"
+    "format": "eslint packages --fix"
   },
   "devDependencies": {
-    "@babel/core": "^7.11.4",
+    "@babel/core": "^7.13.14",
+    "@babel/preset-env": "^7.13.12",
+    "@babel/preset-react": "^7.13.13",
+    "@babel/preset-typescript": "^7.13.0",
     "@cometjs/eslint-plugin": "workspace:packages/eslint-plugin",
-    "@types/jest": "^26.0.14",
-    "@types/react-dom": "^16.9.8",
+    "@types/jest": "^26.0.22",
+    "@types/node": "^14.14.37",
+    "@types/react": "^17.0.3",
     "@typescript-eslint/eslint-plugin": "^4.15.2",
     "@yarnpkg/pnpify": "^2.4.0",
-    "eslint": "^7.17.0",
+    "babel-jest": "^26.6.3",
+    "eslint": "^7.23.0",
     "eslint-plugin-flowtype": "^5.3.1",
     "eslint-plugin-jsx-a11y": "^6.4.1",
     "eslint-plugin-react": "^7.22.0",
     "eslint-plugin-react-hooks": "^4.2.0",
-    "tap": "^14.11.0",
-    "typescript": "^4.1.3"
+    "jest": "^26.6.3",
+    "typescript": "^4.2.3"
   }
 }

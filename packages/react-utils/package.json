@@ -1,14 +1,16 @@
 {
   "name": "@cometjs/react-utils",
+  "amdName": "cometjsReactUtils",
+  "sideEffects": false,
   "description": "CometKim's utility collections for ReactJS",
   "version": "0.2.0",
   "license": "MIT",
-  "source": "src/index.ts",
-  "main": "lib/index.js",
-  "exports": "lib/index.modern.js",
-  "module": "lib/index.module.js",
-  "unpkg": "lib/index.umd.js",
-  "types": "lib/index.d.ts",
+  "source": "./src/index.ts",
+  "main": "./lib/index.js",
+  "exports": "./lib/index.modern.js",
+  "module": "./lib/index.module.js",
+  "unpkg": "./lib/index.umd.js",
+  "types": "./lib/index.d.ts",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/cometkim/cometjs.git",
@@ -18,18 +20,16 @@
     "name": "Hyeseong Kim",
     "email": "hey@hyeseong.kim"
   },
-  "scripts": {
-    "test": "tap",
-    "dev": "microbundle watch",
-    "build": "microbundle",
-    "lint": "eslint .",
-    "tsc": "tsc --noEmit",
-    "prepack": "rm -rf lib && yarn build"
-  },
   "publishConfig": {
     "access": "public"
   },
+  "scripts": {
+    "dev": "microbundle watch",
+    "build": "microbundle",
+    "prepack": "yarn build"
+  },
   "files": [
+    "src",
     "lib"
   ],
   "peerDependencies": {

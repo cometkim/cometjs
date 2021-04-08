@@ -36,8 +36,8 @@ export function toString<X>(option: T<X>): string {
  *
  * @return `'some' | 'none'`
  */
-export function match<X>(option: T<X>): 'some' | 'none' {
-  return isSome(option) ? 'some' : 'none';
+export function match<X>(option: T<X>): 'Some' | 'None' {
+  return isSome(option) ? 'Some' : 'None';
 }
 
 /**
@@ -55,8 +55,8 @@ export function match<X>(option: T<X>): 'some' | 'none' {
  *
  * // Expect: string
  * const argString = mapOption(args, {
- *   some: args => args.join(' '),
- *   none: '', // default value
+ *   Some: args => args.join(' '),
+ *   None: '', // default value
  * });
  * ```
  */
@@ -65,8 +65,8 @@ export function map<X, RSome, RNone = None>(
   fn: (
     | ((t: Some<X>) => RSome)
     | ({
-      some: Fn.T<RSome, Some<X>>,
-      none: Fn.T<RNone, void>,
+      Some: Fn.T<RSome, Some<X>>,
+      None: Fn.T<RNone, void>,
     })
   ),
 ): RSome | RNone {
@@ -94,9 +94,9 @@ export function map<X, RSome, RNone = None>(
 
 export function getExn<X>(option: T<X>, errorFactory?: () => Error): Some<X> {
   return map(option, {
-    some: v => v,
-    none: () => {
-      const error = errorFactory?.() ?? new Error('You tried to get T of Option<T>, ut T is none');
+    Some: v => v,
+    None: () => {
+      const error = errorFactory?.() ?? new Error('You tried to get T of Option<T>, ut T is None');
       throw error;
     },
   });

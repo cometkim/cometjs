@@ -1,6 +1,7 @@
 {
   "name": "@cometjs/urql-utils",
   "amdName": "cometjsUrqlUtils",
+  "sideEffects": false,
   "description": "CometKim's utility collections for urql",
   "version": "0.1.0",
   "license": "MIT",

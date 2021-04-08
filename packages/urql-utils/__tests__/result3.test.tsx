@@ -1,6 +1,7 @@
 import * as React from 'react';
 import type { ReactTestRenderer } from 'react-test-renderer';
 import { create as makeRenderer, act } from 'react-test-renderer';
+import type { Client } from 'urql';
 import { Provider, CombinedError } from 'urql';
 import { makeSubject } from 'wonka';
 
@@ -51,7 +52,7 @@ describe('useQuery3', () => {
     const subject = makeSubject<Subject>();
     const mockClient = {
       executeQuery: jest.fn(() => subject.source),
-    };
+    } as unknown as Client;
 
     let renderer: ReactTestRenderer;
 
@@ -134,7 +135,7 @@ describe('useQuery3', () => {
     const subject = makeSubject<Subject>();
     const mockClient = {
       executeQuery: jest.fn(() => subject.source),
-    };
+    } as unknown as Client;
 
     let renderer: ReactTestRenderer;
 
@@ -214,10 +215,10 @@ describe('useQuery3', () => {
   });
 
   test('refetch always executeQuery', () => {
-    const subject = makeSubject<{ data: Data }>();
+    const subject = makeSubject<Subject>();
     const mockClient = {
       executeQuery: jest.fn(() => subject.source),
-    };
+    } as unknown as Client;
 
     let renderer: ReactTestRenderer;
     act(() => {
@@ -232,8 +233,7 @@ describe('useQuery3', () => {
     act(() => {
       subject.next({
         data: {
-          foo: 'foo',
-          bar: null,
+          value: 'foo',
         },
       });
     });

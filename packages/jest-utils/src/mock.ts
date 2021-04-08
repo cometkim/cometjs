@@ -1,10 +1,8 @@
-/* eslint-disable @typescript-eslint/ban-types */
-
 import cloneDeepWith from 'lodash/cloneDeepWith';
 
 export type DeeplyMocked<T> = (
   T extends ((...args: infer TArgs) => infer TReturn) ? jest.Mock<TReturn, TArgs> :
-  T extends object ? { [P in keyof T]: DeeplyMocked<T[P]> } :
+  T extends Record<string, unknown> ? { [P in keyof T]: DeeplyMocked<T[P]> } :
   T
 );
 
