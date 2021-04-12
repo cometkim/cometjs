@@ -1,5 +1,3 @@
-import t from 'tap';
-
 import { mapUnion, mapUnionWithDefault } from '../src';
 
 type Scalars = {
@@ -78,18 +76,23 @@ const results: SearchResult[] = [
   ...chats,
 ];
 
-t.test('mapUnion', async t => {
-  t.test('map values', async t => {
-    results
+describe('mapUnion', () => {
+  test('map values', () => {
+    const usernames = results
       .map(result => mapUnion(result, {
         User: user => user.username,
         Chat: chat => chat.users[0].username,
         ChatMessage: message => message.user.username,
-      }))
-      .every(result => t.equals(result, 'Hyeseong Kim'));
+      }));
+
+    expect(usernames).toEqual([
+      'Hyeseong Kim',
+      'Hyeseong Kim',
+      'Hyeseong Kim',
+    ]);
   });
 
-  t.test('invalid', async t => {
+  test('invalid', () => {
     const invalid: SearchResult = {
       __typename: undefined,
       id: 'User:2',
@@ -98,25 +101,30 @@ t.test('mapUnion', async t => {
       role: Role.User,
     };
 
-    t.throws(() => mapUnion(invalid, {
+    expect(() => mapUnion(invalid, {
       User: 1,
       Chat: 2,
       ChatMessage: 3,
-    }));
+    })).toThrow();
   });
 });
 
-t.test('mapUnionWithDefault', async t => {
-  t.test('map values', async t => {
-    results
+describe('mapUnionWithDefault', () => {
+  test('map values', () => {
+    const usernames = results
       .map(result => mapUnionWithDefault(result, {
         User: user => user.username,
         _: 'Hyeseong Kim',
-      }))
-      .every(result => t.equals(result, 'Hyeseong Kim'));
+      }));
+
+    expect(usernames).toEqual([
+      'Hyeseong Kim',
+      'Hyeseong Kim',
+      'Hyeseong Kim',
+    ]);
   });
 
-  t.test('invalid', async t => {
+  test('invalid', () => {
     const invalid: SearchResult = {
       __typename: undefined,
       id: 'User:2',
@@ -125,8 +133,8 @@ t.test('mapUnionWithDefault', async t => {
       role: Role.User,
     };
 
-    t.throws(() => mapUnionWithDefault(invalid, {
+    expect(() => mapUnionWithDefault(invalid, {
       _: true,
-    }));
+    })).toThrow();
   });
 });

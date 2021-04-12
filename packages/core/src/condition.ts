@@ -26,6 +26,10 @@ export function isFalsy<X>(condition: T<X>): condition is Falsy {
   return !condition;
 }
 
+export function of<X>(condition: X): T<X> {
+  return condition as T<X>;
+}
+
 export function map<X, R>(condition: T<X>, fn: Fn.T<Truthy<R>, X>): T<R> {
   if (isTruthy(condition)) {
     return Fn.range(fn, condition);

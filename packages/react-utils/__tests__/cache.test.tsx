@@ -1,16 +1,17 @@
 import * as React from 'react';
-import TestRenderer from 'react-test-renderer';
+import { create as makeRenderer } from 'react-test-renderer';
 import { ErrorBoundary } from 'react-error-boundary';
-import t from 'tap';
 import { noop } from '@cometjs/core';
 
 import { makeResourceFromPromise } from '../src';
 
-t.test('suspense for a single promise', async () => {
+describe('suspense for a single promise', () => {
   const Placeholder = () => <span>Placeholder</span>;
   const ErrorDisplay = () => <span>Error</span>;
 
-  t.test('show placeholder if the resource is not ready yet', async () => {
+  const nextTick = () => new Promise<void>(resolve => setTimeout(resolve, 0));
+
+  test('show placeholder if the resource is not ready yet', () => {
     const PendingResource = makeResourceFromPromise<string>(new Promise(noop));
 
     const Display = () => {
@@ -18,7 +19,7 @@ t.test('suspense for a single promise', async () => {
       return <span>{data}</span>;
     };
 
-    const renderer = TestRenderer.create(
+    const renderer = makeRenderer(
       <ErrorBoundary fallback={<ErrorDisplay />}>
         <React.Suspense fallback={<Placeholder />}>
           <Display />
@@ -26,10 +27,10 @@ t.test('suspense for a single promise', async () => {
       </ErrorBoundary>,
     );
 
-    t.ok(renderer.root.findByType(Placeholder));
+    renderer.root.findByType(Placeholder);
   });
 
-  t.test('catch error from error boundary if the resource is rejected', async () => {
+  test('catch error from error boundary if the resource is rejected', async () => {
     const RejectedResource = makeResourceFromPromise<string>(Promise.reject(new Error('rejected')));
 
     const Display = () => {
@@ -45,14 +46,13 @@ t.test('suspense for a single promise', async () => {
       </ErrorBoundary>
     );
 
-    const renderer = TestRenderer.create(render());
-    await new Promise(res => setTimeout(res, 1000));
+    const renderer = makeRenderer(render());
+    await nextTick();
 
-    type R = Exclude<ReturnType<typeof renderer.toJSON>, unknown[]>;
-    t.strictSame((renderer.toJSON() as R)?.children, ['rejected']);
+    expect(renderer.root.findByType('span').children[0]).toEqual('rejected');
   });
 
-  t.test('read fulfilled value', async () => {
+  test('read fulfilled value', async () => {
     const FulfilledResource = makeResourceFromPromise(Promise.resolve('test'));
 
     const Display = () => {
@@ -68,10 +68,9 @@ t.test('suspense for a single promise', async () => {
       </ErrorBoundary>
     );
 
-    const renderer = TestRenderer.create(render());
-    await new Promise(res => setTimeout(res, 1000));
+    const renderer = makeRenderer(render());
+    await nextTick();
 
-    type R = Exclude<ReturnType<typeof renderer.toJSON>, unknown[]>;
-    t.strictSame((renderer.toJSON() as R)?.children, ['test']);
+    expect(renderer.root.findByType('span').children[0]).toEqual('test');
   });
 });

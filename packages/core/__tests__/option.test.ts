@@ -1,106 +1,103 @@
-import t from 'tap';
-
 import { Option, ident } from '../src';
 
 /* eslint-disable @typescript-eslint/ban-ts-comment */
 /* eslint-disable @typescript-eslint/no-unsafe-return */
 
-t.test('Option.isSome', async t => {
-  t.assert(Option.isSome(1));
-  t.assert(Option.isSome(''));
-  t.assertNot(Option.isSome(null));
-  t.assertNot(Option.isSome(undefined));
+test('Option.isSome', () => {
+  expect(Option.isSome(1)).toBe(true);
+  expect(Option.isSome('')).toBe(true);
+  expect(Option.isSome(null)).toBe(false);
+  expect(Option.isSome(undefined)).toBe(false);
 });
 
-t.test('Option.isNone', async t => {
-  t.assert(Option.isNone(null));
-  t.assert(Option.isNone(undefined));
-  t.assertNot(Option.isNone(1));
-  t.assertNot(Option.isNone(''));
+test('Option.isNone', () => {
+  expect(Option.isNone(null)).toBe(true);
+  expect(Option.isNone(undefined)).toBe(true);
+  expect(Option.isNone(1)).toBe(false);
+  expect(Option.isNone('')).toBe(false);
 });
 
-t.test('Option.toString', async t => {
-  t.equals(Option.toString(1), 'Some(number)');
-  t.equals(Option.toString(''), 'Some(string)');
-  t.equals(Option.toString(ident), 'Some(function)');
-  t.equals(Option.toString(null), 'None');
-  t.equals(Option.toString(undefined), 'None');
+test('Option.toString', () => {
+  expect(Option.toString(1)).toEqual('Some(number)');
+  expect(Option.toString('')).toEqual('Some(string)');
+  expect(Option.toString(ident)).toEqual('Some(function)');
+  expect(Option.toString(null)).toEqual('None');
+  expect(Option.toString(undefined)).toEqual('None');
 });
 
-t.test('Option.match', async t => {
-  t.test('some', async t => {
-    t.equals(Option.match(''), 'some');
-    t.equals(Option.match(1), 'some');
-    t.equals(Option.match({}), 'some');
-    t.equals(Option.match(false), 'some');
-    t.equals(Option.match(ident), 'some');
+describe('Option.match', () => {
+  test('some', () => {
+    expect(Option.match('')).toEqual('Some');
+    expect(Option.match(1)).toEqual('Some');
+    expect(Option.match({})).toEqual('Some');
+    expect(Option.match(false)).toEqual('Some');
+    expect(Option.match(ident)).toEqual('Some');
   });
 
-  t.test('none', async t => {
-    t.equals(Option.match(null), 'none');
-    t.equals(Option.match(undefined), 'none');
+  test('none', () => {
+    expect(Option.match(null)).toEqual('None');
+    expect(Option.match(undefined)).toEqual('None');
   });
 });
 
-t.test('Option.map', async t => {
-  t.test('only some', async t => {
+describe('Option.map', () => {
+  test('only some', () => {
     const v1 = 'Hey' as Option.T<string>;
-    t.equals(Option.map(v1, v => v.length), 3);
+    expect(Option.map(v1, v => v.length)).toBe(3);
 
     const v2 = null as Option.T<string>;
-    t.equals(Option.map(v2, v => v.length), null);
+    expect(Option.map(v2, v => v.length)).toBeNull();
   });
 
-  t.test('patterns', async t => {
+  test('patterns', () => {
     const v1 = 'Hey' as Option.T<string>;
-    t.equals(
+    expect(
       Option.map(v1, {
         Some: v => v.length,
         None: 0,
       }),
-      3,
-    );
+    ).toBe(3);
+
     const v2 = null as Option.T<string>;
-    t.equals(
+    expect(
       Option.map(v2, {
         Some: v => v.length,
         None: 0,
       }),
-      0,
-    );
+    ).toBe(0);
   });
 
-  t.test('partial', async t => {
+  test('partial', () => {
     // @ts-ignore
-    t.throws(() => Option.map(true, { none: true }));
+    expect(() => Option.map(true, { none: true })).toThrow();
     // @ts-ignore
-    t.doesNotThrow(() => Option.map(true, { some: true }));
+    expect(() => Option.map(true, { some: true })).toThrow();
     // @ts-ignore
-    t.throws(() => Option.map(null, { some: true }));
+    expect(() => Option.map(null, { some: true })).toThrow();
     // @ts-ignore
-    t.doesNotThrow(() => Option.map(null, { none: true }));
+    expect(() => Option.map(null, { none: true })).toThrow();
   });
 
-  t.test('invalid', async t => {
+  test('invalid', () => {
     // @ts-ignore
-    t.throws(() => Option.map(true, 1234));
+    expect(() => Option.map(true, 1234)).toThrow();
   });
 });
 
-t.test('Option.getExn', async t => {
+test('Option.getExn', () => {
   const v1 = Option.of(1);
   const v2 = Option.fromThrowable(() => {
     throw new Error('Hey');
   });
 
-  t.equals(Option.getExn(v1), 1);
-  t.throws(() => Option.getExn(v2));
+  expect(Option.getExn(v1)).toBe(1);
+  expect(() => Option.getExn(v2)).toThrow();
 });
 
-t.test('Option.fromThrowable', async t => {
+test('Option.fromThrowable', () => {
   const v = Option.fromThrowable(() => {
     throw new Error('Hey');
   });
-  t.doesNotThrow(() => Option.map(v, ident));
-  t.assert(Option.isNone(v));
+  expect(() => Option.map(v, ident)).not.toThrow();
+  expect(Option.isNone(v)).toBe(true);
 });

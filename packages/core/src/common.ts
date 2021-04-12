@@ -125,16 +125,19 @@ export const ident = <X>(x: X): X => x;
  * for type-level assertion
  */
 // eslint-disable-next-line @typescript-eslint/no-empty-function
+/* istanbul ignore next */
 export function expectType<T>(_: T): void {}
 
 /**
  * for type-level assertion (loose)
  */
 // eslint-disable-next-line @typescript-eslint/no-empty-function
+/* istanbul ignore next */
 export function expectAssignable<A, B extends A = A>(_: B): void {}
 
 /**
  * Check if given two type params are equal.
  */
 // eslint-disable-next-line @typescript-eslint/no-empty-function
+/* istanbul ignore next */
 export function expectEquals<A, B>(..._: IfEquals<A, B, [true?], [void]>): void {}

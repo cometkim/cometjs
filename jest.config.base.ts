@@ -16,10 +16,17 @@ const config: Config.InitialOptions = {
     }],
   },
   collectCoverage: true,
+  testPathIgnorePatterns: [
+    '.yarn',
+    'node_modules',
+    '__mock__',
+    '\.test-d\.ts$',
+  ],
   coveragePathIgnorePatterns: [
     '.yarn',
     'node_modules',
     '__mock__',
+    '\.test-d\.ts$',
   ],
 };
 

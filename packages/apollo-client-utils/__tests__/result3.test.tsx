@@ -72,7 +72,7 @@ describe('useQuery3', () => {
       renderer.root.findByType(Placeholder);
     });
 
-    test('recieve data at first', async () => {
+    test('receive data at first', async () => {
       await act(() => {
         return nextTick();
       });
