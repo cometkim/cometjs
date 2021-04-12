@@ -32,6 +32,9 @@
     "src",
     "lib"
   ],
+  "publishConfig": {
+    "access": "public"
+  },
   "devDependencies": {
     "@babel/preset-env": "^7.13.15",
     "@babel/preset-react": "^7.13.13",

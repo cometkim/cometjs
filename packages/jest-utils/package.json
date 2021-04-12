@@ -14,8 +14,6 @@
     "email": "hey@hyeseong.kim"
   },
   "scripts": {
-    "lint": "eslint .",
-    "tsc": "tsc --noEmit",
     "test": "jest",
     "build": "concurrently \"yarn:build:*\"",
     "build:dts": "tsc --emitDeclarationOnly",

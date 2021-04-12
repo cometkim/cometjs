@@ -33,6 +33,9 @@
     "src",
     "lib"
   ],
+  "publishConfig": {
+    "access": "public"
+  },
   "peerDependencies": {
     "graphql": "^14.0.0 || ^15.0.0",
     "react": "^16.8.0 || ^17.0.0",
