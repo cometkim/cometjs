@@ -1,12 +1,12 @@
-import { deepMock } from '../src';
+import { deepMockModule } from '../src';
 
-describe('deepMock', () => {
+describe('deepMockModule', () => {
   beforeEach(() => {
     jest.resetModules();
   });
 
   test.each([1, 2, 3])('seq %i', async seq => {
-    const fs = deepMock<typeof import('fs')>('fs');
+    const fs = deepMockModule<typeof import('fs')>('fs');
     fs.readFileSync.mockImplementationOnce(() => {
       return `mock seq: ${seq}`;
     });

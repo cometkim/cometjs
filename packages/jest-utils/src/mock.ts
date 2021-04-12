@@ -1,3 +1,4 @@
+import type { Callable } from '@cometjs/core';
 import cloneDeepWith from 'lodash/cloneDeepWith';
 
 export type DeeplyMocked<T> = (
@@ -8,12 +9,12 @@ export type DeeplyMocked<T> = (
 
 function mockIfFunction(value: unknown) {
   if (typeof value === 'function') {
-    return jest.fn();
+    return jest.fn(value as Callable);
   }
 }
 
-function cloneWithMock<T>(module: T): DeeplyMocked<T> {
-  return cloneDeepWith(module, mockIfFunction) as DeeplyMocked<T>;
+export function deepMock<T>(obj: T): DeeplyMocked<T> {
+  return cloneDeepWith(obj, mockIfFunction) as DeeplyMocked<T>;
 }
 
 /**
@@ -42,9 +43,9 @@ function cloneWithMock<T>(module: T): DeeplyMocked<T> {
  * });
  * ```
  */
-export function deepMock<T>(modulePath: string): DeeplyMocked<T> {
+export function deepMockModule<T>(modulePath: string): DeeplyMocked<T> {
   const actual = jest.requireActual<T>(modulePath);
-  const mock = cloneWithMock(actual);
+  const mock = deepMock(actual);
   jest.mock(modulePath, () => mock);
   return mock;
 }
