@@ -11,6 +11,7 @@ jobs:
   chore:
     name: Testing chores
     runs-on: ubuntu-latest
+    if: ${{ github.event_name == 'pull_request' }}
     steps:
       - uses: actions/checkout@v2
 
@@ -30,21 +31,17 @@ jobs:
           if [[ $(git diff --name-only "$(git merge-base origin/"$TARGET_BRANCH" HEAD)" HEAD -- .yarn/cache | wc -l) -gt 0 ]]; then
             yarn --immutable --immutable-cache --check-cache
           fi
-        if: |
-          github.event.pull_request != ''
 
       - name: Check that the PR describes which packages should be bumped
         shell: bash
         run: |
           yarn version check
-        if: |
-          github.event.pull_request != ''
 
       - name: Check for linting errors
-        run: yarn lint packages
+        run: yarn lint
 
       - name: Check for type errors
-        run: yarn tsc
+        run: yarn type-check
 
   test:
     name: Unit testing
@@ -59,15 +56,13 @@ jobs:
 
       - name: Build package dependencies
         run: |
-          yarn workspaces foreach --topological-dev --parallel run build
+          yarn workspaces foreach --topological --parallel run build
 
       - name: Test all packages
         run: |
           yarn test
-          yarn test --coverage-report=json
-          yarn test:jest-utils
 
       - name: Send coverage reports to CodeCov
         uses: codecov/codecov-action@v1
         with:
-          flags: core,react-utils,graphql-utils,jest-utils
+          flags: core,react-utils,graphql-utils,jest-utils,apollo-client-utils,urql-utils
