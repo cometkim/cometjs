@@ -28,6 +28,9 @@
     "build": "microbundle",
     "prepack": "yarn build"
   },
+  "publishConfig": {
+    "access": "public"
+  },
   "files": [
     "src",
     "lib"
