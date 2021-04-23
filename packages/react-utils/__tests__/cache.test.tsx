@@ -9,7 +9,7 @@ describe('suspense for a single promise', () => {
   const Placeholder = () => <span>Placeholder</span>;
   const ErrorDisplay = () => <span>Error</span>;
 
-  const nextTick = () => new Promise<void>(resolve => setTimeout(resolve, 0));
+  const cleanup = () => new Promise<void>(res => setTimeout(res, 0));
 
   test('show placeholder if the resource is not ready yet', () => {
     const PendingResource = makeResourceFromPromise<string>(new Promise(noop));
@@ -38,16 +38,17 @@ describe('suspense for a single promise', () => {
       return <span>{data}</span>;
     };
 
-    const render = () => (
+    const renderer = makeRenderer(
       <ErrorBoundary fallbackRender={e => <span>{e.error.message}</span>}>
         <React.Suspense fallback={<Placeholder />}>
           <Display />
         </React.Suspense>
-      </ErrorBoundary>
+      </ErrorBoundary>,
     );
 
-    const renderer = makeRenderer(render());
-    await nextTick();
+    renderer.root.findByType(Placeholder);
+
+    await cleanup();
 
     expect(renderer.root.findByType('span').children[0]).toEqual('rejected');
   });
@@ -60,16 +61,17 @@ describe('suspense for a single promise', () => {
       return <span>{data}</span>;
     };
 
-    const render = () => (
+    const renderer = makeRenderer(
       <ErrorBoundary fallback={<ErrorDisplay />}>
         <React.Suspense fallback={<Placeholder />}>
           <Display />
         </React.Suspense>
-      </ErrorBoundary>
+      </ErrorBoundary>,
     );
 
-    const renderer = makeRenderer(render());
-    await nextTick();
+    renderer.root.findByType(Placeholder);
+
+    await cleanup();
 
     expect(renderer.root.findByType('span').children[0]).toEqual('test');
   });
