@@ -8,7 +8,10 @@
   "source": "./src/index.ts",
   "main": "./lib/index.js",
   "module": "./lib/index.module.js",
-  "exports": "./lib/index.modern.js",
+  "exports": {
+    "require": "./lib/index.js",
+    "import": "./lib/index.modern.js"
+  },
   "unpkg": "./lib/index.umd.js",
   "types": "./lib/index.d.ts",
   "repository": {
