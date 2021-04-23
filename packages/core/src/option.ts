@@ -6,8 +6,19 @@ export type None = null | undefined;
 export type Some<X> = Exclude<X, None>;
 export type T<X> = Some<X> | None;
 
-export function of<X>(x: X): T<X> {
-  return x as T<X>;
+export function of<X>(x: Fn.T<X>): T<X> {
+  return Fn.range(x) as T<X>;
+}
+
+/**
+ * Make Option<T> by throwable factory fn
+ */
+export function ofUnsafe<X>(throwable: () => T<X>): T<X> {
+  try {
+    return throwable();
+  } catch {
+    return null;
+  }
 }
 
 export function isSome<X>(option: T<X>): option is Some<X> {
@@ -100,12 +111,4 @@ export function getExn<X>(option: T<X>, errorFactory?: () => Error): Some<X> {
       throw error;
     },
   });
-}
-
-export function fromThrowable<X>(throwable: () => T<X>): T<X> {
-  try {
-    return throwable();
-  } catch {
-    return null;
-  }
 }

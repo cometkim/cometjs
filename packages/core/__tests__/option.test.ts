@@ -86,7 +86,7 @@ describe('Option.map', () => {
 
 test('Option.getExn', () => {
   const v1 = Option.of(1);
-  const v2 = Option.fromThrowable(() => {
+  const v2 = Option.ofUnsafe(() => {
     throw new Error('Hey');
   });
 
@@ -94,8 +94,8 @@ test('Option.getExn', () => {
   expect(() => Option.getExn(v2)).toThrow();
 });
 
-test('Option.fromThrowable', () => {
-  const v = Option.fromThrowable(() => {
+test('Option.ofUnsafe', () => {
+  const v = Option.ofUnsafe(() => {
     throw new Error('Hey');
   });
   expect(() => Option.map(v, ident)).not.toThrow();
