@@ -2,21 +2,32 @@ flags:
   core:
     paths:
       - packages/core
+    carryforward: true
+
   graphql-utils:
     paths:
       - packages/graphql-utils
+    carryforward: true
+
   jest-utils:
     paths:
       - packages/jest-utils
+    carryforward: true
+
   react-utils:
     paths:
       - packages/react-utils
+    carryforward: true
+
   apollo-client-utils:
     paths:
       - packages/apollo-client-utils
+    carryforward: true
+
   urql-utils:
     paths:
       - packages/urql-utils
+    carryforward: true
 
 coverage:
   status:
@@ -25,27 +36,33 @@ coverage:
 
       "@cometjs/core":
         target: "100%"
-        flags: core
+        flags:
+          - core
 
       "@cometjs/graphql-utils":
         target: "100%"
-        flags: graphql-utils
+        flags:
+          - graphql-utils
 
       "@cometjs/jest-utils":
         target: "100%"
-        flags: jest-utils
+        flags:
+          - jest-utils
 
       "@cometjs/react-utils":
         target: "100%"
-        flags: react-utils
+        flags:
+          - react-utils
 
       "@cometjs/apollo-client-utils":
         # target: "100%"
-        flags: apollo-client-utils
+        flags:
+          - apollo-client-utils
 
       "@cometjs/urql-utils":
         target: "100%"
-        flags: urql-utils
+        flags:
+          - urql-utils
 
 ignore:
   - .yarn
