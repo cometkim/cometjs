@@ -28,6 +28,7 @@ module.exports = {
   ],
   rules: {
     'no-restricted-globals': ['error'].concat(restrictedGlobals),
+    'react/display-name': 'off',
   },
   settings: {
     react: {

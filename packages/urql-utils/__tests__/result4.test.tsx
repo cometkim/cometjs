@@ -1,12 +1,20 @@
-import { noop } from '@cometjs/core';
+import { noop, callable } from '@cometjs/core';
 import * as React from 'react';
 import type { ReactTestRenderer } from 'react-test-renderer';
 import { create as makeRenderer, act } from 'react-test-renderer';
 import type { Client } from 'urql';
-import { Provider, CombinedError, useQuery } from 'urql';
+import {
+  Provider,
+  CombinedError,
+  useQuery,
+} from 'urql';
 import { never, makeSubject } from 'wonka';
 
-import { UseQueryContext, useQuery4, mapResult4 } from '../src';
+import {
+  UseQueryContext,
+  useQuery4,
+  mapResult4,
+} from '../src';
 
 describe('useQuery4', () => {
   type Data = {
@@ -62,26 +70,28 @@ describe('useQuery4', () => {
     } as unknown as Client;
 
     let renderer: ReactTestRenderer;
-    act(() => {
+    void act(() => {
       renderer = makeRenderer(
         <UseQueryContext.Provider value={useQuery}>
           <Provider value={mockClient}>
             <Component />
           </Provider>
-        </UseQueryContext.Provider>
+        </UseQueryContext.Provider>,
       );
     });
 
     expect(mockClient.executeQuery).toBeCalledTimes(0);
     renderer.root.findByType(Empty);
 
-    act(() => {
+    void act(() => {
       renderer.update(
         <UseQueryContext.Provider
+          // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+          // @ts-ignore
           value={(...args) => {
             void useQuery(...args);
             return [{
-              data: { value: 'foo' } as any,
+              data: { value: 'foo' },
               error: undefined,
               fetching: false,
               stale: false,
@@ -91,14 +101,14 @@ describe('useQuery4', () => {
           <Provider value={mockClient}>
             <Component />
           </Provider>
-        </UseQueryContext.Provider>
+        </UseQueryContext.Provider>,
       );
     });
 
     expect(mockClient.executeQuery).toBeCalledTimes(0);
     renderer.root.findByType(Empty);
 
-    act(() => {
+    void act(() => {
       renderer.update(
         <UseQueryContext.Provider
           value={(...args) => {
@@ -116,7 +126,7 @@ describe('useQuery4', () => {
           <Provider value={mockClient}>
             <Component />
           </Provider>
-        </UseQueryContext.Provider>
+        </UseQueryContext.Provider>,
       );
     });
 
@@ -131,24 +141,24 @@ describe('useQuery4', () => {
     } as unknown as Client;
 
     let renderer: ReactTestRenderer;
-    act(() => {
+    void act(() => {
       renderer = makeRenderer(
         <Provider value={mockClient}>
           <Component />
-        </Provider>
+        </Provider>,
       );
     });
 
     const button = renderer.root.findByType('button');
-    const load = button.props.onClick;
+    const load = callable(button.props.onClick);
 
-    act(() => {
+    void act(() => {
       load();
     });
 
     expect(mockClient.executeQuery).toBeCalledTimes(1);
 
-    act(() => {
+    void act(() => {
       load();
     });
 
@@ -162,23 +172,23 @@ describe('useQuery4', () => {
     } as unknown as Client;
 
     let renderer: ReactTestRenderer;
-    act(() => {
+    void act(() => {
       renderer = makeRenderer(
         <Provider value={mockClient}>
           <Component />
-        </Provider>
+        </Provider>,
       );
     });
 
     let button = renderer.root.findByType('button');
 
-    act(() => {
-      button.props.onClick();
+    void act(() => {
+      callable(button.props.onClick)();
     });
 
     expect(mockClient.executeQuery).toBeCalledTimes(1);
 
-    act(() => {
+    void act(() => {
       subject.next({
         data: {
           value: 'foo',
@@ -187,16 +197,16 @@ describe('useQuery4', () => {
     });
 
     button = renderer.root.findByType('button');
-    const refetch = button.props.onClick;
+    const refetch = callable(button.props.onClick);
 
-    act(() => {
+    void act(() => {
       refetch();
     });
 
     expect(mockClient.executeQuery).toBeCalledTimes(2);
     renderer.root.findByType(Placeholder);
 
-    act(() => {
+    void act(() => {
       refetch();
     });
 
@@ -213,11 +223,11 @@ describe('useQuery4', () => {
     let renderer: ReactTestRenderer;
 
     test('mount', () => {
-      act(() => {
+      void act(() => {
         renderer = makeRenderer(
           <Provider value={mockClient}>
             <Component />
-          </Provider>
+          </Provider>,
         );
       });
 
@@ -227,8 +237,8 @@ describe('useQuery4', () => {
     test('fetch', () => {
       const button = renderer.root.findByType('button');
 
-      act(() => {
-        button.props.onClick();
+      void act(() => {
+        callable(button.props.onClick)();
       });
 
       expect(mockClient.executeQuery).toBeCalledTimes(1);
@@ -236,7 +246,7 @@ describe('useQuery4', () => {
     });
 
     test('recieve data at first', () => {
-      act(() => {
+      void act(() => {
         subject.next({
           data: {
             value: 'foo',
@@ -249,7 +259,7 @@ describe('useQuery4', () => {
     });
 
     test('recieve next data', () => {
-      act(() => {
+      void act(() => {
         subject.next({
           data: {
             value: 'bar',
@@ -262,10 +272,10 @@ describe('useQuery4', () => {
     });
 
     test('recieve error', () => {
-      act(() => {
+      void act(() => {
         subject.next({
           error: new CombinedError({
-            networkError: new Error('something wrong')
+            networkError: new Error('something wrong'),
           }),
         });
       });
@@ -277,15 +287,15 @@ describe('useQuery4', () => {
     test('refetch', () => {
       const button = renderer.root.findByType('button');
 
-      act(() => {
-        button.props.onClick();
+      void act(() => {
+        callable(button.props.onClick)();
       });
 
       renderer.root.findByType(Placeholder);
     });
 
     test('recieve data after refetching', () => {
-      act(() => {
+      void act(() => {
         subject.next({
           data: {
             value: 'baz',
@@ -307,11 +317,11 @@ describe('useQuery4', () => {
     let renderer: ReactTestRenderer;
 
     test('mount', () => {
-      act(() => {
+      void act(() => {
         renderer = makeRenderer(
           <Provider value={mockClient}>
             <Component />
-          </Provider>
+          </Provider>,
         );
       });
 
@@ -321,8 +331,8 @@ describe('useQuery4', () => {
     test('fetch', () => {
       const button = renderer.root.findByType('button');
 
-      act(() => {
-        button.props.onClick();
+      void act(() => {
+        callable(button.props.onClick)();
       });
 
       expect(mockClient.executeQuery).toBeCalledTimes(1);
@@ -330,7 +340,7 @@ describe('useQuery4', () => {
     });
 
     test('recieve error at first', () => {
-      act(() => {
+      void act(() => {
         subject.next({
           error: new CombinedError({
             networkError: new Error('something wrong'),
@@ -343,7 +353,7 @@ describe('useQuery4', () => {
     });
 
     test('recieve next error', () => {
-      act(() => {
+      void act(() => {
         subject.next({
           error: new CombinedError({
             networkError: new Error('still failure?'),
@@ -356,7 +366,7 @@ describe('useQuery4', () => {
     });
 
     test('recieve data', () => {
-      act(() => {
+      void act(() => {
         subject.next({
           data: {
             value: 'foo',
@@ -371,19 +381,19 @@ describe('useQuery4', () => {
     test('refetch', () => {
       const button = renderer.root.findByType('button');
 
-      act(() => {
-        button.props.onClick();
+      void act(() => {
+        callable(button.props.onClick)();
       });
 
       renderer.root.findByType(Placeholder);
     });
 
     test('recieve error after refetching', () => {
-      act(() => {
+      void act(() => {
         subject.next({
           error: new CombinedError({
             networkError: new Error('no'),
-          })
+          }),
         });
       });
 

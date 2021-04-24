@@ -32,7 +32,7 @@ declare namespace $Experimental {
   // It's much simpler but type inference is uncertain compared to the previous version.
 
   export type Head<Tuple extends readonly unknown[]> = (
-    Tuple extends [infer Head, ...infer _]
+    Tuple extends [infer Head, ...any]
       ? Head
       : never
   );

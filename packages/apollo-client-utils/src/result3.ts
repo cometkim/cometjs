@@ -66,7 +66,7 @@ type UseQuery3Args<
   query: (
     | DocumentNode
     | TypedDocumentNode<TData, TVariables>
-  )
+  ),
 };
 
 type State = (
@@ -106,6 +106,7 @@ export function useQuery3<
   const [state, dispatch] = React.useReducer(reducer, { _t: 0 /* 'Loading' */ });
 
   const useQuery = React.useContext(UseQueryContext);
+  // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
   const [refetchQuery, { data, error }] = useQuery(query, {
     ...args,
 
@@ -122,6 +123,7 @@ export function useQuery3<
 
   React.useEffect(() => {
     if (data) {
+      // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
       dispatch({ _t: 1 /* 'RECEIVED_DATA' */, data });
     }
   }, [data]);

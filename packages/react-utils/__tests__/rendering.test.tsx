@@ -1,6 +1,7 @@
 import * as React from 'react';
 import { create as makeRenderer, act } from 'react-test-renderer';
-import { Callable } from '@cometjs/core';
+import type { Callable } from '@cometjs/core';
+import { callable } from '@cometjs/core';
 
 import { useForceUpdate } from '../src/rendering';
 
@@ -16,9 +17,9 @@ describe('useForceUpdate', () => {
 
     let renderer: ReturnType<typeof makeRenderer>;
 
-    act(() => {
+    void act(() => {
       renderer = makeRenderer(
-        <MyComponent counter={counter} />
+        <MyComponent counter={counter} />,
       );
     });
 
@@ -26,8 +27,8 @@ describe('useForceUpdate', () => {
 
     const button = renderer.root.findByType('button');
 
-    act(() => {
-      button.props.onClick?.();
+    void act(() => {
+      callable(button.props.onClick)();
     });
 
     expect(counter).toBeCalledTimes(2);

@@ -61,11 +61,11 @@ describe('useQuery3', () => {
         },
       };
 
-      act(() => {
+      void act(() => {
         renderer = makeRenderer(
           <MockedProvider mocks={[mock]}>
             <Component />
-          </MockedProvider>
+          </MockedProvider>,
         );
       });
 

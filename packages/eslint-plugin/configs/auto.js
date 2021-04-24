@@ -15,6 +15,12 @@ module.exports = {
       extends: ['plugin:@cometjs/react'],
     },
     {
+      files: ['**/*.tsx'],
+      rules: {
+        'react/prop-types': 'off',
+      },
+    },
+    {
       files: [
         '**/*.test.{js,jsx,ts,tsx}',
         '**/__test?(s)__/**/*.{js,jsx,ts,tsx}',

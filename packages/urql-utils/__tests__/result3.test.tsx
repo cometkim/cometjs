@@ -4,6 +4,7 @@ import { create as makeRenderer, act } from 'react-test-renderer';
 import type { Client } from 'urql';
 import { Provider, CombinedError } from 'urql';
 import { makeSubject } from 'wonka';
+import { callable } from '@cometjs/core';
 
 import { useQuery3, mapResult3 } from '../src';
 
@@ -57,11 +58,11 @@ describe('useQuery3', () => {
     let renderer: ReactTestRenderer;
 
     test('mount', () => {
-      act(() => {
+      void act(() => {
         renderer = makeRenderer(
           <Provider value={mockClient}>
             <Component />
-          </Provider>
+          </Provider>,
         );
       });
 
@@ -69,7 +70,7 @@ describe('useQuery3', () => {
     });
 
     test('recieve data at first', () => {
-      act(() => {
+      void act(() => {
         subject.next({
           data: {
             value: 'foo',
@@ -82,7 +83,7 @@ describe('useQuery3', () => {
     });
 
     test('recieve next data', () => {
-      act(() => {
+      void act(() => {
         subject.next({
           data: {
             value: 'bar',
@@ -95,10 +96,10 @@ describe('useQuery3', () => {
     });
 
     test('recieve error', () => {
-      act(() => {
+      void act(() => {
         subject.next({
           error: new CombinedError({
-            networkError: new Error('something wrong')
+            networkError: new Error('something wrong'),
           }),
         });
       });
@@ -110,15 +111,15 @@ describe('useQuery3', () => {
     test('refetch', () => {
       const button = renderer.root.findByType('button');
 
-      act(() => {
-        button.props.onClick();
+      void act(() => {
+        callable(button.props.onClick)();
       });
 
       renderer.root.findByType(Placeholder);
     });
 
     test('recieve data after refetching', () => {
-      act(() => {
+      void act(() => {
         subject.next({
           data: {
             value: 'baz',
@@ -140,11 +141,11 @@ describe('useQuery3', () => {
     let renderer: ReactTestRenderer;
 
     test('mount', () => {
-      act(() => {
+      void act(() => {
         renderer = makeRenderer(
           <Provider value={mockClient}>
             <Component />
-          </Provider>
+          </Provider>,
         );
       });
 
@@ -152,7 +153,7 @@ describe('useQuery3', () => {
     });
 
     test('recieve error at first', () => {
-      act(() => {
+      void act(() => {
         subject.next({
           error: new CombinedError({
             networkError: new Error('something wrong'),
@@ -165,7 +166,7 @@ describe('useQuery3', () => {
     });
 
     test('recieve next error', () => {
-      act(() => {
+      void act(() => {
         subject.next({
           error: new CombinedError({
             networkError: new Error('still failure?'),
@@ -178,7 +179,7 @@ describe('useQuery3', () => {
     });
 
     test('recieve data', () => {
-      act(() => {
+      void act(() => {
         subject.next({
           data: {
             value: 'foo',
@@ -193,19 +194,19 @@ describe('useQuery3', () => {
     test('refetch', () => {
       const button = renderer.root.findByType('button');
 
-      act(() => {
-        button.props.onClick();
+      void act(() => {
+        callable(button.props.onClick)();
       });
 
       renderer.root.findByType(Placeholder);
     });
 
     test('recieve error after refetching', () => {
-      act(() => {
+      void act(() => {
         subject.next({
           error: new CombinedError({
             networkError: new Error('no'),
-          })
+          }),
         });
       });
 
@@ -221,16 +222,16 @@ describe('useQuery3', () => {
     } as unknown as Client;
 
     let renderer: ReactTestRenderer;
-    act(() => {
+    void act(() => {
       renderer = makeRenderer(
         <Provider value={mockClient}>
           <Component />
-        </Provider>
+        </Provider>,
       );
 
     });
 
-    act(() => {
+    void act(() => {
       subject.next({
         data: {
           value: 'foo',
@@ -239,15 +240,15 @@ describe('useQuery3', () => {
     });
 
     const button = renderer.root.findByType('button');
-    const refetch = button.props.onClick;
+    const refetch = callable(button.props.onClick);
 
-    act(() => {
+    void act(() => {
       refetch();
     });
     expect(mockClient.executeQuery).toBeCalledTimes(2);
     renderer.root.findByType(Placeholder);
 
-    act(() => {
+    void act(() => {
       refetch();
     });
     expect(mockClient.executeQuery).toBeCalledTimes(3);

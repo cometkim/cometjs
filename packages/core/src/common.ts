@@ -6,6 +6,13 @@ export interface Callable {
   (...args: any[]): any;
 }
 
+export function callable(v: unknown): Callable {
+  if (typeof v !== 'function') {
+    throw new Error(`Expected a callable value, but got ${typeof v}`);
+  }
+  return v as Callable;
+}
+
 /**
  * JavaScript's primitive types
  */
@@ -124,20 +131,20 @@ export const ident = <X>(x: X): X => x;
 /**
  * for type-level assertion
  */
-// eslint-disable-next-line @typescript-eslint/no-empty-function
 /* istanbul ignore next */
+// eslint-disable-next-line @typescript-eslint/no-empty-function
 export function expectType<T>(_: T): void {}
 
 /**
  * for type-level assertion (loose)
  */
-// eslint-disable-next-line @typescript-eslint/no-empty-function
 /* istanbul ignore next */
+// eslint-disable-next-line @typescript-eslint/no-empty-function
 export function expectAssignable<A, B extends A = A>(_: B): void {}
 
 /**
  * Check if given two type params are equal.
  */
-// eslint-disable-next-line @typescript-eslint/no-empty-function
 /* istanbul ignore next */
+// eslint-disable-next-line @typescript-eslint/no-empty-function
 export function expectEquals<A, B>(..._: IfEquals<A, B, [true?], [void]>): void {}
