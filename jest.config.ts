@@ -7,6 +7,9 @@ const config: Config.InitialOptions = {
   projects: [
     '<rootDir>/packages/*/jest.config.ts',
   ],
+  coveragePathIgnorePatterns: [
+    'apollo-client-utils',
+  ],
 };
 
 export default config;
