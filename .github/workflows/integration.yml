@@ -41,6 +41,10 @@ jobs:
         run: |
           yarn version check
 
+      - name: Build package dependencies
+        run: |
+          yarn workspaces foreach --topological --parallel run build
+
       - name: Check for linting errors
         run: yarn lint
 

@@ -4,7 +4,7 @@ import { create as makeRenderer, act } from 'react-test-renderer';
 import type { Client } from 'urql';
 import { Provider, CombinedError } from 'urql';
 import { makeSubject } from 'wonka';
-import { callable } from '@cometjs/core';
+import { callable, required } from '@cometjs/core';
 
 import { useQuery3, mapResult3 } from '../src';
 
@@ -55,7 +55,7 @@ describe('useQuery3', () => {
       executeQuery: jest.fn(() => subject.source),
     } as unknown as Client;
 
-    let renderer: ReactTestRenderer;
+    let renderer: ReactTestRenderer | undefined;
 
     test('mount', () => {
       void act(() => {
@@ -66,6 +66,7 @@ describe('useQuery3', () => {
         );
       });
 
+      required(renderer);
       renderer.root.findByType(Placeholder);
     });
 
@@ -79,6 +80,8 @@ describe('useQuery3', () => {
       });
 
       expect(mockClient.executeQuery).toBeCalledTimes(1);
+
+      required(renderer);
       expect(renderer.root.findByType(DataView).children[0]).toEqual('foo');
     });
 
@@ -92,6 +95,8 @@ describe('useQuery3', () => {
       });
 
       expect(mockClient.executeQuery).toBeCalledTimes(1);
+
+      required(renderer);
       expect(renderer.root.findByType(DataView).children[0]).toEqual('bar');
     });
 
@@ -105,16 +110,20 @@ describe('useQuery3', () => {
       });
 
       expect(mockClient.executeQuery).toBeCalledTimes(1);
+
+      required(renderer);
       expect(renderer.root.findByType(ErrorFallback).children[0]).toMatch('something wrong');
     });
 
     test('refetch', () => {
+      required(renderer);
       const button = renderer.root.findByType('button');
 
       void act(() => {
         callable(button.props.onClick)();
       });
 
+      required(renderer);
       renderer.root.findByType(Placeholder);
     });
 
@@ -128,6 +137,8 @@ describe('useQuery3', () => {
       });
 
       expect(mockClient.executeQuery).toBeCalledTimes(2);
+
+      required(renderer);
       expect(renderer.root.findByType(DataView).children[0]).toEqual('baz');
     });
   });
@@ -138,7 +149,7 @@ describe('useQuery3', () => {
       executeQuery: jest.fn(() => subject.source),
     } as unknown as Client;
 
-    let renderer: ReactTestRenderer;
+    let renderer: ReactTestRenderer | undefined;
 
     test('mount', () => {
       void act(() => {
@@ -149,6 +160,7 @@ describe('useQuery3', () => {
         );
       });
 
+      required(renderer);
       renderer.root.findByType(Placeholder);
     });
 
@@ -162,6 +174,8 @@ describe('useQuery3', () => {
       });
 
       expect(mockClient.executeQuery).toBeCalledTimes(1);
+
+      required(renderer);
       expect(renderer.root.findByType(ErrorFallback).children[0]).toMatch('something wrong');
     });
 
@@ -175,6 +189,8 @@ describe('useQuery3', () => {
       });
 
       expect(mockClient.executeQuery).toBeCalledTimes(1);
+
+      required(renderer);
       expect(renderer.root.findByType(ErrorFallback).children[0]).toMatch('still failure');
     });
 
@@ -188,16 +204,20 @@ describe('useQuery3', () => {
       });
 
       expect(mockClient.executeQuery).toBeCalledTimes(1);
+
+      required(renderer);
       expect(renderer.root.findByType(DataView).children[0]).toEqual('foo');
     });
 
     test('refetch', () => {
+      required(renderer);
       const button = renderer.root.findByType('button');
 
       void act(() => {
         callable(button.props.onClick)();
       });
 
+      required(renderer);
       renderer.root.findByType(Placeholder);
     });
 
@@ -211,6 +231,8 @@ describe('useQuery3', () => {
       });
 
       expect(mockClient.executeQuery).toBeCalledTimes(2);
+
+      required(renderer);
       expect(renderer.root.findByType(ErrorFallback).children[0]).toMatch('no');
     });
   });
@@ -221,14 +243,14 @@ describe('useQuery3', () => {
       executeQuery: jest.fn(() => subject.source),
     } as unknown as Client;
 
-    let renderer: ReactTestRenderer;
+    let renderer: ReactTestRenderer | undefined;
+
     void act(() => {
       renderer = makeRenderer(
         <Provider value={mockClient}>
           <Component />
         </Provider>,
       );
-
     });
 
     void act(() => {
@@ -238,6 +260,8 @@ describe('useQuery3', () => {
         },
       });
     });
+
+    required(renderer);
 
     const button = renderer.root.findByType('button');
     const refetch = callable(button.props.onClick);
