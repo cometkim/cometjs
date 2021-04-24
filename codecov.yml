@@ -34,33 +34,34 @@ coverage:
     project:
       default: off
 
-      "@cometjs/core":
-        target: "100%"
+      core:
+        target: 100%
         flags:
           - core
 
-      "@cometjs/graphql-utils":
-        target: "100%"
+      graphql-utils:
+        target: 100%
         flags:
           - graphql-utils
 
-      "@cometjs/jest-utils":
-        target: "100%"
+      jest-utils:
+        target: 100%
         flags:
           - jest-utils
 
-      "@cometjs/react-utils":
-        target: "100%"
+      react-utils:
+        target: 100%
         flags:
           - react-utils
 
-      "@cometjs/apollo-client-utils":
-        # target: "100%"
-        flags:
-          - apollo-client-utils
+      # Since I have no change to test properly, disable coverage reporting
+      # apollo-client-utils:
+      #   target: "100%"
+      #   flags:
+      #     - apollo-client-utils
 
       "@cometjs/urql-utils":
-        target: "100%"
+        target: 100%
         flags:
           - urql-utils
 
