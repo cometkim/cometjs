@@ -1,32 +1,32 @@
 flags:
   core:
     paths:
-      - packages/core
+      - packages/core/
     carryforward: true
 
   graphql-utils:
     paths:
-      - packages/graphql-utils
+      - packages/graphql-utils/
     carryforward: true
 
   jest-utils:
     paths:
-      - packages/jest-utils
+      - packages/jest-utils/
     carryforward: true
 
   react-utils:
     paths:
-      - packages/react-utils
+      - packages/react-utils/
     carryforward: true
 
   apollo-client-utils:
     paths:
-      - packages/apollo-client-utils
+      - packages/apollo-client-utils/
     carryforward: true
 
   urql-utils:
     paths:
-      - packages/urql-utils
+      - packages/urql-utils/
     carryforward: true
 
 coverage:
