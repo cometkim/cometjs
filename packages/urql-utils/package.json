@@ -3,7 +3,7 @@
   "amdName": "cometjsUrqlUtils",
   "sideEffects": false,
   "description": "CometKim's utility collections for urql",
-  "version": "1.0.0-rc.1",
+  "version": "1.0.0",
   "license": "MIT",
   "source": "./src/index.ts",
   "main": "./lib/index.js",
@@ -67,6 +67,5 @@
     "typescript": "^4.2.3",
     "urql": "^2.0.1",
     "wonka": "^4.0.15"
-  },
-  "stableVersion": "0.1.0"
+  }
 }

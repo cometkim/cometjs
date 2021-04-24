@@ -3,7 +3,7 @@
   "amdName": "cometjsReactUtils",
   "sideEffects": false,
   "description": "CometKim's utility collections for ReactJS",
-  "version": "1.0.0-rc.1",
+  "version": "1.0.0",
   "license": "MIT",
   "source": "./src/index.ts",
   "main": "./lib/index.js",
@@ -60,6 +60,5 @@
     "react-test-renderer": "^17.0.1",
     "ts-node": "^9.1.1",
     "typescript": "^4.2.4"
-  },
-  "stableVersion": "0.2.0"
+  }
 }
