@@ -157,3 +157,8 @@ export function expectAssignable<A, B extends A = A>(_: B): void {}
 /* istanbul ignore next */
 // eslint-disable-next-line @typescript-eslint/no-empty-function
 export function expectEquals<A, B>(..._: IfEquals<A, B, [true?], [void]>): void {}
+
+/**
+ * Unwrap T from await promise
+ */
+export type Awaited<T> = T extends Promise<infer U> ? Awaited<U> : T;
