@@ -14,6 +14,15 @@ export function callable(v: unknown): Callable {
 }
 
 /**
+ * Assert given value is non-nullable, and tell it to TypeScript
+ */
+export function required<T>(v: T): asserts v {
+  if (v == null) {
+    throw new Error(`Expected non nullable, but got ${typeof v}`);
+  }
+}
+
+/**
  * JavaScript's primitive types
  */
 export type Primitive = (

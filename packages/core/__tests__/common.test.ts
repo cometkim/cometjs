@@ -2,6 +2,7 @@ import {
   noop,
   ident,
   callable,
+  required,
 } from '../src';
 
 test('noop', () => {
@@ -16,4 +17,9 @@ test('ident', () => {
 test('callable', () => {
   expect(() => callable(null)).toThrow();
   expect(() => callable(noop)).not.toThrow();
+});
+
+test('required', () => {
+  expect(() => required(null)).toThrow();
+  expect(() => required('')).not.toThrow();
 });
