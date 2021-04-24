@@ -2,7 +2,7 @@
   "name": "@cometjs/graphql-utils",
   "amdName": "cometjsGraphQLUtils",
   "description": "CometKim's utility collections for GraphQL",
-  "version": "1.0.0-rc.1",
+  "version": "1.0.0",
   "license": "MIT",
   "source": "./src/index.ts",
   "main": "./lib/index.js",
@@ -52,6 +52,5 @@
     "microbundle": "^0.13.0",
     "ts-node": "^9.1.1",
     "typescript": "^4.2.4"
-  },
-  "stableVersion": "0.1.1"
+  }
 }
