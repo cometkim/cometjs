@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { create as makeRenderer, act } from 'react-test-renderer';
 import type { Callable } from '@cometjs/core';
-import { callable } from '@cometjs/core';
+import { callable, required } from '@cometjs/core';
 
 import { useForceUpdate } from '../src/rendering';
 
@@ -15,13 +15,14 @@ describe('useForceUpdate', () => {
   it('triggers component rerendering', () => {
     const counter = jest.fn();
 
-    let renderer: ReturnType<typeof makeRenderer>;
+    let renderer: ReturnType<typeof makeRenderer> | undefined;
 
     void act(() => {
       renderer = makeRenderer(
         <MyComponent counter={counter} />,
       );
     });
+    required(renderer);
 
     expect(counter).toBeCalledTimes(1);
 
