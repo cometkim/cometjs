@@ -1,0 +1,10 @@
+releases:
+  "@cometjs/core": minor
+
+declined:
+  - "@cometjs/apollo-client-utils"
+  - "@cometjs/eslint-plugin"
+  - "@cometjs/graphql-utils"
+  - "@cometjs/jest-utils"
+  - "@cometjs/react-utils"
+  - "@cometjs/urql-utils"
