@@ -1,10 +1,5 @@
-import type {
-  Option,
-  Some,
-  MapReturnType,
-  InferrableAny,
-} from '@cometjs/core';
-import { mapToValue } from '@cometjs/core';
+import type { InferrableAny } from '@cometjs/core';
+import { Fn } from '@cometjs/core';
 
 /**
  * An abstract type has serval subtypes based on `__typename` field.
@@ -13,39 +8,37 @@ import { mapToValue } from '@cometjs/core';
 export type GraphQLAbstractType<TSubtype extends string> = {
   __typename?: TSubtype,
 };
-export type Union<TSubtype extends string> = GraphQLAbstractType<TSubtype>;
-export type Interface<TSubtype extends string> = GraphQLAbstractType<TSubtype>;
+export type GraphQLUnion<TSubtype extends string> = GraphQLAbstractType<TSubtype>;
+export type GraphQLInterface<TSubtype extends string> = GraphQLAbstractType<TSubtype>;
 
 // Force-infer `__typename` property as literal than string
 export type SubtypeName<T> = T extends GraphQLAbstractType<infer TType> ? TType : never;
 
-
 /**
  * Subtype mapper utility for GraphQL interface/union type response.
  *
- * @param object
- * @param subtypeMatcher Subtype mappers
+ * @param abstract
+ * @param rangeMap ranges of subtypes
  *
- * @return Return value of the mapper function for matched subtype
+ * @return value of the matched subtype range
  */
 export function mapAbstractType<
   TAbstract extends GraphQLAbstractType<string>,
   TSubtype extends SubtypeName<TAbstract>,
-  TSubtypeMatcher extends {
-    [TKey in TSubtype]: (
-      | ((fragment: Extract<TAbstract, GraphQLAbstractType<TKey>>) => any)
-      | InferrableAny
-    );
+  TRangeMap extends {
+    [TKey in TSubtype]: Fn.T<InferrableAny, Extract<TAbstract, GraphQLAbstractType<TKey>>>;
   },
 >(
-  object: TAbstract,
-  subtypeMatcher: TSubtypeMatcher,
-): MapReturnType<TSubtypeMatcher> {
-  if (!object.__typename) {
-    throw new Error('The given fragment doesn\'t have __typename property');
+  abstract: TAbstract,
+  rangeMap: TRangeMap,
+): Fn.MergeMap<TRangeMap> {
+  if (!abstract.__typename) {
+    throw new Error('The given object doesn\'t have __typename');
   }
-  const map = subtypeMatcher[object.__typename as TSubtype];
-  return mapToValue(map, object as any) as MapReturnType<TSubtypeMatcher>;
+  const range = rangeMap[abstract.__typename as TSubtype];
+  // eslint-disable-next-line
+  // @ts-ignore
+  return Fn.range(range, abstract);
 }
 export const mapUnion = mapAbstractType;
 export const mapInterface = mapAbstractType;
@@ -53,46 +46,90 @@ export const mapInterface = mapAbstractType;
 /**
  * Subtype mapper utility for GraphQL interface/union type response.
  *
- * @param object
- * @param subtypeMatcher Subtype mappers that can be/returns optional.\
+ * @param abstract
+ * @param rangeMap ranges of subtypes.\
  * This should have additional map in `_` so use it as fallback for unmatched/none value.
  *
- * @return Return value of the mapper for matched subtype or the default mapper
+ * @return Return value of the mapper for matched subtype or the default range
  */
 export function mapAbstractTypeWithDefault<
   TAbstract extends GraphQLAbstractType<string>,
   TSubtype extends SubtypeName<TAbstract>,
-  TSubtypeMatcher extends {
-    [TKey in TSubtype]?: (
-      | ((union: Extract<TAbstract, GraphQLAbstractType<TKey>>) => any)
-      | InferrableAny
-    );
+  TRangeMap extends {
+    [TKey in TSubtype]?: Fn.T<InferrableAny, Extract<TAbstract, GraphQLAbstractType<TKey>>>;
   },
   RDefault,
 >(
-  object: TAbstract,
-  subtypeMatcher: (
-    & TSubtypeMatcher
-    & {
-      _: ((object: TAbstract) => RDefault) | RDefault,
-    }
+  abstract: TAbstract,
+  rangeMap: (
+    & TRangeMap
+    & { _: Fn.T<RDefault, TAbstract> }
   ),
 ): (
-  | Some<MapReturnType<TSubtypeMatcher>>
+  | Fn.MergeMap<TRangeMap>
   | RDefault
 ) {
-  if (!object.__typename) {
-    throw new Error('The given fragment doesn\'t have __typename property');
+  if (!abstract.__typename) {
+    throw new Error('The given object doesn\'t have __typename');
   }
-  const defaultMap = subtypeMatcher['_'];
-  const map = subtypeMatcher[object.__typename as TSubtype];
-  if (!map) {
-    // fallback to default when the object has no matched map
-    return mapToValue(defaultMap, object);
-  }
-  const result = mapToValue(map, object as any) as Option<MapReturnType<TSubtypeMatcher>>;
-  // fallback to default when the mapped result is none
-  return result ?? mapToValue(defaultMap, object);
+  const range = rangeMap[abstract.__typename as TSubtype];
+  const defaultRange = rangeMap['_'];
+
+  // eslint-disable-next-line
+  // @ts-ignore
+  return range
+    ? Fn.range(range, abstract as any) // eslint-disable-line
+    : Fn.range(defaultRange, abstract);
 }
 export const mapUnionWithDefault = mapAbstractTypeWithDefault;
 export const mapInterfaceWithDefault = mapAbstractTypeWithDefault;
+
+// TypeScript does not work properly for high order <T>.map composition,
+// even if they are semantically identical, nested structural subtypes would be inferred ambiguously.
+//
+// So I should wrapping it by T again so that the TypeScript handle it like a nominal.
+//
+// @example
+// ```
+// Option.map(Option.of(v), v => mapAbstractType(v, { ... }))
+//            ^^^^^^^^^^^^ Wrap v by Option, even v is already assignable to Option so that does fool TypeScript heuristics.
+// ```
+//
+// I hope I can uncomment below codes in next release
+//
+// export function mapOptionalAbstractType<
+//   TAbstract extends GraphQLAbstractType<string>,
+//   TSubtype extends SubtypeName<TAbstract>,
+//   TRangeMap extends {
+//     [TKey in TSubtype]: Fn.T<InferrableAny, Extract<TAbstract, GraphQLAbstractType<TKey>>>;
+//   },
+// >(
+//   abstract: Option.T<TAbstract>,
+//   rangeMap: TRangeMap,
+// ): Option.T<Fn.MergeMap<TRangeMap>> {
+//   return Option.map(abstract, abstract => mapAbstractType(abstract, rangeMap as any));
+// }
+// export const mapOptionalUnion = mapOptionalAbstractType;
+// export const mapOptionalInterface = mapOptionalAbstractType;
+//
+// export function mapOptionalAbstractTypeWithDefault<
+//   TAbstract extends GraphQLAbstractType<string>,
+//   TSubtype extends SubtypeName<TAbstract>,
+//   TRangeMap extends {
+//     [TKey in TSubtype]?: Fn.T<InferrableAny, Extract<TAbstract, GraphQLAbstractType<TKey>>>;
+//   },
+//   RDefault,
+// >(
+//   abstract: Option.T<TAbstract>,
+//   rangeMap: (
+//     & TRangeMap
+//     & { _: Fn.T<RDefault, TAbstract> }
+//   ),
+// ): Option.T<(
+//   | Fn.MergeMap<TRangeMap>
+//   | RDefault
+// )> {
+//   return Option.map(abstract, abstract => mapAbstractTypeWithDefault(abstract, rangeMap as any));
+// }
+// export const mapOptionalUnionWithDefault = mapOptionalAbstractTypeWithDefault;
+// export const mapOptionalInterfaceWithDefault = mapOptionalAbstractTypeWithDefault;

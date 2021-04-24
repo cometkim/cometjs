@@ -1,4 +1,10 @@
 {
   "root": true,
-  "extends": "plugin:@cometjs/auto"
+  "extends": "plugin:@cometjs/auto",
+  "parserOptions": {
+    "project": [
+      "tsconfig.json",
+      "packages/**/tsconfig.json"
+    ]
+  }
 }

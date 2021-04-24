@@ -6,13 +6,13 @@ import type { OverrideProps } from '@cometjs/core';
  *
  * @example
  * ```tsx
- * import React from 'react';
+ * import * as React from 'react';
  *
  * interface CustomInputProps {
  *   onChange?: (value: string) => void; // override the `React.ChangeEventHandler`
  * }
  *
- * const CustomInput: IntrinsicElementWrapperComponent<'input', CustomInputProps> = ({
+ * const CustomInput: IntrinsicElementWrapperFunction<'input', CustomInputProps> = ({
  *   onChange,
  *   ...otherProps
  * }, forwardedRef) => {
@@ -31,12 +31,12 @@ import type { OverrideProps } from '@cometjs/core';
  * export default React.forwardRef(CustomInput);
  * ```
  */
-export type IntrinsicElementWrapperComponent<
-  TTag extends keyof JSX.IntrinsicElements,
-  TProps = {}
-> = React.RefForwardingComponent<
-  InferIntrinsicElementFromAttributes<JSX.IntrinsicElements[TTag]>,
-  OverrideProps<JSX.IntrinsicElements[TTag], TProps>
+export type IntrinsicElementWrapperFuntion<
+  TElement extends keyof JSX.IntrinsicElements,
+  TProps = {} // eslint-disable-line @typescript-eslint/ban-types
+> = React.ForwardRefRenderFunction<
+  InferIntrinsicElementFromAttributes<JSX.IntrinsicElements[TElement]>,
+  OverrideProps<JSX.IntrinsicElements[TElement], TProps>
 >;
 
 type InferIntrinsicElementFromAttributes<T> = T extends React.ClassAttributes<infer TElement>

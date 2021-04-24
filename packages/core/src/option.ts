@@ -6,8 +6,19 @@ export type None = null | undefined;
 export type Some<X> = Exclude<X, None>;
 export type T<X> = Some<X> | None;
 
-export function of<X>(x: X): T<X> {
-  return x as T<X>;
+export function of<X>(x: Fn.T<X>): T<X> {
+  return Fn.range(x) as T<X>;
+}
+
+/**
+ * Make Option<T> by throwable factory fn
+ */
+export function ofUnsafe<X>(throwable: () => T<X>): T<X> {
+  try {
+    return throwable();
+  } catch {
+    return null;
+  }
 }
 
 export function isSome<X>(option: T<X>): option is Some<X> {
@@ -36,8 +47,8 @@ export function toString<X>(option: T<X>): string {
  *
  * @return `'some' | 'none'`
  */
-export function match<X>(option: T<X>): 'some' | 'none' {
-  return isSome(option) ? 'some' : 'none';
+export function match<X>(option: T<X>): 'Some' | 'None' {
+  return isSome(option) ? 'Some' : 'None';
 }
 
 /**
@@ -55,8 +66,8 @@ export function match<X>(option: T<X>): 'some' | 'none' {
  *
  * // Expect: string
  * const argString = mapOption(args, {
- *   some: args => args.join(' '),
- *   none: '', // default value
+ *   Some: args => args.join(' '),
+ *   None: '', // default value
  * });
  * ```
  */
@@ -65,8 +76,8 @@ export function map<X, RSome, RNone = None>(
   fn: (
     | ((t: Some<X>) => RSome)
     | ({
-      some: Fn.T<RSome, Some<X>>,
-      none: Fn.T<RNone, void>,
+      Some: Fn.T<RSome, Some<X>>,
+      None: Fn.T<RNone, void>,
     })
   ),
 ): RSome | RNone {
@@ -94,18 +105,10 @@ export function map<X, RSome, RNone = None>(
 
 export function getExn<X>(option: T<X>, errorFactory?: () => Error): Some<X> {
   return map(option, {
-    some: v => v,
-    none: () => {
-      const error = errorFactory?.() ?? new Error('You tried to get T of Option<T>, ut T is none');
+    Some: v => v,
+    None: () => {
+      const error = errorFactory?.() ?? new Error('You tried to get T of Option<T>, ut T is None');
       throw error;
     },
   });
-}
-
-export function fromThrowable<X>(throwable: () => T<X>): T<X> {
-  try {
-    return throwable();
-  } catch {
-    return null;
-  }
 }

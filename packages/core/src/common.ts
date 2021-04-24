@@ -6,6 +6,22 @@ export interface Callable {
   (...args: any[]): any;
 }
 
+export function callable(v: unknown): Callable {
+  if (typeof v !== 'function') {
+    throw new Error(`Expected a callable value, but got ${typeof v}`);
+  }
+  return v as Callable;
+}
+
+/**
+ * Assert given value is non-nullable, and tell it to TypeScript
+ */
+export function required<T>(v: T): asserts v {
+  if (v == null) {
+    throw new Error(`Expected non nullable, but got ${typeof v}`);
+  }
+}
+
 /**
  * JavaScript's primitive types
  */
@@ -120,3 +136,24 @@ export const noop: Callable = () => {};
  * identity
  */
 export const ident = <X>(x: X): X => x;
+
+/**
+ * for type-level assertion
+ */
+/* istanbul ignore next */
+// eslint-disable-next-line @typescript-eslint/no-empty-function
+export function expectType<T>(_: T): void {}
+
+/**
+ * for type-level assertion (loose)
+ */
+/* istanbul ignore next */
+// eslint-disable-next-line @typescript-eslint/no-empty-function
+export function expectAssignable<A, B extends A = A>(_: B): void {}
+
+/**
+ * Check if given two type params are equal.
+ */
+/* istanbul ignore next */
+// eslint-disable-next-line @typescript-eslint/no-empty-function
+export function expectEquals<A, B>(..._: IfEquals<A, B, [true?], [void]>): void {}

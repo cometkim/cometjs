@@ -8,11 +8,6 @@ export type T<R, X = any> = (
 
 export type Range<TFunction> = TFunction extends T<infer R> ? R : never;
 
-export type MergeMap<
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  TFunctionMap extends Record<string, T<any>>
-> = Range<TFunctionMap[keyof TFunctionMap]>;
-
 /**
  * Returns result of function, or value as-is.
  *
@@ -27,3 +22,8 @@ export function range<R, X = any>(fn: T<R, X>, ...arg: [X?] | []): R {
   }
   return fn;
 }
+
+export type MergeMap<
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  TFunctionMap extends Record<string, T<any>>
+> = Range<TFunctionMap[keyof TFunctionMap]>;

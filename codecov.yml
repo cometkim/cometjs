@@ -1,16 +1,70 @@
 flags:
   core:
     paths:
-      - packages/core
+      - packages/core/
+    carryforward: true
+
+  graphql-utils:
+    paths:
+      - packages/graphql-utils/
+    carryforward: true
+
+  jest-utils:
+    paths:
+      - packages/jest-utils/
+    carryforward: true
+
+  react-utils:
+    paths:
+      - packages/react-utils/
+    carryforward: true
+
+  apollo-client-utils:
+    paths:
+      - packages/apollo-client-utils/
+    carryforward: true
+
+  urql-utils:
+    paths:
+      - packages/urql-utils/
+    carryforward: true
 
 coverage:
   status:
     project:
       default: off
 
-      "@cometjs/core":
-        target: "100%"
-        flags: core
+      core:
+        target: 100%
+        flags:
+          - core
+
+      graphql-utils:
+        target: 100%
+        flags:
+          - graphql-utils
+
+      jest-utils:
+        target: 100%
+        flags:
+          - jest-utils
+
+      react-utils:
+        target: 100%
+        flags:
+          - react-utils
+
+      # Since I have no change to test properly, disable coverage reporting
+      # apollo-client-utils:
+      #   target: "100%"
+      #   flags:
+      #     - apollo-client-utils
+
+      "@cometjs/urql-utils":
+        target: 100%
+        flags:
+          - urql-utils
 
 ignore:
   - .yarn
+  - __mock__

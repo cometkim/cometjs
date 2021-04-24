@@ -1,6 +1,12 @@
 {
   "extends": "../../tsconfig.json",
+  "compilerOptions": {
+    "jsx": "preserve",
+    "rootDir": "src",
+    "outDir": "lib",
+    "declarationDir": "lib"
+  },
   "include": [
-    "src",
-  ],
+    "src"
+  ]
 }

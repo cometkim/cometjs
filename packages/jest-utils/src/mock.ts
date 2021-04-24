@@ -1,49 +1,51 @@
-import cloneDeepWith from 'lodash-es/cloneDeepWith';
+import type { Callable } from '@cometjs/core';
+import cloneDeepWith from 'lodash/cloneDeepWith';
 
 export type DeeplyMocked<T> = (
   T extends ((...args: infer TArgs) => infer TReturn) ? jest.Mock<TReturn, TArgs> :
-  T extends object ? { [P in keyof T]: DeeplyMocked<T[P]> } :
+  T extends Record<string, unknown> ? { [P in keyof T]: DeeplyMocked<T[P]> } :
   T
 );
 
 function mockIfFunction(value: unknown) {
   if (typeof value === 'function') {
-    return jest.fn();
+    return jest.fn(value as Callable);
   }
 }
 
-/**
- * Deeply clone a object/function with replacing every function to `jest.fn()`
- *
- * @param module an interface
- */
-export function cloneWithMock<T>(module: T) {
-  return cloneDeepWith(module, mockIfFunction) as DeeplyMocked<T>;
+export function deepMock<T>(obj: T): DeeplyMocked<T> {
+  return cloneDeepWith(obj, mockIfFunction) as DeeplyMocked<T>;
 }
 
 /**
- * Mocking a module with deeply-mocked clone.
- * Use this instead of `jest.mock(...)`.
+ * Replace a module implimatations with `jest.fn`
+ * Use this instead of `jest.doMock(...)`.
  *
  * @param modulePath module path to replace with mock
  *
  * @example
  * ```ts
- * const [fsMock, fs] = deeplyMocked<typeof import('fs')>('fs');
+ * beforeEach(() => {
+ *  jest.resetModules();
+ * });
  *
- * test('a function use file system', () => {
- *   fsMock.readFileSync.mockImplementationOnce(path => {
+ * test('a function use file system', async () => {
+ *   const fs = deepMock<typeof import('fs')>('fs');
+ *   fs.readFileSync.mockImplementationOnce(path => {
  *     return `File from ${path}`;
  *   });
+ *
+ *   const { readContent } = await import('my-module-depends-on-fs');
+ *
  *   const result = readContent('somewhere');
- *   expect(fsMock.readFileSync).toBeCalled();
  *   expect(result).toEqual('File from somewhere');
+ *   expect(fs.readFileSync).toBeCalledWith('somewhere');
  * });
  * ```
  */
-export function deeplyMock<T>(modulePath: string) {
-  const actual = jest.requireActual(modulePath) as T;
-  const mocked = cloneWithMock(actual);
-  jest.mock(modulePath, () => mocked);
-  return [mocked, actual] as const;
+export function deepMockModule<T>(modulePath: string): DeeplyMocked<T> {
+  const actual = jest.requireActual<T>(modulePath);
+  const mock = deepMock(actual);
+  jest.mock(modulePath, () => mock);
+  return mock;
 }

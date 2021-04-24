@@ -26,8 +26,7 @@ module.exports = {
     'quote-props': ['error', 'consistent-as-needed'],
     'eol-last': ['error', 'always'],
     'eqeqeq': ['error', 'always', { null: 'ignore' }],
-    'comma-spacing': ['error', { before: false, after: true }],
-    'comma-dangle': ['error', 'always-multiline'],
+    'comma-spacing': ['error', { before: false, after: true }], 'comma-dangle': ['error', 'always-multiline'],
     'array-bracket-newline': ['error', 'consistent'],
     'arrow-spacing': ['error', { before: true, after: true }],
     'array-element-newline': ['off', { multiline: true, minItems: 3 }],
@@ -49,5 +48,6 @@ module.exports = {
       },
     }],
     'no-console': 'warn',
+    'no-unused-vars': ['error', { argsIgnorePattern: '^_' }],
   },
 };

@@ -1,7 +1,7 @@
 {
   "name": "@cometjs/jest-utils",
   "description": "CometKim's utility collections for Jest",
-  "version": "0.1.0",
+  "version": "1.0.0-rc.1",
   "license": "MIT",
   "main": "./src/index.ts",
   "repository": {
@@ -11,13 +11,13 @@
   },
   "author": {
     "name": "Hyeseong Kim",
-    "email": "cometkim.kr@gmail.com"
+    "email": "hey@hyeseong.kim"
   },
   "scripts": {
+    "test": "jest",
     "build": "concurrently \"yarn:build:*\"",
-    "build:dts": "tsc --emitDeclarationOnly --outDir lib",
-    "build:node": "babel src --env-name node --extensions .ts --out-dir lib --source-maps",
-    "build:module": "babel src --env-name module --extensions .ts --out-dir lib --out-file-extension .mjs --source-maps",
+    "build:dts": "tsc --emitDeclarationOnly",
+    "build:node": "babel src --extensions .ts --out-dir lib --source-maps",
     "prepack": "rm -rf lib && yarn build"
   },
   "publishConfig": {
@@ -33,18 +33,25 @@
     "jest": ">=20.0.0"
   },
   "dependencies": {
-    "core-js": "^3.6.5",
-    "lodash-es": "^4.17.15"
+    "@cometjs/core": "workspace:packages/core",
+    "lodash": "^4.17.20"
   },
   "devDependencies": {
     "@babel/cli": "^7.10.5",
     "@babel/core": "^7.11.4",
     "@babel/preset-env": "^7.11.0",
+    "@babel/preset-react": "^7.13.13",
     "@babel/preset-typescript": "^7.10.4",
-    "@types/jest": "^26.0.10",
-    "@types/lodash-es": "^4.17.3",
-    "@types/node": "^14.6.2",
+    "@jest/types": "^26.6.2",
+    "@types/jest": "^26.0.22",
+    "@types/lodash": "^4.14.167",
+    "@types/node": "^14.14.21",
+    "babel-jest": "^26.6.3",
     "concurrently": "^5.3.0",
-    "typescript": "^4.0.2"
-  }
+    "eslint": "^7.18.0",
+    "jest": "^26.6.3",
+    "ts-node": "^9.1.1",
+    "typescript": "^4.1.3"
+  },
+  "stableVersion": "0.1.0"
 }
