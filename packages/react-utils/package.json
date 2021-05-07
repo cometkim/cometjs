@@ -3,7 +3,7 @@
   "amdName": "cometjsReactUtils",
   "sideEffects": false,
   "description": "CometKim's utility collections for ReactJS",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "license": "MIT",
   "source": "./src/index.ts",
   "main": "./lib/index.js",
