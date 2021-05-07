@@ -26,6 +26,24 @@ test('Result.ofUnsafe', () => {
   expect(Result.isOk(result2)).toBe(false);
 });
 
+test('Result.ofPromise', async () => {
+  const result1 = await Result.ofPromise(Promise.resolve());
+  expect(Result.isOk(result1)).toBe(true);
+
+  const result2 = await Result.ofPromise(async () => {
+    return 'foo';
+  });
+  expect(Result.isOk(result2)).toBe(true);
+
+  const result3 = await Result.ofPromise(Promise.reject());
+  expect(Result.isErr(result3)).toBe(true);
+
+  const result4 = await Result.ofPromise(async () => {
+    throw 'foo';
+  });
+  expect(Result.isErr(result4)).toBe(true);
+});
+
 test('Result.match', () => {
   expect(Result.match(Result.ok())).toEqual('Ok');
   expect(Result.match(Result.err())).toEqual('Err');
