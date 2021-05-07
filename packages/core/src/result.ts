@@ -31,7 +31,7 @@ export async function ofPromise<
   TOk extends Unwrap<TPromise> = Unwrap<TPromise>,
 >(
   promiseFn: Fn.T<TPromise, void>,
-): Promise<T<Unwrap<TPromise>>> {
+): Promise<T<TOk>> {
   try {
     const result = (await Fn.range(promiseFn)) as TOk;
     return ok(result);
