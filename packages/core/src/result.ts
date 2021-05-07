@@ -1,4 +1,4 @@
-import type { Callable } from './common';
+import type { Callable, Unwrap } from './common';
 import * as Fn from './function';
 
 type GlobalError = InstanceType<typeof globalThis.Error>;
@@ -21,6 +21,20 @@ export function err<TError = void>(t: TError | void): Err<TError> {
 export function ofUnsafe<TUnsafe extends Callable>(unsafe: TUnsafe): T<ReturnType<TUnsafe>> {
   try {
     return ok(unsafe());
+  } catch (e) {
+    return err(e);
+  }
+}
+
+export async function ofPromise<
+  TPromise extends Promise<unknown>,
+  TOk extends Unwrap<TPromise> = Unwrap<TPromise>,
+>(
+  promiseFn: Fn.T<TPromise, void>,
+): Promise<T<TOk>> {
+  try {
+    const result = (await Fn.range(promiseFn)) as TOk;
+    return ok(result);
   } catch (e) {
     return err(e);
   }
