@@ -92,7 +92,7 @@ export function map<
   TOk,
   TError,
   ROk,
-  RError,
+  RError = TError,
 >(
   result: T<TOk, TError>,
   fn: (
