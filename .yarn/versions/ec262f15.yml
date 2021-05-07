@@ -1,6 +1,3 @@
-releases:
-  "@cometjs/core": minor
-
 declined:
   - "@cometjs/apollo-client-utils"
   - "@cometjs/eslint-plugin"
