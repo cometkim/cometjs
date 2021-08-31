@@ -1,6 +1,6 @@
 # cometjs
 
-CometKim's collections of frequently used JavaScript/TypeScript utilities.
+[cometkim](https://github.com/cometkim)'s collections of frequently used JavaScript/TypeScript utilities.
 
 ## Goals & Non-goals
 
@@ -8,10 +8,11 @@ CometKim's collections of frequently used JavaScript/TypeScript utilities.
 
 - DRY for miscellaneous stuff
 - Bolierplates for use TypeScript stricter
-- A bit abstractions in favor of OCaml
+- Preparing [ES pipeline operator](https://github.com/tc39/proposal-pipeline-operator)
+- Monadic abstrations
 
 **Non-goals**
 
-- Reinvent of wheels for everything
+- Reinvent everything
 - Alternative to popular packages that already exist
-- Spreading my own opinion
+- Spreading own opinion
