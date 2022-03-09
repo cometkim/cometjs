@@ -68,5 +68,3 @@ jobs:
 
       - name: Send coverage reports to CodeCov
         uses: codecov/codecov-action@v2
-        with:
-          flags: core,react-utils,graphql-utils,urql-utils

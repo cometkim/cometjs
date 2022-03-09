@@ -1,45 +1,8 @@
-flags:
-  core:
-    paths:
-      - packages/core/
-
-  graphql-utils:
-    paths:
-      - packages/graphql-utils/
-
-  react-utils:
-    paths:
-      - packages/react-utils/
-
-  urql-utils:
-    paths:
-      - packages/urql-utils/
-
 coverage:
-  status:
-    project:
-      default: off
-
-      core:
-        target: 100%
-        flags:
-          - core
-
-      graphql-utils:
-        target: 100%
-        flags:
-          - graphql-utils
-
-      react-utils:
-        target: 100%
-        flags:
-          - react-utils
-
-      urql-utils:
-        target: 100%
-        flags:
-          - urql-utils
+  precision: 2
+  round: down
+  range: "90...100"
 
 ignore:
-  - .yarn
-  - __mock__
+  - ".yarn/**"
+  - "packages/archive/**"
