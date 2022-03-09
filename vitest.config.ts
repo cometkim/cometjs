@@ -11,6 +11,8 @@ export default defineConfig({
       ],
     },
     exclude: [
+      '.pnp.*',
+      '.yarn/**',
       'packages/archive/**',
     ],
   },
