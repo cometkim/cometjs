@@ -1,5 +1,7 @@
 # @cometjs/apollo-client-utils
 
+**This package is no longer maintained.**
+
 ## useQuery
 
 Restrict Apollo Client's useQuery with pre-defined N-variants.

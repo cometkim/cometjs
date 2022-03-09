@@ -1,5 +1,4 @@
 releases:
-  "@cometjs/apollo-client-utils": patch
   "@cometjs/core": patch
   "@cometjs/eslint-plugin": patch
   "@cometjs/graphql-utils": patch
