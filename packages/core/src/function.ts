@@ -11,9 +11,9 @@ export type Range<TFunction> = TFunction extends T<infer R> ? R : never;
 /**
  * Returns result of function, or value as-is.
  *
- * @param range A function of range or a value.
+ * @param fn A function value
  * @param arg A argument to pass to function.
- *            It will be dropped if range is not a callable.
+ *            It will be dropped if the given `fn` is not a callable.
  */
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 export function range<R, X = any>(fn: T<R, X>, ...arg: [X?] | []): R {
