@@ -36,11 +36,6 @@ jobs:
         env:
           TARGET_BRANCH: ${{github.event.pull_request.base.ref}}
 
-      - name: Check that the PR describes which packages should be bumped
-        shell: bash
-        run: |
-          yarn version check
-
       - name: Build package dependencies
         run: |
           yarn workspaces foreach --topological --parallel run build
