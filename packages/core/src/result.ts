@@ -1,14 +1,12 @@
 import type { Callable, Unwrap } from './common';
 import * as Fn from './function';
 
-type GlobalError = InstanceType<typeof globalThis.Error>;
-
 const s_ok = Symbol('ok');
 const s_err = Symbol('err');
 
 export type Ok<T> = [typeof s_ok, T];
-export type Err<T = GlobalError> = [typeof s_err, T];
-export type T<TOk, TError = GlobalError> = Ok<TOk> | Err<TError>;
+export type Err<T = unknown> = [typeof s_err, T];
+export type T<TOk, TError = unknown> = Ok<TOk> | Err<TError>;
 
 export function ok<TOk = void>(t: TOk | void): Ok<TOk> {
   return [s_ok, t as TOk];
