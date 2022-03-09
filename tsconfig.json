@@ -12,6 +12,7 @@
     "jsx": "preserve"
   },
   "exclude": [
-    "packages/**/lib"
+    "packages/archive/",
+    "packages/**/lib/"
   ]
 }
