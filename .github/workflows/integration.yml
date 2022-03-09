@@ -57,10 +57,6 @@ jobs:
         with:
           node-version: '16'
 
-      - name: Build package dependencies
-        run: |
-          yarn workspaces foreach --topological-dev --parallel run build
-
       - name: Test all packages
         run: |
           yarn test --coverage
