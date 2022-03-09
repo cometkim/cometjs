@@ -1,6 +1,6 @@
 {
   "name": "@cometjs/eslint-plugin",
-  "description": "CometKim's pre-configured ESLint settings",
+  "description": "cometjs pre-configured ESLint settings",
   "version": "1.1.0",
   "license": "MIT",
   "repository": {
@@ -10,8 +10,10 @@
   },
   "author": {
     "name": "Hyeseong Kim",
-    "email": "cometkim.kr@gmail.com"
+    "email": "hey@hyeseong.kim"
   },
+  "type": "commonjs",
+  "main": "./index.js",
   "publishConfig": {
     "access": "public"
   },
@@ -21,9 +23,9 @@
   ],
   "peerDependencies": {
     "@babel/core": "^7.0.0",
-    "eslint": "^5.0.0 || ^6.0.0 || ^7.0.0-rc.0",
+    "eslint": "^8.0.0",
     "react": ">=16.8.0",
-    "typescript": ">=3.7.0"
+    "typescript": "^4.5.0"
   },
   "peerDependenciesMeta": {
     "@babel/core": {
@@ -37,13 +39,13 @@
     }
   },
   "dependencies": {
-    "@typescript-eslint/eslint-plugin": "^4.15.2",
-    "@typescript-eslint/parser": "^4.15.2",
-    "babel-eslint": "^10.1.0",
-    "confusing-browser-globals": "^1.0.10",
-    "eslint-plugin-flowtype": "^5.3.1",
-    "eslint-plugin-jsx-a11y": "^6.4.1",
-    "eslint-plugin-react": "^7.22.0",
-    "eslint-plugin-react-hooks": "^4.2.0"
+    "@babel/eslint-parser": "^7.17.0",
+    "@typescript-eslint/eslint-plugin": "^5.14.0",
+    "@typescript-eslint/parser": "^5.14.0",
+    "confusing-browser-globals": "^1.0.11",
+    "eslint-plugin-flowtype": "^8.0.3",
+    "eslint-plugin-jsx-a11y": "^6.5.1",
+    "eslint-plugin-react": "^7.29.3",
+    "eslint-plugin-react-hooks": "^4.3.0"
   }
 }
