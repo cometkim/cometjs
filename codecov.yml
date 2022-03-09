@@ -9,11 +9,6 @@ flags:
       - packages/graphql-utils/
     carryforward: true
 
-  jest-utils:
-    paths:
-      - packages/jest-utils/
-    carryforward: true
-
   react-utils:
     paths:
       - packages/react-utils/
@@ -38,11 +33,6 @@ coverage:
         target: 100%
         flags:
           - graphql-utils
-
-      jest-utils:
-        target: 100%
-        flags:
-          - jest-utils
 
       react-utils:
         target: 100%

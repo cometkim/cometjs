@@ -2,6 +2,5 @@ releases:
   "@cometjs/core": patch
   "@cometjs/eslint-plugin": patch
   "@cometjs/graphql-utils": patch
-  "@cometjs/jest-utils": patch
   "@cometjs/react-utils": patch
   "@cometjs/urql-utils": patch
