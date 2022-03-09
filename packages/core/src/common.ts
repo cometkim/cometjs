@@ -156,4 +156,4 @@ export function expectAssignable<A, B extends A = A>(_: B): void {}
  */
 /* istanbul ignore next */
 // eslint-disable-next-line @typescript-eslint/no-empty-function
-export function expectEquals<A, B>(..._: IfEquals<A, B, [true?], [void]>): void {}
+export function expectEquals<A, B>(..._: IfEquals<A, B, [true?], [false]>): void {}
