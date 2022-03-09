@@ -31,7 +31,7 @@ export function mapAbstractType<
 >(
   abstract: TAbstract,
   rangeMap: TRangeMap,
-): Fn.MergeMap<TRangeMap> {
+): Fn.MergeRange<TRangeMap> {
   if (!abstract.__typename) {
     throw new Error('The given object doesn\'t have __typename');
   }
@@ -66,7 +66,7 @@ export function mapAbstractTypeWithDefault<
     & { _: Fn.T<RDefault, TAbstract> }
   ),
 ): (
-  | Fn.MergeMap<TRangeMap>
+  | Fn.MergeRange<TRangeMap>
   | RDefault
 ) {
   if (!abstract.__typename) {

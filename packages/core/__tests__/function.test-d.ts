@@ -16,7 +16,12 @@ expectEquals<
 >();
 
 expectEquals<
-  Fn.MergeMap<{
+  Fn.MergeRange<[fn1, fn2, fn3]>,
+  number | string | bigint
+>();
+
+expectEquals<
+  Fn.MergeRange<{
     fn1: fn1,
     fn2: fn2,
     fn3: fn3,
