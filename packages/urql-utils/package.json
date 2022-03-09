@@ -45,7 +45,7 @@
     "urql": "^2.0.0"
   },
   "dependencies": {
-    "@cometjs/core": "workspace:packages/core"
+    "@cometjs/core": "workspace:^2.0.0"
   },
   "devDependencies": {
     "@babel/core": "^7.11.4",
