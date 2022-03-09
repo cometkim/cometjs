@@ -1,3 +1,9 @@
+import {
+  describe,
+  test,
+  expect,
+  vi,
+} from 'vitest';
 import * as React from 'react';
 import type { ReactTestRenderer } from 'react-test-renderer';
 import { create as makeRenderer, act } from 'react-test-renderer';
@@ -52,7 +58,7 @@ describe('useQuery3', () => {
   describe('success path', () => {
     const subject = makeSubject<Subject>();
     const mockClient = {
-      executeQuery: jest.fn(() => subject.source),
+      executeQuery: vi.fn(() => subject.source),
     } as unknown as Client;
 
     let renderer: ReactTestRenderer | undefined;
@@ -146,7 +152,7 @@ describe('useQuery3', () => {
   describe('failure path', () => {
     const subject = makeSubject<Subject>();
     const mockClient = {
-      executeQuery: jest.fn(() => subject.source),
+      executeQuery: vi.fn(() => subject.source),
     } as unknown as Client;
 
     let renderer: ReactTestRenderer | undefined;
@@ -240,7 +246,7 @@ describe('useQuery3', () => {
   test('refetch always executeQuery', () => {
     const subject = makeSubject<Subject>();
     const mockClient = {
-      executeQuery: jest.fn(() => subject.source),
+      executeQuery: vi.fn(() => subject.source),
     } as unknown as Client;
 
     let renderer: ReactTestRenderer | undefined;

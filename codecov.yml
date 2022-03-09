@@ -2,22 +2,18 @@ flags:
   core:
     paths:
       - packages/core/
-    carryforward: true
 
   graphql-utils:
     paths:
       - packages/graphql-utils/
-    carryforward: true
 
   react-utils:
     paths:
       - packages/react-utils/
-    carryforward: true
 
   urql-utils:
     paths:
       - packages/urql-utils/
-    carryforward: true
 
 coverage:
   status:
@@ -39,7 +35,7 @@ coverage:
         flags:
           - react-utils
 
-      "@cometjs/urql-utils":
+      urql-utils:
         target: 100%
         flags:
           - urql-utils

@@ -34,6 +34,8 @@
     "lib"
   ],
   "scripts": {
+    "dev": "vitest",
+    "test": "vitest run",
     "build": "nanobundle build",
     "prepack": "rm -rf lib && yarn build"
   },
@@ -41,8 +43,11 @@
     "@cometjs/core": "workspace:^"
   },
   "devDependencies": {
+    "c8": "^7.11.0",
     "eslint": "^7.23.0",
     "nanobundle": "^0.0.27",
-    "typescript": "^4.6.2"
+    "typescript": "^4.6.2",
+    "vite": "^2.8.6",
+    "vitest": "^0.6.0"
   }
 }

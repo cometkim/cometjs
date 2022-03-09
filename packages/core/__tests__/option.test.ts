@@ -1,3 +1,9 @@
+import {
+ describe,
+ test,
+ expect,
+} from 'vitest';
+
 import { Option, ident } from '../src';
 
 /* eslint-disable @typescript-eslint/ban-ts-comment */
