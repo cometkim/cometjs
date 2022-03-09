@@ -7,7 +7,7 @@ import type {
 /* eslint-disable @typescript-eslint/no-explicit-any */
 /* eslint-disable @typescript-eslint/no-namespace */
 
-// Borrowed core utilities from $mol_type
+// Core utility borrowed from $mol_type
 // See https://github.com/eigenmethod/mol/tree/master/type
 export type Head<Tuple extends readonly any[]> = (
   Tuple['length'] extends 0
@@ -15,7 +15,7 @@ export type Head<Tuple extends readonly any[]> = (
     : Tuple[0]
 );
 
-// Borrowed core utilities from $mol_type
+// Core utility borrowed from $mol_type
 // See https://github.com/eigenmethod/mol/tree/master/type
 export type Tail<Tuple extends readonly any[]> = (
   (
@@ -27,9 +27,9 @@ export type Tail<Tuple extends readonly any[]> = (
     : never
 );
 
-declare namespace $Experimental {
+declare namespace $Variadic {
   // `Head<T>` and `Tail<T>` implementation using variadic tuple.
-  // It's much simpler but type inference is uncertain compared to the previous version.
+  // It's much simpler but type inference is uncertain compared to the old version.
 
   export type Head<Tuple extends readonly unknown[]> = (
     Tuple extends [infer Head, ...any]
@@ -62,8 +62,8 @@ export type MapPromise<
 > = {
   0: Result,
   1: MapPromise<
-    Tail<Tuple>,
-    Append<Result, Promise<$Experimental.Head<Tuple>>>
+    $Variadic.Tail<Tuple>,
+    Append<Result, Promise<$Variadic.Head<Tuple>>>
   >,
 }[Tuple['length'] extends 0 ? 0 : 1];
 
@@ -73,7 +73,7 @@ export type MapReturnType<
 > = {
   0: Result,
   1: MapReturnType<
-    $Experimental.Tail<Tuple>,
+    $Variadic.Tail<Tuple>,
     Append<Result, ReturnType<Head<Tuple>>>
   >,
 }[Tuple['length'] extends 0 ? 0 : 1];
@@ -84,7 +84,7 @@ export type MapPick<
   Result extends readonly any[] = []
 > = {
   0: Result, 1: MapPick<
-    $Experimental.Tail<Tuple>,
+    $Variadic.Tail<Tuple>,
     Key,
     Append<Result, Pick<Head<Tuple>, Key>>
   >,
@@ -96,8 +96,8 @@ export type MapUnwrap<
 > = {
   0: Result,
   1: MapUnwrap<
-    $Experimental.Tail<Tuple>,
-    Append<Result, Unwrap<$Experimental.Head<Tuple>>>
+    $Variadic.Tail<Tuple>,
+    Append<Result, Unwrap<$Variadic.Head<Tuple>>>
   >,
 }[Tuple['length'] extends 0 ? 0 : 1];
 
@@ -108,9 +108,9 @@ export type MapWrap<
 > = {
   0: Result,
   1: MapWrap<
-    $Experimental.Tail<Tuple>,
+    $Variadic.Tail<Tuple>,
     Box,
-    Append<Result, Wrap<$Experimental.Head<Tuple>, Box>>
+    Append<Result, Wrap<$Variadic.Head<Tuple>, Box>>
   >,
 }[Tuple['length'] extends 0 ? 0 : 1];
 
@@ -133,5 +133,5 @@ type MakeTuple<X, N extends number, Result extends readonly X[] = []> = {
 
 export type Replace<Tuple extends readonly any[], X, Result extends readonly X[] = []> = {
   0: Result,
-  1: Replace<$Experimental.Tail<Tuple>, X, [X, ...Result]>,
+  1: Replace<$Variadic.Tail<Tuple>, X, [X, ...Result]>,
 }[Tuple['length'] extends 0 ? 0 : 1];
