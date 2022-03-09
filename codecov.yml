@@ -19,11 +19,6 @@ flags:
       - packages/react-utils/
     carryforward: true
 
-  apollo-client-utils:
-    paths:
-      - packages/apollo-client-utils/
-    carryforward: true
-
   urql-utils:
     paths:
       - packages/urql-utils/
@@ -53,12 +48,6 @@ coverage:
         target: 100%
         flags:
           - react-utils
-
-      # Since I have no change to test properly, disable coverage reporting
-      # apollo-client-utils:
-      #   target: "100%"
-      #   flags:
-      #     - apollo-client-utils
 
       "@cometjs/urql-utils":
         target: 100%
