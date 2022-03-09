@@ -1,4 +1,10 @@
 import {
+  describe,
+  test,
+  expect,
+  vi,
+} from 'vitest';
+import {
   noop,
   callable,
   required,
@@ -70,7 +76,7 @@ describe('useQuery4', () => {
 
   test('data or error isn\' accptted on idle state', () => {
     const mockClient = {
-      executeQuery: jest.fn(() => never),
+      executeQuery: vi.fn(() => never),
     } as unknown as Client;
 
     let renderer: ReactTestRenderer | undefined;
@@ -149,7 +155,7 @@ describe('useQuery4', () => {
   test('double-loading has no effects', () => {
     const subject = makeSubject<Subject>();
     const mockClient = {
-      executeQuery: jest.fn(() => subject.source),
+      executeQuery: vi.fn(() => subject.source),
     } as unknown as Client;
 
     let renderer: ReactTestRenderer | undefined;
@@ -181,7 +187,7 @@ describe('useQuery4', () => {
   test('refetch always executeQuery', () => {
     const subject = makeSubject<Subject>();
     const mockClient = {
-      executeQuery: jest.fn(() => subject.source),
+      executeQuery: vi.fn(() => subject.source),
     } as unknown as Client;
 
     let renderer: ReactTestRenderer | undefined;
@@ -232,7 +238,7 @@ describe('useQuery4', () => {
   describe('success path', () => {
     const subject = makeSubject<Subject>();
     const mockClient = {
-      executeQuery: jest.fn(() => subject.source),
+      executeQuery: vi.fn(() => subject.source),
     } as unknown as Client;
 
     let renderer: ReactTestRenderer | undefined;
@@ -340,7 +346,7 @@ describe('useQuery4', () => {
   describe('failure path', () => {
     const subject = makeSubject<Subject>();
     const mockClient = {
-      executeQuery: jest.fn(() => subject.source),
+      executeQuery: vi.fn(() => subject.source),
     } as unknown as Client;
 
     let renderer: ReactTestRenderer | undefined;

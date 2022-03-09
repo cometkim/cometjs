@@ -1,49 +1,9 @@
-flags:
-  core:
-    paths:
-      - packages/core/
-    carryforward: true
-
-  graphql-utils:
-    paths:
-      - packages/graphql-utils/
-    carryforward: true
-
-  react-utils:
-    paths:
-      - packages/react-utils/
-    carryforward: true
-
-  urql-utils:
-    paths:
-      - packages/urql-utils/
-    carryforward: true
-
 coverage:
-  status:
-    project:
-      default: off
-
-      core:
-        target: 100%
-        flags:
-          - core
-
-      graphql-utils:
-        target: 100%
-        flags:
-          - graphql-utils
-
-      react-utils:
-        target: 100%
-        flags:
-          - react-utils
-
-      "@cometjs/urql-utils":
-        target: 100%
-        flags:
-          - urql-utils
+  precision: 2
+  round: down
+  range: "90...100"
 
 ignore:
-  - .yarn
-  - __mock__
+  - ".pnp.*"
+  - ".yarn/**"
+  - "packages/archive/**"

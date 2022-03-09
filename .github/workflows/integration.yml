@@ -1,49 +1,44 @@
 name: Integration
 
 on:
-  workflow_dispatch:
   pull_request:
+    branches:
+      - main
   push:
     branches:
       - main
 
 jobs:
   chore:
-    name: Testing chores
+    name: Check chores
     runs-on: ubuntu-latest
     if: ${{ github.event_name == 'pull_request' }}
     steps:
-      - uses: actions/checkout@v2
-        with:
-          fetch-depth: 0
+      - uses: actions/checkout@v3
 
       - name: Setup Node.js environment
-        uses: actions/setup-node@v2.1.4
+        uses: actions/setup-node@v3
         with:
-          node-version: 15.x
+          node-version: '16'
 
-      - name: Check that the Yarn files don''t change on new installs
+      - name: Check that the Yarn files don't change on new installs
         shell: bash
         run: |
-          yarn --immutable --immutable-cache
+          yarn install --immutable --immutable-cache
 
       - name: Check that the cache files are consistent with their remote sources
+        if: ${{ github.event_name == 'pull_request' }}
         shell: bash
         run: |
           if [[ $(git diff --name-only "$(git merge-base origin/"$TARGET_BRANCH" HEAD)" HEAD -- .yarn/cache | wc -l) -gt 0 ]]; then
-            yarn --immutable --immutable-cache --check-cache
+            yarn install --immutable --immutable-cache --check-cache
           fi
         env:
           TARGET_BRANCH: ${{github.event.pull_request.base.ref}}
 
-      - name: Check that the PR describes which packages should be bumped
-        shell: bash
-        run: |
-          yarn version check
-
       - name: Build package dependencies
         run: |
-          yarn workspaces foreach --topological --parallel run build
+          yarn workspaces foreach --topological-dev --parallel run build
 
       - name: Check for linting errors
         run: yarn lint
@@ -52,25 +47,24 @@ jobs:
         run: yarn type-check
 
   test:
-    name: Unit testing
+    name: Run unit tests
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
 
       - name: Setup Node.js environment
-        uses: actions/setup-node@v2.1.4
+        uses: actions/setup-node@v3
         with:
-          node-version: 15.x
+          node-version: '16'
 
-      - name: Build package dependencies
+      - name: Install unplugged dependencies
+        shell: bash
         run: |
-          yarn workspaces foreach --topological --parallel run build
+          yarn install
 
       - name: Test all packages
         run: |
-          yarn test
+          yarn test --coverage
 
       - name: Send coverage reports to CodeCov
-        uses: codecov/codecov-action@v1
-        with:
-          flags: core,react-utils,graphql-utils,urql-utils
+        uses: codecov/codecov-action@v2

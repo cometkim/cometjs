@@ -1,5 +1,6 @@
 /.vscode/
 /.yarn/
-/.pnp.js
+/.pnp.*js
 
+/packages/archive/**
 **/lib/**

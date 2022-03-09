@@ -1,3 +1,8 @@
+import {
+  describe,
+  test,
+  expect,
+} from 'vitest';
 import * as React from 'react';
 import { create as makeRenderer } from 'react-test-renderer';
 import { ErrorBoundary } from 'react-error-boundary';

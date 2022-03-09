@@ -1,3 +1,9 @@
+import {
+  describe,
+  test,
+  expect,
+  vi,
+} from 'vitest';
 import * as React from 'react';
 import { create as makeRenderer, act } from 'react-test-renderer';
 import type { Callable } from '@cometjs/core';
@@ -12,8 +18,8 @@ describe('useForceUpdate', () => {
     return <button onClick={forceUpdate}>click to force update</button>;
   };
 
-  it('triggers component rerendering', () => {
-    const counter = jest.fn();
+  test('it triggers component rerendering', () => {
+    const counter = vi.fn();
 
     let renderer: ReturnType<typeof makeRenderer> | undefined;
 

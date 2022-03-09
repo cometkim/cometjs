@@ -1,3 +1,9 @@
+import {
+  describe,
+  test,
+  expect,
+} from 'vitest';
+
 import { mapUnion, mapUnionWithDefault } from '../src';
 
 type Scalars = {

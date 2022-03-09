@@ -1,3 +1,9 @@
+import {
+ describe,
+ test,
+ expect,
+} from 'vitest';
+
 import { Condition } from '../src';
 
 describe('Condition', () => {

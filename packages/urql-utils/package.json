@@ -1,19 +1,9 @@
 {
   "name": "@cometjs/urql-utils",
-  "amdName": "cometjsUrqlUtils",
-  "sideEffects": false,
-  "description": "CometKim's utility collections for urql",
+  "description": "cometjs utility collection for urql",
   "version": "1.1.0",
   "license": "MIT",
-  "source": "./src/index.ts",
-  "main": "./lib/index.js",
-  "module": "./lib/index.module.js",
-  "exports": {
-    "require": "./lib/index.js",
-    "import": "./lib/index.modern.js"
-  },
-  "unpkg": "./lib/index.umd.js",
-  "types": "./lib/index.d.ts",
+  "homepage": "https://github.com/cometkim/cometjs/tree/main/packages/urql-utils",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/cometkim/cometjs.git",
@@ -23,21 +13,30 @@
     "name": "Hyeseong Kim",
     "email": "hey@hyeseong.kim"
   },
-  "bugs": {
-    "url": "https://github.com/cometkim/cometjs/issues",
-    "email": "hey@hyeseong.kim"
-  },
-  "scripts": {
-    "test": "jest",
-    "build": "microbundle --globals @cometjs/core=cometjsCore",
-    "prepack": "yarn build"
+  "sideEffects": false,
+  "source": "./src/index.ts",
+  "main": "./src/index.ts",
+  "publishConfig": {
+    "access": "public",
+    "main": "./lib/index.mjs",
+    "types": "./lib/index.d.ts",
+    "exports": {
+      ".": {
+        "import": "./lib/index.mjs",
+        "require": "./lib/index.cjs"
+      },
+      "./package.json": "./package.json"
+    }
   },
   "files": [
     "src",
     "lib"
   ],
-  "publishConfig": {
-    "access": "public"
+  "scripts": {
+    "dev": "vitest",
+    "test": "vitest run",
+    "build": "nanobundle build",
+    "prepack": "rm -rf lib && yarn build"
   },
   "peerDependencies": {
     "graphql": "^14.0.0 || ^15.0.0",
@@ -45,27 +44,22 @@
     "urql": "^2.0.0"
   },
   "dependencies": {
-    "@cometjs/core": "workspace:packages/core"
+    "@cometjs/core": "workspace:^"
   },
   "devDependencies": {
-    "@babel/core": "^7.11.4",
-    "@babel/preset-env": "^7.11.0",
-    "@babel/preset-react": "^7.13.13",
-    "@babel/preset-typescript": "^7.10.4",
-    "@jest/types": "^26.6.2",
-    "@types/jest": "^26.0.22",
     "@types/node": "^14.14.33",
     "@types/react": "^17.0.3",
     "@types/react-test-renderer": "^17.0.1",
     "@types/webpack-env": "^1.16.0",
-    "babel-jest": "^26.6.3",
+    "c8": "^7.11.0",
     "graphql": "^15.5.0",
-    "jest": "^26.6.3",
-    "microbundle": "^0.13.0",
+    "nanobundle": "^0.0.27",
     "react": "^17.0.1",
     "react-test-renderer": "^17.0.1",
-    "typescript": "^4.2.3",
+    "typescript": "^4.6.2",
     "urql": "^2.0.1",
+    "vite": "^2.8.6",
+    "vitest": "^0.6.0",
     "wonka": "^4.0.15"
   }
 }

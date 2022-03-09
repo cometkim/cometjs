@@ -1,5 +1,5 @@
 module.exports = {
-  parser: require.resolve('babel-eslint'),
+  parser: require.resolve('@babel/eslint-parser'),
   plugins: [
     '@cometjs',
     'flowtype',

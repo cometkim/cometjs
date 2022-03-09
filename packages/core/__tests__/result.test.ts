@@ -1,3 +1,5 @@
+import { test, expect } from 'vitest';
+
 import { Result } from '../src';
 
 test.each(
