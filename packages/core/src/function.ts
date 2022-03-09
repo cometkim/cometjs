@@ -1,12 +1,15 @@
 import type { Callable } from './common';
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
-export type T<R, X = any> = (
-  | R
-  | ((domain: X) => R)
+export type T<Y, X = any> = (
+  | Y
+  | ((domain: X) => Y)
 );
 
-export type Range<TFunction> = TFunction extends T<infer R> ? R : never;
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+export type Domain<TFn> = TFn extends ((x: infer X) => any) ? X : void;
+
+export type Range<TFn> = TFn extends T<infer R> ? R : never;
 
 /**
  * Returns result of function, or value as-is.
