@@ -37,6 +37,10 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         "reference": "workspace:packages/react-utils"\
       },\
       {\
+        "name": "@cometjs/relay-utils",\
+        "reference": "workspace:packages/relay-utils"\
+      },\
+      {\
         "name": "@cometjs/urql-utils",\
         "reference": "workspace:packages/urql-utils"\
       }\
@@ -49,6 +53,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
       ["@cometjs/graphql-utils", ["workspace:packages/graphql-utils"]],\
       ["@cometjs/monorepo", ["workspace:."]],\
       ["@cometjs/react-utils", ["workspace:packages/react-utils"]],\
+      ["@cometjs/relay-utils", ["workspace:packages/relay-utils"]],\
       ["@cometjs/urql-utils", ["workspace:packages/urql-utils"]]\
     ],\
     "fallbackPool": [\
@@ -563,6 +568,22 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["react-dom", "virtual:c03f17fa1726ecb594a8dd52523b52167c2eb96176d058df00a4d459b80cf8680028a1d84f5651f99fe17f9f28ece553287d9fa10bced24ab4646eee71564727#npm:17.0.1"],\
             ["react-error-boundary", "virtual:c03f17fa1726ecb594a8dd52523b52167c2eb96176d058df00a4d459b80cf8680028a1d84f5651f99fe17f9f28ece553287d9fa10bced24ab4646eee71564727#npm:3.1.0"],\
             ["react-test-renderer", "virtual:c03f17fa1726ecb594a8dd52523b52167c2eb96176d058df00a4d459b80cf8680028a1d84f5651f99fe17f9f28ece553287d9fa10bced24ab4646eee71564727#npm:17.0.1"],\
+            ["typescript", "patch:typescript@npm%3A4.6.2#~builtin<compat/typescript>::version=4.6.2&hash=bda367"],\
+            ["vite", "virtual:236ffb23991e44020122de94f575876fe73ed6d13995e5c5ca3b0e47da5cf9346310444b996e0c3f7bd98237a4f62a07e4ea51e2b9b6a0fead8e55bb39384377#npm:2.8.6"],\
+            ["vitest", "virtual:236ffb23991e44020122de94f575876fe73ed6d13995e5c5ca3b0e47da5cf9346310444b996e0c3f7bd98237a4f62a07e4ea51e2b9b6a0fead8e55bb39384377#npm:0.6.0"]\
+          ],\
+          "linkType": "SOFT"\
+        }]\
+      ]],\
+      ["@cometjs/relay-utils", [\
+        ["workspace:packages/relay-utils", {\
+          "packageLocation": "./packages/relay-utils/",\
+          "packageDependencies": [\
+            ["@cometjs/relay-utils", "workspace:packages/relay-utils"],\
+            ["@urlpack/base-codec", "npm:1.1.0"],\
+            ["@urlpack/json", "npm:1.1.0"],\
+            ["c8", "npm:7.11.0"],\
+            ["nanobundle", "virtual:f87076b27c2623022c8aa51ff6dc61e0c2b8c9f0ed568a71714dbce874956b120bd0c8ce7e41c4907ec27e78d398802710540d667a8d839c7324fb0aecbe76bc#npm:0.0.27"],\
             ["typescript", "patch:typescript@npm%3A4.6.2#~builtin<compat/typescript>::version=4.6.2&hash=bda367"],\
             ["vite", "virtual:236ffb23991e44020122de94f575876fe73ed6d13995e5c5ca3b0e47da5cf9346310444b996e0c3f7bd98237a4f62a07e4ea51e2b9b6a0fead8e55bb39384377#npm:2.8.6"],\
             ["vitest", "virtual:236ffb23991e44020122de94f575876fe73ed6d13995e5c5ca3b0e47da5cf9346310444b996e0c3f7bd98237a4f62a07e4ea51e2b9b6a0fead8e55bb39384377#npm:0.6.0"]\
@@ -1234,6 +1255,45 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@typescript-eslint/visitor-keys", "npm:5.14.0"],\
             ["@typescript-eslint/types", "npm:5.14.0"],\
             ["eslint-visitor-keys", "npm:3.3.0"]\
+          ],\
+          "linkType": "HARD"\
+        }]\
+      ]],\
+      ["@urlpack/base-codec", [\
+        ["npm:1.1.0", {\
+          "packageLocation": "./.yarn/cache/@urlpack-base-codec-npm-1.1.0-c7601ee19a-5319173de4.zip/node_modules/@urlpack/base-codec/",\
+          "packageDependencies": [\
+            ["@urlpack/base-codec", "npm:1.1.0"]\
+          ],\
+          "linkType": "HARD"\
+        }]\
+      ]],\
+      ["@urlpack/base58", [\
+        ["npm:1.1.0", {\
+          "packageLocation": "./.yarn/cache/@urlpack-base58-npm-1.1.0-5bf02a9fda-55b598ae24.zip/node_modules/@urlpack/base58/",\
+          "packageDependencies": [\
+            ["@urlpack/base58", "npm:1.1.0"],\
+            ["@urlpack/base-codec", "npm:1.1.0"]\
+          ],\
+          "linkType": "HARD"\
+        }]\
+      ]],\
+      ["@urlpack/json", [\
+        ["npm:1.1.0", {\
+          "packageLocation": "./.yarn/cache/@urlpack-json-npm-1.1.0-c5931ec83b-025070435c.zip/node_modules/@urlpack/json/",\
+          "packageDependencies": [\
+            ["@urlpack/json", "npm:1.1.0"],\
+            ["@urlpack/base58", "npm:1.1.0"],\
+            ["@urlpack/msgpack", "npm:1.1.0"]\
+          ],\
+          "linkType": "HARD"\
+        }]\
+      ]],\
+      ["@urlpack/msgpack", [\
+        ["npm:1.1.0", {\
+          "packageLocation": "./.yarn/cache/@urlpack-msgpack-npm-1.1.0-f0bea37b0e-d685e44153.zip/node_modules/@urlpack/msgpack/",\
+          "packageDependencies": [\
+            ["@urlpack/msgpack", "npm:1.1.0"]\
           ],\
           "linkType": "HARD"\
         }]\

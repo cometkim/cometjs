@@ -399,6 +399,20 @@ __metadata:
   languageName: unknown
   linkType: soft
 
+"@cometjs/relay-utils@workspace:packages/relay-utils":
+  version: 0.0.0-use.local
+  resolution: "@cometjs/relay-utils@workspace:packages/relay-utils"
+  dependencies:
+    "@urlpack/base-codec": ^1.1.0
+    "@urlpack/json": ^1.1.0
+    c8: ^7.11.0
+    nanobundle: ^0.0.27
+    typescript: ^4.6.2
+    vite: ^2.8.6
+    vitest: ^0.6.0
+  languageName: unknown
+  linkType: soft
+
 "@cometjs/urql-utils@workspace:packages/urql-utils":
   version: 0.0.0-use.local
   resolution: "@cometjs/urql-utils@workspace:packages/urql-utils"
@@ -801,6 +815,39 @@ __metadata:
     "@typescript-eslint/types": 5.14.0
     eslint-visitor-keys: ^3.0.0
   checksum: 3fc6038b330602b0dd2ff4070b11057a19239caa6f5bd956ee75d66f37f1b936704a98c4b1eae5da19a34d72b836a93e675080608138e50eabf72c2c901f648e
+  languageName: node
+  linkType: hard
+
+"@urlpack/base-codec@npm:^1.0.1, @urlpack/base-codec@npm:^1.1.0":
+  version: 1.1.0
+  resolution: "@urlpack/base-codec@npm:1.1.0"
+  checksum: 5319173de4fc6136e47b24c4e74f445b9520dda6fe4682d6a6d76724170a4157a4842ff889505e56bb8e5ace7a8b230237a5eff309924d11ed6bb2ab1cd4db0b
+  languageName: node
+  linkType: hard
+
+"@urlpack/base58@npm:^1.0.4":
+  version: 1.1.0
+  resolution: "@urlpack/base58@npm:1.1.0"
+  dependencies:
+    "@urlpack/base-codec": ^1.0.1
+  checksum: 55b598ae24b2904250c30b3675dc55b7bc5cfe0c0a0cc4ae12bd3a433c1fb08ac9b99bb3022fc3ae8b0ae67029a5cfedf660fd3d6e7ae88b50840614f63d919c
+  languageName: node
+  linkType: hard
+
+"@urlpack/json@npm:^1.1.0":
+  version: 1.1.0
+  resolution: "@urlpack/json@npm:1.1.0"
+  dependencies:
+    "@urlpack/base58": ^1.0.4
+    "@urlpack/msgpack": ^1.0.0
+  checksum: 025070435c5217488194387b75d203f30206dc6e94d3c4ad76ced8cd1fd946e92850838d2fc4e152db10112d3e1e0006c027a13d99c325c636e878b092682a12
+  languageName: node
+  linkType: hard
+
+"@urlpack/msgpack@npm:^1.0.0":
+  version: 1.1.0
+  resolution: "@urlpack/msgpack@npm:1.1.0"
+  checksum: d685e441531c3766ec32fe0c3593d499ca4eac8f90fc8c56413c26364659a3c6b832b588df28a1a2f4c1166a5c4a9236b53a8b141f4d58b62416826e0eb5725b
   languageName: node
   linkType: hard
 
