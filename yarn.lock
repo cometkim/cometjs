@@ -395,7 +395,7 @@ __metadata:
     vite: ^2.8.6
     vitest: ^0.6.0
   peerDependencies:
-    react: ^16.8.0 || ^17.0.0
+    react: ^16.8.0 || ^17.0.0 || ^18.0.0
   languageName: unknown
   linkType: soft
 
