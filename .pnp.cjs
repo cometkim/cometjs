@@ -580,7 +580,6 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageLocation": "./packages/relay-utils/",\
           "packageDependencies": [\
             ["@cometjs/relay-utils", "workspace:packages/relay-utils"],\
-            ["@urlpack/base-codec", "npm:1.1.0"],\
             ["@urlpack/json", "npm:1.1.0"],\
             ["c8", "npm:7.11.0"],\
             ["nanobundle", "virtual:f87076b27c2623022c8aa51ff6dc61e0c2b8c9f0ed568a71714dbce874956b120bd0c8ce7e41c4907ec27e78d398802710540d667a8d839c7324fb0aecbe76bc#npm:0.0.27"],\

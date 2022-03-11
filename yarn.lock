@@ -403,7 +403,6 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@cometjs/relay-utils@workspace:packages/relay-utils"
   dependencies:
-    "@urlpack/base-codec": ^1.1.0
     "@urlpack/json": ^1.1.0
     c8: ^7.11.0
     nanobundle: ^0.0.27
@@ -818,7 +817,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@urlpack/base-codec@npm:^1.0.1, @urlpack/base-codec@npm:^1.1.0":
+"@urlpack/base-codec@npm:^1.0.1":
   version: 1.1.0
   resolution: "@urlpack/base-codec@npm:1.1.0"
   checksum: 5319173de4fc6136e47b24c4e74f445b9520dda6fe4682d6a6d76724170a4157a4842ff889505e56bb8e5ace7a8b230237a5eff309924d11ed6bb2ab1cd4db0b

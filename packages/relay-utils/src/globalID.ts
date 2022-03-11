@@ -1,4 +1,3 @@
-import { makeBaseEncoder, makeBaseDecoder } from '@urlpack/base-codec';
 import { makeJsonEncoder, makeJsonDecoder } from '@urlpack/json';
 
 type GlobalIDSource = {
@@ -20,6 +19,8 @@ export class GlobalIDFormatError extends TypeError {
 /**
  * Build Global ID helper
  *
+ * Same as graphql-relay-js, but it is safe to be included in the URL.
+ *
  * @example
  * ```js
  * const goi = makeGlobalID();
@@ -28,11 +29,8 @@ export class GlobalIDFormatError extends TypeError {
  * ```
  */
 export function makeGlobalID(): GlobalID {
-  const alphabet = '123456789abcdefghijkmnopqrstuvwxyz';
-  const base34Encoder = makeBaseEncoder(alphabet);
-  const base34Decoder = makeBaseDecoder(alphabet);
-  const jsonEncoder = makeJsonEncoder({ encodeBinary: base34Encoder.encode });
-  const jsonDecoder = makeJsonDecoder({ decodeString: base34Decoder.decode });
+  const jsonEncoder = makeJsonEncoder();
+  const jsonDecoder = makeJsonDecoder();
 
   return {
     toID: source => jsonEncoder.encode(source),
