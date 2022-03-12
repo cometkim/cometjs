@@ -1,5 +1,5 @@
-import type {InferrableAny} from '@cometjs/core';
-import {Fn, Option} from '@cometjs/core';
+import type { InferrableAny } from '@cometjs/core';
+import { Fn, Option } from '@cometjs/core';
 
 /**
  * An abstract type has serval subtypes based on `__typename` field.
@@ -63,7 +63,7 @@ export function mapAbstractTypeWithDefault<
     abstract: TAbstract,
     rangeMap: (
       & TRangeMap
-      & {_: Fn.T<RDefault, TAbstract>}
+      & { _: Fn.T<RDefault, TAbstract> }
     ),
 ): (
     | Fn.MergeRange<TRangeMap>
@@ -127,7 +127,7 @@ export function mapOptionalAbstractTypeWithDefault<
     abstract: Option.T<TAbstract>,
     rangeMap: (
       & TRangeMap
-      & {_: Fn.T<RDefault, TAbstract>}
+      & { _: Fn.T<RDefault, TAbstract> }
     ),
 ): Option.T<(
   | Fn.MergeRange<TRangeMap>

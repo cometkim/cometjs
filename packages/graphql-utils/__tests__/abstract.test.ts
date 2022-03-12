@@ -1,6 +1,6 @@
-import {describe, expect} from 'vitest';
+import { describe, expect } from 'vitest';
 
-import {mapUnion, mapUnionWithDefault} from '../src';
+import { mapUnion, mapUnionWithDefault } from '../src';
 
 type Scalars = {
   ID: string,

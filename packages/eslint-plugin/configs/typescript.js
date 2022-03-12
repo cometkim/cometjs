@@ -19,10 +19,16 @@ module.exports = {
     'indent': 'off',
     // See https://github.com/typescript-eslint/typescript-eslint/issues/1824
     // "@typescript-eslint/indent": ["error", 2],
+
+    // overridings
     'semi': 'off',
     '@typescript-eslint/semi': ['error', 'always'],
     'quotes': 'off',
     '@typescript-eslint/quotes': ['error', 'single'],
+    'object-curly-spacing': 'off',
+    '@typescript-eslint/object-curly-spacing': ['error', 'always'],
+
+    // typescript-specifics
     '@typescript-eslint/array-type': ['error', { default: 'array-simple' }],
     '@typescript-eslint/explicit-function-return-type': 'off',
     '@typescript-eslint/member-delimiter-style': ['error', {

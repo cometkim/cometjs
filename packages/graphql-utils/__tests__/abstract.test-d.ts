@@ -1,6 +1,8 @@
-import {expectEquals} from '@cometjs/core';
+import { expectEquals } from '@cometjs/core';
 
-import {mapOptionalUnion, mapOptionalUnionWithDefault, mapUnion, mapUnionWithDefault} from '../src';
+import {
+ mapOptionalUnion, mapOptionalUnionWithDefault, mapUnion, mapUnionWithDefault, 
+} from '../src';
 
 type Scalars = {
   ID: string,
