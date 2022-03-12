@@ -1,10 +1,6 @@
-import {
-  describe,
-  test,
-  expect,
-} from 'vitest';
+import {describe, expect} from 'vitest';
 
-import { mapUnion, mapUnionWithDefault } from '../src';
+import {mapUnion, mapUnionWithDefault} from '../src';
 
 type Scalars = {
   ID: string,
@@ -82,7 +78,7 @@ const results: SearchResult[] = [
   ...chats,
 ];
 
-describe('mapUnion', () => {
+describe('mapUnion', test => {
   test('map values', () => {
     const usernames = results
       .map(result => mapUnion(result, {
@@ -115,7 +111,7 @@ describe('mapUnion', () => {
   });
 });
 
-describe('mapUnionWithDefault', () => {
+describe('mapUnionWithDefault', test => {
   test('map values', () => {
     const usernames = results
       .map(result => mapUnionWithDefault(result, {

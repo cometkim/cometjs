@@ -1,6 +1,6 @@
-import { expectEquals } from '@cometjs/core';
+import {expectEquals} from '@cometjs/core';
 
-import { mapUnion, mapUnionWithDefault } from '../src';
+import {mapOptionalUnion, mapOptionalUnionWithDefault, mapUnion, mapUnionWithDefault} from '../src';
 
 type Scalars = {
   ID: string,
@@ -64,3 +64,28 @@ const t3 = mapUnionWithDefault(result, {
   _: () => 'Anonymous',
 });
 expectEquals<typeof t3, string>();
+
+type NestedSearchResult = {
+  a?: {
+    b?: {
+      c?: {
+        result?: SearchResult | null,
+      },
+    },
+  },
+};
+
+const nested = {} as NestedSearchResult;
+
+const o1 = mapOptionalUnion(nested?.a?.b?.c?.result, {
+  User: 1 as const,
+  Chat: 2 as const,
+  ChatMessage: 3 as const,
+});
+expectEquals<typeof o1, 1 | 2 | 3>();
+
+const o2 = mapOptionalUnionWithDefault(nested?.a?.b?.c?.result, {
+  User: user => user.username,
+  _: () => 'Anonymous',
+});
+expectEquals<typeof o2, string>();
