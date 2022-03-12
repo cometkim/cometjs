@@ -102,6 +102,7 @@ export function mapOptionalAbstractType<
     abstract: Option.T<TAbstract>,
     rangeMap: TRangeMap,
 ): Option.T<Fn.MergeRange<TRangeMap>> {
+  // eslint-disable-next-line @typescript-eslint/no-unsafe-return, @typescript-eslint/no-explicit-any
   return Option.map(abstract, abstract => mapAbstractType(abstract, rangeMap as any));
 }
 export const mapOptionalUnion = mapOptionalAbstractType;
@@ -133,6 +134,7 @@ export function mapOptionalAbstractTypeWithDefault<
   | Fn.MergeRange<TRangeMap>
   | RDefault
 )> {
+  // eslint-disable-next-line @typescript-eslint/no-unsafe-return, @typescript-eslint/no-explicit-any
   return Option.map(abstract, abstract => mapAbstractTypeWithDefault(abstract, rangeMap as any));
 }
 export const mapOptionalUnionWithDefault = mapOptionalAbstractTypeWithDefault;
