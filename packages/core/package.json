@@ -16,10 +16,10 @@
   "sideEffects": false,
   "source": "./src/index.ts",
   "main": "./src/index.ts",
+  "types": "./lib/index.d.ts",
   "publishConfig": {
     "access": "public",
     "main": "./lib/index.mjs",
-    "types": "./lib/index.d.ts",
     "exports": {
       ".": {
         "import": "./lib/index.mjs",
