@@ -1,7 +1,7 @@
 {
   "name": "@cometjs/relay-utils",
   "description": "cometjs utility collection for Relay",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "license": "MIT",
   "homepage": "https://github.com/cometkim/cometjs/tree/main/packages/relay-utils",
   "repository": {
