@@ -1,5 +1,11 @@
 # @cometjs/relay-utils
 
+## 0.2.2
+
+### Patch Changes
+
+- bef6587: fix types entry on the package.json
+
 ## 0.2.1
 
 ### Patch Changes

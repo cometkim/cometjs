@@ -1,5 +1,11 @@
 # @cometjs/core
 
+## 2.0.2
+
+### Patch Changes
+
+- bef6587: fix types entry on the package.json
+
 ## 2.0.1
 
 ### Patch Changes
