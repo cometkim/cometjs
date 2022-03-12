@@ -40,7 +40,7 @@
   "scripts": {
     "dev": "vitest",
     "test": "vitest run",
-    "build": "nanobundle build",
+    "build": "tsc --emitDeclarationOnly && nanobundle build --dts=false",
     "prepack": "rm -rf lib && yarn build"
   },
   "peerDependencies": {
