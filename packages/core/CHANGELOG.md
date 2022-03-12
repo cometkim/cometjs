@@ -1,5 +1,11 @@
 # @cometjs/core
 
+## 2.0.1
+
+### Patch Changes
+
+- 5f5ac7d: packed missing typescript .d.ts files
+
 ## 2.0.0
 
 ### Major Changes

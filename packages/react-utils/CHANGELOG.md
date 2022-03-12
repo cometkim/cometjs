@@ -1,5 +1,13 @@
 # @cometjs/react-utils
 
+## 2.0.1
+
+### Patch Changes
+
+- 5f5ac7d: packed missing typescript .d.ts files
+- Updated dependencies [5f5ac7d]
+  - @cometjs/core@2.0.1
+
 ## 2.0.0
 
 ### Major Changes
