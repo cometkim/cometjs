@@ -26,10 +26,7 @@ module.exports = {
         '**/__test?(s)__/**/*.{js,jsx,ts,tsx}',
         '**/__mock?(s)__/**/*.{js,jsx,ts,tsx}',
       ],
-      env: {
-        node: true,
-        jest: true,
-      },
+      extends: ['plugin:@cometjs/test'],
     },
     {
       files: [
