@@ -1,5 +1,13 @@
 # @cometjs/react-utils
 
+## 2.0.3
+
+### Patch Changes
+
+- Updated dependencies [057e735]
+- Updated dependencies [9c7e9a1]
+  - @cometjs/core@2.1.0
+
 ## 2.0.2
 
 ### Patch Changes
