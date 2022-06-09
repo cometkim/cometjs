@@ -51,6 +51,16 @@ export type InferrableAny = Primitive | object;
 export type NonMaybeType = {};
 
 /**
+ * Strict presentation of empty object
+ */
+export type EmptyObject = Record<string, never>;
+
+/**
+ * Strict presentation of any object
+ */
+export type AnyObject = Record<string, unknown>;
+
+/**
  * Safely intersect prop types
  */
 export type OverrideProps<TBaseProps, TNewProps> = Omit<TBaseProps, keyof TNewProps> & TNewProps;
