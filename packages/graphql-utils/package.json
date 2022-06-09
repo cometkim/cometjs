@@ -1,7 +1,7 @@
 {
   "name": "@cometjs/graphql-utils",
   "description": "cometjs utility collection for GraphQL",
-  "version": "2.0.2",
+  "version": "2.0.3",
   "license": "MIT",
   "homepage": "https://github.com/cometkim/cometjs/tree/main/packages/graphql-utils",
   "repository": {

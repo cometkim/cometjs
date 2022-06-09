@@ -1,5 +1,12 @@
 # @cometjs/core
 
+## 2.1.0
+
+### Minor Changes
+
+- 057e735: added EmptyObject and AnyObject types
+- 9c7e9a1: added utility types for JSON values
+
 ## 2.0.2
 
 ### Patch Changes
