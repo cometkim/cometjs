@@ -1,5 +1,11 @@
 # @cometjs/relay-utils
 
+## 1.0.0
+
+### Major Changes
+
+- 1ef5bf4: Change "type" to "typename", and handle undefined input
+
 ## 0.2.2
 
 ### Patch Changes
