@@ -59,7 +59,7 @@
     "react-test-renderer": "^17.0.1",
     "typescript": "^4.9.3",
     "urql": "^2.0.1",
-    "vite": "^2.8.6",
+    "vite": "^2.9.13",
     "vitest": "^0.6.0",
     "wonka": "^4.0.15"
   }
