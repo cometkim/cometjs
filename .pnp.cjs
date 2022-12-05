@@ -558,6 +558,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@types/react-dom", "npm:17.0.0"],\
             ["@types/react-test-renderer", "npm:17.0.1"],\
             ["c8", "npm:7.11.0"],\
+            ["fast-deep-equal", "npm:3.1.3"],\
             ["nanobundle", "virtual:f87076b27c2623022c8aa51ff6dc61e0c2b8c9f0ed568a71714dbce874956b120bd0c8ce7e41c4907ec27e78d398802710540d667a8d839c7324fb0aecbe76bc#npm:0.0.27"],\
             ["react", "npm:17.0.2"],\
             ["react-dom", "virtual:c03f17fa1726ecb594a8dd52523b52167c2eb96176d058df00a4d459b80cf8680028a1d84f5651f99fe17f9f28ece553287d9fa10bced24ab4646eee71564727#npm:17.0.1"],\
