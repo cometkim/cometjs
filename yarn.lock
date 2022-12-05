@@ -304,7 +304,7 @@ __metadata:
   dependencies:
     c8: ^7.11.0
     nanobundle: ^0.0.27
-    typescript: ^4.6.2
+    typescript: ^4.9.3
     vite: ^2.8.6
     vitest: ^0.6.0
   peerDependencies:
@@ -349,7 +349,7 @@ __metadata:
     "@cometjs/core": "workspace:^"
     c8: ^7.11.0
     nanobundle: ^0.0.27
-    typescript: ^4.6.2
+    typescript: ^4.9.3
     vite: ^2.8.6
     vitest: ^0.6.0
   languageName: unknown
@@ -370,7 +370,7 @@ __metadata:
     eslint-plugin-react: ^7.29.3
     eslint-plugin-react-hooks: ^4.3.0
     react: ^17.0.2
-    typescript: ^4.6.2
+    typescript: ^4.9.3
     vite: ^2.8.6
     vitest: ^0.6.0
   languageName: unknown
@@ -391,7 +391,7 @@ __metadata:
     react-dom: ^17.0.1
     react-error-boundary: ^3.1.0
     react-test-renderer: ^17.0.1
-    typescript: ^4.6.2
+    typescript: ^4.9.3
     vite: ^2.8.6
     vitest: ^0.6.0
   peerDependencies:
@@ -406,7 +406,7 @@ __metadata:
     "@urlpack/json": ^1.1.0
     c8: ^7.11.0
     nanobundle: ^0.0.27
-    typescript: ^4.6.2
+    typescript: ^4.9.3
     vite: ^2.8.6
     vitest: ^0.6.0
   languageName: unknown
@@ -426,7 +426,7 @@ __metadata:
     nanobundle: ^0.0.27
     react: ^17.0.1
     react-test-renderer: ^17.0.1
-    typescript: ^4.6.2
+    typescript: ^4.9.3
     urql: ^2.0.1
     vite: ^2.8.6
     vitest: ^0.6.0
@@ -4757,23 +4757,23 @@ __metadata:
   languageName: node
   linkType: hard
 
-"typescript@npm:^4.6.2":
-  version: 4.6.2
-  resolution: "typescript@npm:4.6.2"
+"typescript@npm:^4.9.3":
+  version: 4.9.3
+  resolution: "typescript@npm:4.9.3"
   bin:
     tsc: bin/tsc
     tsserver: bin/tsserver
-  checksum: 8a44ed7e6f6c4cb1ebe8cf236ecda2fb119d84dcf0fbd77e707b2dfea1bbcfc4e366493a143513ce7f57203c75da9d4e20af6fe46de89749366351046be7577c
+  checksum: 17b8f816050b412403e38d48eef0e893deb6be522d6dc7caf105e54a72e34daf6835c447735fd2b28b66784e72bfbf87f627abb4818a8e43d1fa8106396128dc
   languageName: node
   linkType: hard
 
-"typescript@patch:typescript@^4.6.2#~builtin<compat/typescript>":
-  version: 4.6.2
-  resolution: "typescript@patch:typescript@npm%3A4.6.2#~builtin<compat/typescript>::version=4.6.2&hash=5d3a66"
+"typescript@patch:typescript@^4.9.3#~builtin<compat/typescript>":
+  version: 4.9.3
+  resolution: "typescript@patch:typescript@npm%3A4.9.3#~builtin<compat/typescript>::version=4.9.3&hash=d73830"
   bin:
     tsc: bin/tsc
     tsserver: bin/tsserver
-  checksum: 40b493a71747fb89fa70df104e2c4a5e284b43750af5bea024090a5261cefa387f7a9372411b13030f7bf5555cee4275443d08805642ae5c74ef76740854a4c7
+  checksum: 67ca21a387c0572f1c04936e638dde7782c5aa520c3754aadc7cc9b7c915da9ebc3e27c601bfff4ccb7d7264e82dce6d277ada82ec09dc75024349e0ef64926d
   languageName: node
   linkType: hard
 
