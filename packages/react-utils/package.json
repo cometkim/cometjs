@@ -19,11 +19,11 @@
   "types": "./lib/index.d.ts",
   "publishConfig": {
     "access": "public",
-    "type": "module",
     "main": "./lib/index.mjs"
   },
   "exports": {
     ".": {
+      "types": "./lib/index.d.ts",
       "import": "./lib/index.mjs",
       "require": "./lib/index.cjs"
     },
@@ -52,7 +52,7 @@
     "@types/react-dom": "^17.0.0",
     "@types/react-test-renderer": "^17.0.0",
     "c8": "^7.11.0",
-    "nanobundle": "^0.0.27",
+    "nanobundle": "^1.0.0-rc.7",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
     "react-error-boundary": "^3.1.0",
