@@ -28,7 +28,7 @@ jobs:
         run: yarn install --immutable
         
       - name: Build Packages
-        run: yarn worksapces foreach -iv --topological-dev --no-private build
+        run: yarn workspaces foreach -iv --topological-dev --no-private build
 
       - name: Create Release Pull Request
         uses: cometkim/yarn-changeset-action@v1
