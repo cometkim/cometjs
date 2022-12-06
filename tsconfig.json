@@ -4,8 +4,6 @@
     "module": "ESNext",
     "moduleResolution": "Node",
     "lib": ["ESNext", "DOM"],
-    "composite": true,
-    "incremental": false,
     "strict": true,
     "esModuleInterop": true,
     "allowSyntheticDefaultImports": true,
