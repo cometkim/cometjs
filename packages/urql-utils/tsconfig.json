@@ -4,6 +4,7 @@
     "jsx": "preserve",
     "rootDir": "src",
     "outDir": "lib",
+    "declaration": true,
     "declarationDir": "lib"
   },
   "include": [
