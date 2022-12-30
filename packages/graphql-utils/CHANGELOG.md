@@ -1,5 +1,12 @@
 # @cometjs/graphql-utils
 
+## 2.0.4
+
+### Patch Changes
+
+- Updated dependencies [cef0284]
+  - @cometjs/core@2.1.1
+
 ## 2.0.3
 
 ### Patch Changes
