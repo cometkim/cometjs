@@ -27,22 +27,6 @@ export type Tail<Tuple extends readonly any[]> = (
     : never
 );
 
-declare namespace $Variadic {
-  // `Head<T>` and `Tail<T>` implementation using variadic tuple.
-  // It's much simpler but type inference is uncertain compared to the old version.
-
-  export type Head<Tuple extends readonly unknown[]> = (
-    Tuple extends [infer Head, ...any]
-      ? Head
-      : never
-  );
-  export type Tail<Tuple extends readonly unknown[]> = (
-    Tuple extends [any?, ...infer Tail]
-      ? Tail
-      : never
-  );
-}
-
 export type Append<
   Tuple extends readonly any[],
   Item
@@ -62,8 +46,8 @@ export type MapPromise<
 > = {
   0: Result,
   1: MapPromise<
-    $Variadic.Tail<Tuple>,
-    Append<Result, Promise<$Variadic.Head<Tuple>>>
+    Tail<Tuple>,
+    Append<Result, Promise<Head<Tuple>>>
   >,
 }[Tuple['length'] extends 0 ? 0 : 1];
 
@@ -73,7 +57,7 @@ export type MapReturnType<
 > = {
   0: Result,
   1: MapReturnType<
-    $Variadic.Tail<Tuple>,
+    Tail<Tuple>,
     Append<Result, ReturnType<Head<Tuple>>>
   >,
 }[Tuple['length'] extends 0 ? 0 : 1];
@@ -83,8 +67,9 @@ export type MapPick<
   Key extends string,
   Result extends readonly any[] = []
 > = {
-  0: Result, 1: MapPick<
-    $Variadic.Tail<Tuple>,
+  0: Result,
+  1: MapPick<
+    Tail<Tuple>,
     Key,
     Append<Result, Pick<Head<Tuple>, Key>>
   >,
@@ -96,8 +81,8 @@ export type MapUnwrap<
 > = {
   0: Result,
   1: MapUnwrap<
-    $Variadic.Tail<Tuple>,
-    Append<Result, Unwrap<$Variadic.Head<Tuple>>>
+    Tail<Tuple>,
+    Append<Result, Unwrap<Head<Tuple>>>
   >,
 }[Tuple['length'] extends 0 ? 0 : 1];
 
@@ -108,9 +93,9 @@ export type MapWrap<
 > = {
   0: Result,
   1: MapWrap<
-    $Variadic.Tail<Tuple>,
+    Tail<Tuple>,
     Box,
-    Append<Result, Wrap<$Variadic.Head<Tuple>, Box>>
+    Append<Result, Wrap<Head<Tuple>, Box>>
   >,
 }[Tuple['length'] extends 0 ? 0 : 1];
 
@@ -133,5 +118,5 @@ type MakeTuple<X, N extends number, Result extends readonly X[] = []> = {
 
 export type Replace<Tuple extends readonly any[], X, Result extends readonly X[] = []> = {
   0: Result,
-  1: Replace<$Variadic.Tail<Tuple>, X, [X, ...Result]>,
+  1: Replace<Tail<Tuple>, X, [X, ...Result]>,
 }[Tuple['length'] extends 0 ? 0 : 1];
