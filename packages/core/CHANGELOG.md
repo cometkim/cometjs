@@ -1,5 +1,11 @@
 # @cometjs/core
 
+## 2.1.1
+
+### Patch Changes
+
+- cef0284: Fix tuple helpers stability
+
 ## 2.1.0
 
 ### Minor Changes
