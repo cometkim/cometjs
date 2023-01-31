@@ -1,4 +1,5 @@
 export * from './common';
+export * from './promise';
 export * as Fn from './function';
 export * as Option from './option';
 export * as Condition from './condition';
