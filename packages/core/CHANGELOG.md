@@ -1,5 +1,11 @@
 # @cometjs/core
 
+## 2.2.0
+
+### Minor Changes
+
+- 2c04028: added some promise utils
+
 ## 2.1.1
 
 ### Patch Changes
