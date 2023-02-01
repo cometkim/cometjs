@@ -1,5 +1,12 @@
 # @cometjs/urql-utils
 
+## 2.0.5
+
+### Patch Changes
+
+- Updated dependencies [2c04028]
+  - @cometjs/core@2.2.0
+
 ## 2.0.4
 
 ### Patch Changes
