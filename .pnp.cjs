@@ -622,7 +622,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["react", "npm:17.0.2"],\
             ["react-test-renderer", "virtual:c03f17fa1726ecb594a8dd52523b52167c2eb96176d058df00a4d459b80cf8680028a1d84f5651f99fe17f9f28ece553287d9fa10bced24ab4646eee71564727#npm:17.0.2"],\
             ["typescript", "patch:typescript@npm%3A5.0.4#~builtin<compat/typescript>::version=5.0.4&hash=85af82"],\
-            ["urql", "virtual:6b672ce5f9acf121a1b3a6f0052447f41fd4c40509526abecc7f84a2c49e88d2e5398bc76b62a0dd5f791c3259cac4452f0f86573586ab9d9c029182fac02fd7#npm:2.0.1"],\
+            ["urql", "virtual:6b672ce5f9acf121a1b3a6f0052447f41fd4c40509526abecc7f84a2c49e88d2e5398bc76b62a0dd5f791c3259cac4452f0f86573586ab9d9c029182fac02fd7#npm:2.2.3"],\
             ["vite", "virtual:236ffb23991e44020122de94f575876fe73ed6d13995e5c5ca3b0e47da5cf9346310444b996e0c3f7bd98237a4f62a07e4ea51e2b9b6a0fead8e55bb39384377#npm:2.8.6"],\
             ["vitest", "virtual:236ffb23991e44020122de94f575876fe73ed6d13995e5c5ca3b0e47da5cf9346310444b996e0c3f7bd98237a4f62a07e4ea51e2b9b6a0fead8e55bb39384377#npm:0.6.0"],\
             ["wonka", "npm:4.0.15"]\
@@ -897,17 +897,17 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         }]\
       ]],\
       ["@graphql-typed-document-node/core", [\
-        ["npm:3.1.0", {\
-          "packageLocation": "./.yarn/cache/@graphql-typed-document-node-core-npm-3.1.0-626997e126-582eb20060.zip/node_modules/@graphql-typed-document-node/core/",\
+        ["npm:3.2.0", {\
+          "packageLocation": "./.yarn/cache/@graphql-typed-document-node-core-npm-3.2.0-505adb1e90-fa44443acc.zip/node_modules/@graphql-typed-document-node/core/",\
           "packageDependencies": [\
-            ["@graphql-typed-document-node/core", "npm:3.1.0"]\
+            ["@graphql-typed-document-node/core", "npm:3.2.0"]\
           ],\
           "linkType": "SOFT"\
         }],\
-        ["virtual:3fc6de70cc3c6f3742321cd9853bc63a4dbb0a08f37a96ff332b43123fdc8d52bc0ca3f4add88650782d4eccda0a644ee902e2cb759e64dba8b0e493fe155f5e#npm:3.1.0", {\
-          "packageLocation": "./.yarn/__virtual__/@graphql-typed-document-node-core-virtual-84351449c5/0/cache/@graphql-typed-document-node-core-npm-3.1.0-626997e126-582eb20060.zip/node_modules/@graphql-typed-document-node/core/",\
+        ["virtual:65c01adb1c0043cd8869c24bcd84cd016fc4427a86c8aa7a1dd28d41ee16670ce07ca06bf90329a9a16c056fc78e19644c8c260fed853211c97c2f9bbc68545c#npm:3.2.0", {\
+          "packageLocation": "./.yarn/__virtual__/@graphql-typed-document-node-core-virtual-c2f50e5630/0/cache/@graphql-typed-document-node-core-npm-3.2.0-505adb1e90-fa44443acc.zip/node_modules/@graphql-typed-document-node/core/",\
           "packageDependencies": [\
-            ["@graphql-typed-document-node/core", "virtual:3fc6de70cc3c6f3742321cd9853bc63a4dbb0a08f37a96ff332b43123fdc8d52bc0ca3f4add88650782d4eccda0a644ee902e2cb759e64dba8b0e493fe155f5e#npm:3.1.0"],\
+            ["@graphql-typed-document-node/core", "virtual:65c01adb1c0043cd8869c24bcd84cd016fc4427a86c8aa7a1dd28d41ee16670ce07ca06bf90329a9a16c056fc78e19644c8c260fed853211c97c2f9bbc68545c#npm:3.2.0"],\
             ["@types/graphql", null],\
             ["graphql", "npm:15.8.0"]\
           ],\
@@ -1648,18 +1648,18 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         }]\
       ]],\
       ["@urql/core", [\
-        ["npm:2.0.0", {\
-          "packageLocation": "./.yarn/cache/@urql-core-npm-2.0.0-7689f44c21-16376721bd.zip/node_modules/@urql/core/",\
+        ["npm:2.6.1", {\
+          "packageLocation": "./.yarn/cache/@urql-core-npm-2.6.1-3f030ef386-d3bdc343d7.zip/node_modules/@urql/core/",\
           "packageDependencies": [\
-            ["@urql/core", "npm:2.0.0"]\
+            ["@urql/core", "npm:2.6.1"]\
           ],\
           "linkType": "SOFT"\
         }],\
-        ["virtual:d40803caa783c7c0af30d7caa44e84be85b40848c92256dd79546c446939fd5f74f22c4ee5d70a55871594df726a035f4e0a8169522f892aae11952901e00f88#npm:2.0.0", {\
-          "packageLocation": "./.yarn/__virtual__/@urql-core-virtual-3fc6de70cc/0/cache/@urql-core-npm-2.0.0-7689f44c21-16376721bd.zip/node_modules/@urql/core/",\
+        ["virtual:653c1b4439b07d1ec61a5f147d9d86f6c706e0b2a305be7dd406fcc58dc5bf9f4dac00917959a789f29c8930316e5fc09fe4303adc96b8a8e7c2898bd364d3d3#npm:2.6.1", {\
+          "packageLocation": "./.yarn/__virtual__/@urql-core-virtual-65c01adb1c/0/cache/@urql-core-npm-2.6.1-3f030ef386-d3bdc343d7.zip/node_modules/@urql/core/",\
           "packageDependencies": [\
-            ["@urql/core", "virtual:d40803caa783c7c0af30d7caa44e84be85b40848c92256dd79546c446939fd5f74f22c4ee5d70a55871594df726a035f4e0a8169522f892aae11952901e00f88#npm:2.0.0"],\
-            ["@graphql-typed-document-node/core", "virtual:3fc6de70cc3c6f3742321cd9853bc63a4dbb0a08f37a96ff332b43123fdc8d52bc0ca3f4add88650782d4eccda0a644ee902e2cb759e64dba8b0e493fe155f5e#npm:3.1.0"],\
+            ["@urql/core", "virtual:653c1b4439b07d1ec61a5f147d9d86f6c706e0b2a305be7dd406fcc58dc5bf9f4dac00917959a789f29c8930316e5fc09fe4303adc96b8a8e7c2898bd364d3d3#npm:2.6.1"],\
+            ["@graphql-typed-document-node/core", "virtual:65c01adb1c0043cd8869c24bcd84cd016fc4427a86c8aa7a1dd28d41ee16670ce07ca06bf90329a9a16c056fc78e19644c8c260fed853211c97c2f9bbc68545c#npm:3.2.0"],\
             ["@types/graphql", null],\
             ["graphql", "npm:15.8.0"],\
             ["wonka", "npm:4.0.15"]\
@@ -6881,20 +6881,20 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         }]\
       ]],\
       ["urql", [\
-        ["npm:2.0.1", {\
-          "packageLocation": "./.yarn/cache/urql-npm-2.0.1-bb56572cf7-2adb0974d0.zip/node_modules/urql/",\
+        ["npm:2.2.3", {\
+          "packageLocation": "./.yarn/cache/urql-npm-2.2.3-828ff44b05-b105d10036.zip/node_modules/urql/",\
           "packageDependencies": [\
-            ["urql", "npm:2.0.1"]\
+            ["urql", "npm:2.2.3"]\
           ],\
           "linkType": "SOFT"\
         }],\
-        ["virtual:6b672ce5f9acf121a1b3a6f0052447f41fd4c40509526abecc7f84a2c49e88d2e5398bc76b62a0dd5f791c3259cac4452f0f86573586ab9d9c029182fac02fd7#npm:2.0.1", {\
-          "packageLocation": "./.yarn/__virtual__/urql-virtual-d40803caa7/0/cache/urql-npm-2.0.1-bb56572cf7-2adb0974d0.zip/node_modules/urql/",\
+        ["virtual:6b672ce5f9acf121a1b3a6f0052447f41fd4c40509526abecc7f84a2c49e88d2e5398bc76b62a0dd5f791c3259cac4452f0f86573586ab9d9c029182fac02fd7#npm:2.2.3", {\
+          "packageLocation": "./.yarn/__virtual__/urql-virtual-653c1b4439/0/cache/urql-npm-2.2.3-828ff44b05-b105d10036.zip/node_modules/urql/",\
           "packageDependencies": [\
-            ["urql", "virtual:6b672ce5f9acf121a1b3a6f0052447f41fd4c40509526abecc7f84a2c49e88d2e5398bc76b62a0dd5f791c3259cac4452f0f86573586ab9d9c029182fac02fd7#npm:2.0.1"],\
+            ["urql", "virtual:6b672ce5f9acf121a1b3a6f0052447f41fd4c40509526abecc7f84a2c49e88d2e5398bc76b62a0dd5f791c3259cac4452f0f86573586ab9d9c029182fac02fd7#npm:2.2.3"],\
             ["@types/graphql", null],\
             ["@types/react", "npm:17.0.57"],\
-            ["@urql/core", "virtual:d40803caa783c7c0af30d7caa44e84be85b40848c92256dd79546c446939fd5f74f22c4ee5d70a55871594df726a035f4e0a8169522f892aae11952901e00f88#npm:2.0.0"],\
+            ["@urql/core", "virtual:653c1b4439b07d1ec61a5f147d9d86f6c706e0b2a305be7dd406fcc58dc5bf9f4dac00917959a789f29c8930316e5fc09fe4303adc96b8a8e7c2898bd364d3d3#npm:2.6.1"],\
             ["graphql", "npm:15.8.0"],\
             ["react", "npm:17.0.2"],\
             ["wonka", "npm:4.0.15"]\
