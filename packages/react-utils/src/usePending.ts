@@ -1,7 +1,7 @@
 import * as React from 'react';
 
 type CacheEntry = {
-  suspendedAt: number;
+  suspendedAt: number,
 };
 
 const cache = new WeakMap<object, CacheEntry>();
@@ -20,6 +20,7 @@ export function usePending(pending: boolean) {
   }
 
   if (pending && cache.has(pendingKey)) {
+    // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
     const entry = cache.get(pendingKey)!;
     throw new Promise(resolve => {
       setTimeout(resolve, jnd(Date.now() - entry.suspendedAt));
