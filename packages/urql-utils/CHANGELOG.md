@@ -1,5 +1,13 @@
 # @cometjs/urql-utils
 
+## 2.1.1
+
+### Patch Changes
+
+- 1f6c8cd: Fix TypeScript declaration resolution
+- Updated dependencies [1f6c8cd]
+  - @cometjs/core@2.3.1
+
 ## 2.1.0
 
 ### Minor Changes

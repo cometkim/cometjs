@@ -1,7 +1,7 @@
 {
   "name": "@cometjs/urql-utils",
   "description": "cometjs utility collection for urql",
-  "version": "2.1.0",
+  "version": "2.1.1",
   "license": "MIT",
   "homepage": "https://github.com/cometkim/cometjs/tree/main/packages/urql-utils",
   "repository": {
