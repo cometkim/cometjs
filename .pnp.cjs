@@ -617,7 +617,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@types/react-test-renderer", "npm:17.0.2"],\
             ["@types/webpack-env", "npm:1.18.0"],\
             ["c8", "npm:7.13.0"],\
-            ["graphql", "npm:15.5.0"],\
+            ["graphql", "npm:15.8.0"],\
             ["nanobundle", "virtual:06ae4fcbcd9edd2606b20d70e641dcee0c4437006bc2b757032ad41e035e55241e390b0f628e9f8f7ed6a415f631c596d136981381ae002acd26fa942fabaeef#npm:1.0.0-rc.8"],\
             ["react", "npm:17.0.2"],\
             ["react-test-renderer", "virtual:c03f17fa1726ecb594a8dd52523b52167c2eb96176d058df00a4d459b80cf8680028a1d84f5651f99fe17f9f28ece553287d9fa10bced24ab4646eee71564727#npm:17.0.2"],\
@@ -729,7 +729,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageDependencies": [\
             ["@graphql-typed-document-node/core", "virtual:3fc6de70cc3c6f3742321cd9853bc63a4dbb0a08f37a96ff332b43123fdc8d52bc0ca3f4add88650782d4eccda0a644ee902e2cb759e64dba8b0e493fe155f5e#npm:3.1.0"],\
             ["@types/graphql", null],\
-            ["graphql", "npm:15.5.0"]\
+            ["graphql", "npm:15.8.0"]\
           ],\
           "packagePeers": [\
             "@types/graphql",\
@@ -1481,7 +1481,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@urql/core", "virtual:d40803caa783c7c0af30d7caa44e84be85b40848c92256dd79546c446939fd5f74f22c4ee5d70a55871594df726a035f4e0a8169522f892aae11952901e00f88#npm:2.0.0"],\
             ["@graphql-typed-document-node/core", "virtual:3fc6de70cc3c6f3742321cd9853bc63a4dbb0a08f37a96ff332b43123fdc8d52bc0ca3f4add88650782d4eccda0a644ee902e2cb759e64dba8b0e493fe155f5e#npm:3.1.0"],\
             ["@types/graphql", null],\
-            ["graphql", "npm:15.5.0"],\
+            ["graphql", "npm:15.8.0"],\
             ["wonka", "npm:4.0.15"]\
           ],\
           "packagePeers": [\
@@ -3831,10 +3831,10 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         }]\
       ]],\
       ["graphql", [\
-        ["npm:15.5.0", {\
-          "packageLocation": "./.yarn/cache/graphql-npm-15.5.0-65986c56be-58a69f7274.zip/node_modules/graphql/",\
+        ["npm:15.8.0", {\
+          "packageLocation": "./.yarn/cache/graphql-npm-15.8.0-0156c66b65-423325271d.zip/node_modules/graphql/",\
           "packageDependencies": [\
-            ["graphql", "npm:15.5.0"]\
+            ["graphql", "npm:15.8.0"]\
           ],\
           "linkType": "HARD"\
         }]\
@@ -6835,7 +6835,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@types/graphql", null],\
             ["@types/react", "npm:17.0.57"],\
             ["@urql/core", "virtual:d40803caa783c7c0af30d7caa44e84be85b40848c92256dd79546c446939fd5f74f22c4ee5d70a55871594df726a035f4e0a8169522f892aae11952901e00f88#npm:2.0.0"],\
-            ["graphql", "npm:15.5.0"],\
+            ["graphql", "npm:15.8.0"],\
             ["react", "npm:17.0.2"],\
             ["wonka", "npm:4.0.15"]\
           ],\
