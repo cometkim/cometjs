@@ -1,5 +1,11 @@
 # @cometjs/relay-utils
 
+## 1.1.0
+
+### Minor Changes
+
+- 70ca666: Support TypeScript v5
+
 ## 1.0.0
 
 ### Major Changes

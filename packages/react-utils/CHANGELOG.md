@@ -1,5 +1,16 @@
 # @cometjs/react-utils
 
+## 2.2.0
+
+### Minor Changes
+
+- 70ca666: Support TypeScript v5
+
+### Patch Changes
+
+- Updated dependencies [70ca666]
+  - @cometjs/core@2.3.0
+
 ## 2.1.2
 
 ### Patch Changes
