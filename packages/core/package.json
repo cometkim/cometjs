@@ -15,18 +15,18 @@
   },
   "sideEffects": false,
   "main": "./src/index.ts",
-  "types": "./lib/index.d.ts",
   "publishConfig": {
     "access": "public",
-    "main": "./lib/index.mjs"
-  },
-  "exports": {
-    ".": {
-      "types": "./lib/index.d.ts",
-      "import": "./lib/index.mjs",
-      "require": "./lib/index.cjs"
-    },
-    "./package.json": "./package.json"
+    "main": "./lib/index.mjs",
+    "types": "./lib/index.d.ts",
+    "exports": {
+      ".": {
+        "types": "./lib/index.d.ts",
+        "import": "./lib/index.mjs",
+        "require": "./lib/index.cjs"
+      },
+      "./package.json": "./package.json"
+    }
   },
   "browserslist": [
     "defaults",
@@ -44,7 +44,7 @@
     "prepack": "rm -rf lib && yarn build"
   },
   "peerDependencies": {
-    "typescript": "^4.5.0"
+    "typescript": "^4.5.0 || ^5.0.0"
   },
   "peerDependenciesMeta": {
     "typescript": {
@@ -54,7 +54,7 @@
   "devDependencies": {
     "c8": "^7.11.0",
     "nanobundle": "^1.0.0-rc.8",
-    "typescript": "^4.9.3",
+    "typescript": "^5.0.4",
     "vite": "^2.8.6",
     "vitest": "^0.6.0"
   },

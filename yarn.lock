@@ -305,11 +305,11 @@ __metadata:
     c8: ^7.11.0
     nanobundle: ^1.0.0-rc.8
     tsconfck: ^2.0.1
-    typescript: ^4.9.3
+    typescript: ^5.0.4
     vite: ^2.8.6
     vitest: ^0.6.0
   peerDependencies:
-    typescript: ^4.5.0
+    typescript: ^4.5.0 || ^5.0.0
   peerDependenciesMeta:
     typescript:
       optional: true
@@ -350,7 +350,7 @@ __metadata:
     "@cometjs/core": "workspace:^"
     c8: ^7.11.0
     nanobundle: ^1.0.0-rc.8
-    typescript: ^4.9.3
+    typescript: ^5.0.4
     vite: ^2.8.6
     vitest: ^0.6.0
   languageName: unknown
@@ -371,7 +371,7 @@ __metadata:
     eslint-plugin-react: ^7.29.3
     eslint-plugin-react-hooks: ^4.3.0
     react: ^17.0.2
-    typescript: ^4.9.3
+    typescript: ^5.0.4
     vite: ^2.8.6
     vitest: ^0.6.0
   languageName: unknown
@@ -393,7 +393,7 @@ __metadata:
     react-dom: ^17.0.1
     react-error-boundary: ^3.1.0
     react-test-renderer: ^17.0.1
-    typescript: ^4.9.3
+    typescript: ^5.0.4
     vite: ^2.8.6
     vitest: ^0.6.0
   peerDependencies:
@@ -408,7 +408,7 @@ __metadata:
     "@urlpack/json": ^1.1.0
     c8: ^7.11.0
     nanobundle: ^1.0.0-rc.8
-    typescript: ^4.9.3
+    typescript: ^5.0.4
     vite: ^2.8.6
     vitest: ^0.6.0
   languageName: unknown
@@ -428,7 +428,7 @@ __metadata:
     nanobundle: ^1.0.0-rc.8
     react: ^17.0.1
     react-test-renderer: ^17.0.1
-    typescript: ^4.9.3
+    typescript: ^5.0.4
     urql: ^2.0.1
     vite: ^2.8.6
     vitest: ^0.6.0
@@ -5105,23 +5105,23 @@ __metadata:
   languageName: node
   linkType: hard
 
-"typescript@npm:^4.9.3":
-  version: 4.9.3
-  resolution: "typescript@npm:4.9.3"
+"typescript@npm:^5.0.4":
+  version: 5.0.4
+  resolution: "typescript@npm:5.0.4"
   bin:
     tsc: bin/tsc
     tsserver: bin/tsserver
-  checksum: 17b8f816050b412403e38d48eef0e893deb6be522d6dc7caf105e54a72e34daf6835c447735fd2b28b66784e72bfbf87f627abb4818a8e43d1fa8106396128dc
+  checksum: 82b94da3f4604a8946da585f7d6c3025fff8410779e5bde2855ab130d05e4fd08938b9e593b6ebed165bda6ad9292b230984f10952cf82f0a0ca07bbeaa08172
   languageName: node
   linkType: hard
 
-"typescript@patch:typescript@^4.9.3#~builtin<compat/typescript>":
-  version: 4.9.3
-  resolution: "typescript@patch:typescript@npm%3A4.9.3#~builtin<compat/typescript>::version=4.9.3&hash=d73830"
+"typescript@patch:typescript@^5.0.4#~builtin<compat/typescript>":
+  version: 5.0.4
+  resolution: "typescript@patch:typescript@npm%3A5.0.4#~builtin<compat/typescript>::version=5.0.4&hash=85af82"
   bin:
     tsc: bin/tsc
     tsserver: bin/tsserver
-  checksum: 67ca21a387c0572f1c04936e638dde7782c5aa520c3754aadc7cc9b7c915da9ebc3e27c601bfff4ccb7d7264e82dce6d277ada82ec09dc75024349e0ef64926d
+  checksum: bb309d320c59a26565fb3793dba550576ab861018ff3fd1b7fccabbe46ae4a35546bc45f342c0a0b6f265c801ccdf64ffd68f548f117ceb7f0eac4b805cd52a9
   languageName: node
   linkType: hard
 

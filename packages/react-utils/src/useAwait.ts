@@ -11,7 +11,7 @@ const promiseCache: PromiseEntry[] = [];
 
 export function useAwait<T, I extends unknown[] = []>(
   fn: (...inputs: I) => Promise<T>,
-  inputs: I = [] as any,
+  inputs = [] as unknown as I,
   lifespan = 0,
 ): T {
   for (const promiseEntry of promiseCache) {
