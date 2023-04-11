@@ -1,7 +1,10 @@
-import { expectEquals } from '@cometjs/core';
+import { expectEquals, Option } from '@cometjs/core';
 
 import {
- mapOptionalUnion, mapOptionalUnionWithDefault, mapUnion, mapUnionWithDefault, 
+  mapOptionalUnion,
+  mapOptionalUnionWithDefault,
+  mapUnion,
+  mapUnionWithDefault,
 } from '../src';
 
 type Scalars = {
@@ -84,10 +87,10 @@ const o1 = mapOptionalUnion(nested?.a?.b?.c?.result, {
   Chat: 2 as const,
   ChatMessage: 3 as const,
 });
-expectEquals<typeof o1, 1 | 2 | 3>();
+expectEquals<typeof o1, Option.T<1 | 2 | 3>>();
 
 const o2 = mapOptionalUnionWithDefault(nested?.a?.b?.c?.result, {
   User: user => user.username,
   _: () => 'Anonymous',
 });
-expectEquals<typeof o2, string>();
+expectEquals<typeof o2, Option.T<string>>();
