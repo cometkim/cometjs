@@ -522,12 +522,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@graphql-typed-document-node/core@npm:^3.1.0":
-  version: 3.1.0
-  resolution: "@graphql-typed-document-node/core@npm:3.1.0"
+"@graphql-typed-document-node/core@npm:^3.1.1":
+  version: 3.2.0
+  resolution: "@graphql-typed-document-node/core@npm:3.2.0"
   peerDependencies:
-    graphql: ^0.8.0 || ^0.9.0 || ^0.10.0 || ^0.11.0 || ^0.12.0 || ^0.13.0 || ^14.0.0 || ^15.0.0
-  checksum: 582eb2006012a29bdcf72d223e3fec1a1ccdac8f4e249bd92cb68412e9881b4f7aa9ed9c74a495a2aa988904aaa4b8aa7b21bf0cb8c7aed700b8150f5818ef3f
+    graphql: ^0.8.0 || ^0.9.0 || ^0.10.0 || ^0.11.0 || ^0.12.0 || ^0.13.0 || ^14.0.0 || ^15.0.0 || ^16.0.0 || ^17.0.0
+  checksum: fa44443accd28c8cf4cb96aaaf39d144a22e8b091b13366843f4e97d19c7bfeaf609ce3c7603a4aeffe385081eaf8ea245d078633a7324c11c5ec4b2011bb76d
   languageName: node
   linkType: hard
 
@@ -1002,15 +1002,15 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@urql/core@npm:^2.0.0":
-  version: 2.0.0
-  resolution: "@urql/core@npm:2.0.0"
+"@urql/core@npm:^2.6.1":
+  version: 2.6.1
+  resolution: "@urql/core@npm:2.6.1"
   dependencies:
-    "@graphql-typed-document-node/core": ^3.1.0
+    "@graphql-typed-document-node/core": ^3.1.1
     wonka: ^4.0.14
   peerDependencies:
-    graphql: ^0.11.0 || ^0.12.0 || ^0.13.0 || ^14.0.0 || ^15.0.0
-  checksum: 16376721bd473385b0a7ba8c142ceb589cb0ff0247b6a5572e773217d574f47938d32b018d9e9d1aa1eed88d070cdbb50c01b250c7a47ba08775f9cf0b2c48b6
+    graphql: ^0.11.0 || ^0.12.0 || ^0.13.0 || ^14.0.0 || ^15.0.0 || ^16.0.0
+  checksum: d3bdc343d77b2473c1fbc02bd8669376e46f00ac93efb387e7df7783b62b201096531f3021668e696b40bbf6c5cbb6bcdc79905e16b9c4603baf6174a4949153
   languageName: node
   linkType: hard
 
@@ -5690,15 +5690,15 @@ __metadata:
   linkType: hard
 
 "urql@npm:^2.0.1":
-  version: 2.0.1
-  resolution: "urql@npm:2.0.1"
+  version: 2.2.3
+  resolution: "urql@npm:2.2.3"
   dependencies:
-    "@urql/core": ^2.0.0
+    "@urql/core": ^2.6.1
     wonka: ^4.0.14
   peerDependencies:
-    graphql: ^0.11.0 || ^0.12.0 || ^0.13.0 || ^14.0.0 || ^15.0.0
+    graphql: ^0.11.0 || ^0.12.0 || ^0.13.0 || ^14.0.0 || ^15.0.0 || ^16.0.0
     react: ">= 16.8.0"
-  checksum: 2adb0974d038d28a221e18b19c72f719b5b0893b85b1ed0f9c1b38db579edfac9866403b5ecf9b9ed516dd11d308f4dc062332269cde8fdbd9a30ee20c6def00
+  checksum: b105d10036e5cdbc92dac03bf50e81bfc946eb4909c5f2009fa7b83b5161493ac3288f97f42fd18c7bae6a5645ff18535d6746ec6d0c8cdbce5803b24a8a10a4
   languageName: node
   linkType: hard
 
