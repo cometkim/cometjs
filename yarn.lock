@@ -4512,13 +4512,13 @@ __metadata:
   linkType: hard
 
 "react-error-boundary@npm:^3.1.0":
-  version: 3.1.0
-  resolution: "react-error-boundary@npm:3.1.0"
+  version: 3.1.4
+  resolution: "react-error-boundary@npm:3.1.4"
   dependencies:
     "@babel/runtime": ^7.12.5
   peerDependencies:
     react: ">=16.13.1"
-  checksum: b973d71ae622304a534d70a279b318fdd43615625f4559b12d64217d68a974b62f9c624e76456a57ddaa834e51ea4520e6630ad446479cc66af4ac873b5a94fa
+  checksum: f36270a5d775a25c8920f854c0d91649ceea417b15b5bc51e270a959b0476647bb79abb4da3be7dd9a4597b029214e8fe43ea914a7f16fa7543c91f784977f1b
   languageName: node
   linkType: hard
 
