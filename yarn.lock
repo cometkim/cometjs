@@ -440,7 +440,7 @@ __metadata:
     "@cometjs/core": "workspace:^"
     "@types/node": ^14.14.33
     "@types/react": ^17.0.3
-    "@types/react-test-renderer": ^17.0.1
+    "@types/react-test-renderer": ^17.0.0
     "@types/webpack-env": ^1.16.0
     c8: ^7.11.0
     graphql: ^15.5.0
@@ -701,7 +701,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/react-test-renderer@npm:^17.0.0, @types/react-test-renderer@npm:^17.0.1":
+"@types/react-test-renderer@npm:^17.0.0":
   version: 17.0.1
   resolution: "@types/react-test-renderer@npm:17.0.1"
   dependencies:
