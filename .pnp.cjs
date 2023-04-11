@@ -615,7 +615,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@types/node", "npm:14.14.37"],\
             ["@types/react", "npm:17.0.57"],\
             ["@types/react-test-renderer", "npm:17.0.2"],\
-            ["@types/webpack-env", "npm:1.16.0"],\
+            ["@types/webpack-env", "npm:1.18.0"],\
             ["c8", "npm:7.11.0"],\
             ["graphql", "npm:15.5.0"],\
             ["nanobundle", "virtual:06ae4fcbcd9edd2606b20d70e641dcee0c4437006bc2b757032ad41e035e55241e390b0f628e9f8f7ed6a415f631c596d136981381ae002acd26fa942fabaeef#npm:1.0.0-rc.8"],\
@@ -983,10 +983,10 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         }]\
       ]],\
       ["@types/webpack-env", [\
-        ["npm:1.16.0", {\
-          "packageLocation": "./.yarn/cache/@types-webpack-env-npm-1.16.0-bd79b9e484-9d23191e48.zip/node_modules/@types/webpack-env/",\
+        ["npm:1.18.0", {\
+          "packageLocation": "./.yarn/cache/@types-webpack-env-npm-1.18.0-0bb1d2305c-ecf4daa31c.zip/node_modules/@types/webpack-env/",\
           "packageDependencies": [\
-            ["@types/webpack-env", "npm:1.16.0"]\
+            ["@types/webpack-env", "npm:1.18.0"]\
           ],\
           "linkType": "HARD"\
         }]\
