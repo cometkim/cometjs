@@ -5,6 +5,16 @@ __metadata:
   version: 6
   cacheKey: 8
 
+"@ampproject/remapping@npm:^2.2.0":
+  version: 2.2.1
+  resolution: "@ampproject/remapping@npm:2.2.1"
+  dependencies:
+    "@jridgewell/gen-mapping": ^0.3.0
+    "@jridgewell/trace-mapping": ^0.3.9
+  checksum: 03c04fd526acc64a1f4df22651186f3e5ef0a9d6d6530ce4482ec9841269cf7a11dbb8af79237c282d721c5312024ff17529cd72cc4768c11e999b58e2302079
+  languageName: node
+  linkType: hard
+
 "@babel/code-frame@npm:^7.0.0":
   version: 7.12.13
   resolution: "@babel/code-frame@npm:7.12.13"
@@ -383,7 +393,7 @@ __metadata:
     "@types/node": ^20.1.5
     "@types/react": ^18.2.6
     "@typescript-eslint/eslint-plugin": ^5.14.0
-    c8: ^7.11.0
+    "@vitest/coverage-c8": ^0.31.0
     eslint: ^8.10.0
     eslint-plugin-jsx-a11y: ^6.5.1
     eslint-plugin-react: ^7.29.3
@@ -856,10 +866,28 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@jridgewell/gen-mapping@npm:^0.3.0":
+  version: 0.3.3
+  resolution: "@jridgewell/gen-mapping@npm:0.3.3"
+  dependencies:
+    "@jridgewell/set-array": ^1.0.1
+    "@jridgewell/sourcemap-codec": ^1.4.10
+    "@jridgewell/trace-mapping": ^0.3.9
+  checksum: 4a74944bd31f22354fc01c3da32e83c19e519e3bbadafa114f6da4522ea77dd0c2842607e923a591d60a76699d819a2fbb6f3552e277efdb9b58b081390b60ab
+  languageName: node
+  linkType: hard
+
 "@jridgewell/resolve-uri@npm:3.1.0":
   version: 3.1.0
   resolution: "@jridgewell/resolve-uri@npm:3.1.0"
   checksum: b5ceaaf9a110fcb2780d1d8f8d4a0bfd216702f31c988d8042e5f8fbe353c55d9b0f55a1733afdc64806f8e79c485d2464680ac48a0d9fcadb9548ee6b81d267
+  languageName: node
+  linkType: hard
+
+"@jridgewell/set-array@npm:^1.0.1":
+  version: 1.1.2
+  resolution: "@jridgewell/set-array@npm:1.1.2"
+  checksum: 69a84d5980385f396ff60a175f7177af0b8da4ddb81824cb7016a9ef914eee9806c72b6b65942003c63f7983d4f39a5c6c27185bbca88eb4690b62075602e28e
   languageName: node
   linkType: hard
 
@@ -870,14 +898,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@jridgewell/sourcemap-codec@npm:^1.4.13":
+"@jridgewell/sourcemap-codec@npm:^1.4.10, @jridgewell/sourcemap-codec@npm:^1.4.13":
   version: 1.4.15
   resolution: "@jridgewell/sourcemap-codec@npm:1.4.15"
   checksum: b881c7e503db3fc7f3c1f35a1dd2655a188cc51a3612d76efc8a6eb74728bef5606e6758ee77423e564092b4a518aba569bbb21c9bac5ab7a35b0c6ae7e344c8
   languageName: node
   linkType: hard
 
-"@jridgewell/trace-mapping@npm:^0.3.12":
+"@jridgewell/trace-mapping@npm:^0.3.12, @jridgewell/trace-mapping@npm:^0.3.9":
   version: 0.3.18
   resolution: "@jridgewell/trace-mapping@npm:0.3.18"
   dependencies:
@@ -1305,6 +1333,21 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@vitest/coverage-c8@npm:^0.31.0":
+  version: 0.31.0
+  resolution: "@vitest/coverage-c8@npm:0.31.0"
+  dependencies:
+    "@ampproject/remapping": ^2.2.0
+    c8: ^7.13.0
+    magic-string: ^0.30.0
+    picocolors: ^1.0.0
+    std-env: ^3.3.2
+  peerDependencies:
+    vitest: ">=0.30.0 <1"
+  checksum: 520c84e70c17fd2e41314f1c29eab9f4fa1ab5b23ef43a3805eddd09a1136f3de189dbc0a122208e6523d471c0f2ae3e809195952267b03d5c6341525471a162
+  languageName: node
+  linkType: hard
+
 "@vitest/expect@npm:0.31.0":
   version: 0.31.0
   resolution: "@vitest/expect@npm:0.31.0"
@@ -1682,7 +1725,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"c8@npm:^7.11.0":
+"c8@npm:^7.11.0, c8@npm:^7.13.0":
   version: 7.13.0
   resolution: "c8@npm:7.13.0"
   dependencies:

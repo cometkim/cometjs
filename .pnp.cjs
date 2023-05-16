@@ -63,7 +63,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@types/node", "npm:20.1.5"],\
             ["@types/react", "npm:18.2.6"],\
             ["@typescript-eslint/eslint-plugin", "virtual:236ffb23991e44020122de94f575876fe73ed6d13995e5c5ca3b0e47da5cf9346310444b996e0c3f7bd98237a4f62a07e4ea51e2b9b6a0fead8e55bb39384377#npm:5.14.0"],\
-            ["c8", "npm:7.13.0"],\
+            ["@vitest/coverage-c8", "virtual:236ffb23991e44020122de94f575876fe73ed6d13995e5c5ca3b0e47da5cf9346310444b996e0c3f7bd98237a4f62a07e4ea51e2b9b6a0fead8e55bb39384377#npm:0.31.0"],\
             ["eslint", "npm:8.38.0"],\
             ["eslint-plugin-jsx-a11y", "virtual:236ffb23991e44020122de94f575876fe73ed6d13995e5c5ca3b0e47da5cf9346310444b996e0c3f7bd98237a4f62a07e4ea51e2b9b6a0fead8e55bb39384377#npm:6.5.1"],\
             ["eslint-plugin-react", "virtual:236ffb23991e44020122de94f575876fe73ed6d13995e5c5ca3b0e47da5cf9346310444b996e0c3f7bd98237a4f62a07e4ea51e2b9b6a0fead8e55bb39384377#npm:7.29.3"],\
@@ -74,6 +74,17 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["vitest", "virtual:236ffb23991e44020122de94f575876fe73ed6d13995e5c5ca3b0e47da5cf9346310444b996e0c3f7bd98237a4f62a07e4ea51e2b9b6a0fead8e55bb39384377#npm:0.31.0"]\
           ],\
           "linkType": "SOFT"\
+        }]\
+      ]],\
+      ["@ampproject/remapping", [\
+        ["npm:2.2.1", {\
+          "packageLocation": "./.yarn/cache/@ampproject-remapping-npm-2.2.1-3da3d624be-03c04fd526.zip/node_modules/@ampproject/remapping/",\
+          "packageDependencies": [\
+            ["@ampproject/remapping", "npm:2.2.1"],\
+            ["@jridgewell/gen-mapping", "npm:0.3.3"],\
+            ["@jridgewell/trace-mapping", "npm:0.3.18"]\
+          ],\
+          "linkType": "HARD"\
         }]\
       ]],\
       ["@babel/code-frame", [\
@@ -552,7 +563,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@types/node", "npm:20.1.5"],\
             ["@types/react", "npm:18.2.6"],\
             ["@typescript-eslint/eslint-plugin", "virtual:236ffb23991e44020122de94f575876fe73ed6d13995e5c5ca3b0e47da5cf9346310444b996e0c3f7bd98237a4f62a07e4ea51e2b9b6a0fead8e55bb39384377#npm:5.14.0"],\
-            ["c8", "npm:7.13.0"],\
+            ["@vitest/coverage-c8", "virtual:236ffb23991e44020122de94f575876fe73ed6d13995e5c5ca3b0e47da5cf9346310444b996e0c3f7bd98237a4f62a07e4ea51e2b9b6a0fead8e55bb39384377#npm:0.31.0"],\
             ["eslint", "npm:8.38.0"],\
             ["eslint-plugin-jsx-a11y", "virtual:236ffb23991e44020122de94f575876fe73ed6d13995e5c5ca3b0e47da5cf9346310444b996e0c3f7bd98237a4f62a07e4ea51e2b9b6a0fead8e55bb39384377#npm:6.5.1"],\
             ["eslint-plugin-react", "virtual:236ffb23991e44020122de94f575876fe73ed6d13995e5c5ca3b0e47da5cf9346310444b996e0c3f7bd98237a4f62a07e4ea51e2b9b6a0fead8e55bb39384377#npm:7.29.3"],\
@@ -1109,11 +1120,32 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "linkType": "HARD"\
         }]\
       ]],\
+      ["@jridgewell/gen-mapping", [\
+        ["npm:0.3.3", {\
+          "packageLocation": "./.yarn/cache/@jridgewell-gen-mapping-npm-0.3.3-1815eba94c-4a74944bd3.zip/node_modules/@jridgewell/gen-mapping/",\
+          "packageDependencies": [\
+            ["@jridgewell/gen-mapping", "npm:0.3.3"],\
+            ["@jridgewell/set-array", "npm:1.1.2"],\
+            ["@jridgewell/sourcemap-codec", "npm:1.4.15"],\
+            ["@jridgewell/trace-mapping", "npm:0.3.18"]\
+          ],\
+          "linkType": "HARD"\
+        }]\
+      ]],\
       ["@jridgewell/resolve-uri", [\
         ["npm:3.1.0", {\
           "packageLocation": "./.yarn/cache/@jridgewell-resolve-uri-npm-3.1.0-6ff2351e61-b5ceaaf9a1.zip/node_modules/@jridgewell/resolve-uri/",\
           "packageDependencies": [\
             ["@jridgewell/resolve-uri", "npm:3.1.0"]\
+          ],\
+          "linkType": "HARD"\
+        }]\
+      ]],\
+      ["@jridgewell/set-array", [\
+        ["npm:1.1.2", {\
+          "packageLocation": "./.yarn/cache/@jridgewell-set-array-npm-1.1.2-45b82d7fb6-69a84d5980.zip/node_modules/@jridgewell/set-array/",\
+          "packageDependencies": [\
+            ["@jridgewell/set-array", "npm:1.1.2"]\
           ],\
           "linkType": "HARD"\
         }]\
@@ -1818,6 +1850,33 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packagePeers": [\
             "@types/graphql",\
             "graphql"\
+          ],\
+          "linkType": "HARD"\
+        }]\
+      ]],\
+      ["@vitest/coverage-c8", [\
+        ["npm:0.31.0", {\
+          "packageLocation": "./.yarn/cache/@vitest-coverage-c8-npm-0.31.0-fc3d90f570-520c84e70c.zip/node_modules/@vitest/coverage-c8/",\
+          "packageDependencies": [\
+            ["@vitest/coverage-c8", "npm:0.31.0"]\
+          ],\
+          "linkType": "SOFT"\
+        }],\
+        ["virtual:236ffb23991e44020122de94f575876fe73ed6d13995e5c5ca3b0e47da5cf9346310444b996e0c3f7bd98237a4f62a07e4ea51e2b9b6a0fead8e55bb39384377#npm:0.31.0", {\
+          "packageLocation": "./.yarn/__virtual__/@vitest-coverage-c8-virtual-95dd4c2fbd/0/cache/@vitest-coverage-c8-npm-0.31.0-fc3d90f570-520c84e70c.zip/node_modules/@vitest/coverage-c8/",\
+          "packageDependencies": [\
+            ["@vitest/coverage-c8", "virtual:236ffb23991e44020122de94f575876fe73ed6d13995e5c5ca3b0e47da5cf9346310444b996e0c3f7bd98237a4f62a07e4ea51e2b9b6a0fead8e55bb39384377#npm:0.31.0"],\
+            ["@ampproject/remapping", "npm:2.2.1"],\
+            ["@types/vitest", null],\
+            ["c8", "npm:7.13.0"],\
+            ["magic-string", "npm:0.30.0"],\
+            ["picocolors", "npm:1.0.0"],\
+            ["std-env", "npm:3.3.3"],\
+            ["vitest", "virtual:236ffb23991e44020122de94f575876fe73ed6d13995e5c5ca3b0e47da5cf9346310444b996e0c3f7bd98237a4f62a07e4ea51e2b9b6a0fead8e55bb39384377#npm:0.31.0"]\
+          ],\
+          "packagePeers": [\
+            "@types/vitest",\
+            "vitest"\
           ],\
           "linkType": "HARD"\
         }]\
