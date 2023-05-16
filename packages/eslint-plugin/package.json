@@ -13,7 +13,7 @@
     "email": "hey@hyeseong.kim"
   },
   "type": "commonjs",
-  "main": "./index.js",
+  "main": "./index.cjs",
   "publishConfig": {
     "access": "public"
   },

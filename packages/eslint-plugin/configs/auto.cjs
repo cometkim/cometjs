@@ -30,6 +30,15 @@ module.exports = {
     },
     {
       files: [
+        '*.{cj,ct}s?(x)',
+      ],
+      env: {
+        node: true,
+        browser: false,
+      },
+    },
+    {
+      files: [
         'gatsby-node.{js,jsx,ts,tsx}',
       ],
       env: {
