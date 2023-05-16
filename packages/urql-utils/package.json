@@ -39,7 +39,6 @@
     "prepack": "rm -rf lib && yarn build"
   },
   "peerDependencies": {
-    "graphql": "^14.0.0 || ^15.0.0",
     "react": "^16.8.0 || ^17.0.0",
     "urql": "^2.0.0"
   },
