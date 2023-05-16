@@ -323,7 +323,6 @@ __metadata:
   dependencies:
     c8: ^7.11.0
     nanobundle: ^1.0.0-rc.8
-    tsconfck: ^2.0.1
     typescript: ^5.0.4
     vite: ^2.8.6
     vitest: ^0.6.0
@@ -5476,20 +5475,6 @@ __metadata:
   version: 4.0.2
   resolution: "trim-newlines@npm:4.0.2"
   checksum: 1eef206eb77361856dff0b827e5811baf64574bb21e81b7ad643fe321c5c19b0a452dd83e9afc31206993fcff9bb90a379925d7b5915f887de1ca7da5b57933a
-  languageName: node
-  linkType: hard
-
-"tsconfck@npm:^2.0.1":
-  version: 2.0.1
-  resolution: "tsconfck@npm:2.0.1"
-  peerDependencies:
-    typescript: ^4.3.5
-  peerDependenciesMeta:
-    typescript:
-      optional: true
-  bin:
-    tsconfck: bin/tsconfck.js
-  checksum: 9d98edfea40f58bf64ee14a0cf9a28f0051c36762362ca31bd22f7a2aaf7f7fda6cad590fe5f30d9a5d22e94ae58ffdcfce5674d13f958e539ae927eb26c5f47
   languageName: node
   linkType: hard
 

@@ -57,8 +57,5 @@
     "typescript": "^5.0.4",
     "vite": "^2.8.6",
     "vitest": "^0.6.0"
-  },
-  "dependencies": {
-    "tsconfck": "^2.0.1"
   }
 }
