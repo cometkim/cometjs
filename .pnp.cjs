@@ -643,7 +643,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["urql", "virtual:6b672ce5f9acf121a1b3a6f0052447f41fd4c40509526abecc7f84a2c49e88d2e5398bc76b62a0dd5f791c3259cac4452f0f86573586ab9d9c029182fac02fd7#npm:4.0.2"],\
             ["vite", "virtual:9ffbc423ad663219f4719075ae4a37e5b09314162bb6633b552b5a8e1ef4a659e784be867b16887d2ac5e87be1c20761c9eb6ad5f139fce0fe72fc8e2907fc1b#npm:4.3.6"],\
             ["vitest", "virtual:236ffb23991e44020122de94f575876fe73ed6d13995e5c5ca3b0e47da5cf9346310444b996e0c3f7bd98237a4f62a07e4ea51e2b9b6a0fead8e55bb39384377#npm:0.31.0"],\
-            ["wonka", "npm:4.0.15"]\
+            ["wonka", "npm:6.3.2"]\
           ],\
           "linkType": "SOFT"\
         }]\
@@ -7687,13 +7687,6 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         }]\
       ]],\
       ["wonka", [\
-        ["npm:4.0.15", {\
-          "packageLocation": "./.yarn/cache/wonka-npm-4.0.15-716683372a-afbee7359e.zip/node_modules/wonka/",\
-          "packageDependencies": [\
-            ["wonka", "npm:4.0.15"]\
-          ],\
-          "linkType": "HARD"\
-        }],\
         ["npm:6.3.2", {\
           "packageLocation": "./.yarn/cache/wonka-npm-6.3.2-ed435c3228-e161f377a4.zip/node_modules/wonka/",\
           "packageDependencies": [\

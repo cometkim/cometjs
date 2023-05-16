@@ -467,7 +467,7 @@ __metadata:
     urql: ^4.0.2
     vite: ^4.3.6
     vitest: ^0.31.0
-    wonka: ^4.0.15
+    wonka: ^6.0.0
   peerDependencies:
     react: ^16.8.0 || ^17.0.0 || ^18.0.0
     urql: ^4.0.0
@@ -6473,14 +6473,7 @@ resolve@^1.10.0:
   languageName: node
   linkType: hard
 
-"wonka@npm:^4.0.15":
-  version: 4.0.15
-  resolution: "wonka@npm:4.0.15"
-  checksum: afbee7359ed2d0a9146bf682f3953cb093f47d5f827e767e6ef33cb70ca6f30631afe5fe31dbb8d6c7eaed26c4ac6426e7c13568917c017ef6f42c71139b38f7
-  languageName: node
-  linkType: hard
-
-"wonka@npm:^6.3.2":
+"wonka@npm:^6.0.0, wonka@npm:^6.3.2":
   version: 6.3.2
   resolution: "wonka@npm:6.3.2"
   checksum: e161f377a4ea17cc2b19fe8820219a9e3e2c78db5df08b820525bc2cc261184823d1bc33bd2385e632656a9676c9de6ff614b6324c441dd5fc5faa253433d032
