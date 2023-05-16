@@ -36,14 +36,14 @@
     "dev": "vitest",
     "test": "vitest run",
     "build": "nanobundle build",
-    "prepack": "rm -rf lib && yarn build"
+    "prepack": "yarn build --clean"
   },
   "dependencies": {
     "@cometjs/core": "workspace:^"
   },
   "devDependencies": {
-    "c8": "^7.11.0",
-    "nanobundle": "^1.0.0-rc.8",
+    "@vitest/coverage-c8": "^0.31.0",
+    "nanobundle": "^1.6.0",
     "typescript": "^5.0.4",
     "vite": "^4.3.6",
     "vitest": "^0.31.0"

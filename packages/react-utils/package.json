@@ -32,7 +32,7 @@
     "dev": "vitest",
     "test": "vitest run",
     "build": "nanobundle build",
-    "prepack": "rm -rf lib && yarn build"
+    "prepack": "yarn build --clean"
   },
   "files": [
     "src",
@@ -50,8 +50,8 @@
     "@types/react": "^18.2.6",
     "@types/react-dom": "^18.2.4",
     "@types/react-test-renderer": "^18.0.0",
-    "c8": "^7.11.0",
-    "nanobundle": "^1.0.0-rc.8",
+    "@vitest/coverage-c8": "^0.31.0",
+    "nanobundle": "^1.6.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-error-boundary": "^4.0.4",

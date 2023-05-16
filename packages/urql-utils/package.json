@@ -36,7 +36,7 @@
     "dev": "vitest",
     "test": "vitest run",
     "build": "nanobundle build",
-    "prepack": "rm -rf lib && yarn build"
+    "prepack": "yarn build --clean"
   },
   "peerDependencies": {
     "react": "^16.8.0 || ^17.0.0 || ^18.0.0",
@@ -51,9 +51,9 @@
     "@types/react-dom": "^18.2.4",
     "@types/react-test-renderer": "^18.0.0",
     "@types/webpack-env": "^1.18.0",
-    "c8": "^7.11.0",
+    "@vitest/coverage-c8": "^0.31.0",
     "graphql": "^15.5.0",
-    "nanobundle": "^1.0.0-rc.8",
+    "nanobundle": "^1.6.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-test-renderer": "^18.2.0",
