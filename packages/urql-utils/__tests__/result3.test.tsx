@@ -7,7 +7,7 @@ import {
 import * as React from 'react';
 import type { ReactTestRenderer } from 'react-test-renderer';
 import { create as makeRenderer, act } from 'react-test-renderer';
-import type { Client } from 'urql';
+import { createClient } from 'urql';
 import { Provider, CombinedError } from 'urql';
 import { makeSubject } from 'wonka';
 import { callable, required } from '@cometjs/core';
@@ -20,8 +20,8 @@ describe('useQuery3', () => {
   };
 
   type Subject = (
-    | { data: Data }
-    | { error: CombinedError }
+    | { data: Data, operation: unknown }
+    | { error: CombinedError, operation: unknown }
   );
 
   const QUERY = /* GraphQL */`
@@ -57,9 +57,8 @@ describe('useQuery3', () => {
 
   describe('success path', () => {
     const subject = makeSubject<Subject>();
-    const mockClient = {
-      executeQuery: vi.fn(() => subject.source),
-    } as unknown as Client;
+    const mockClient = createClient({ url: 'http://localhost' });
+    const executeQuery = vi.spyOn(mockClient, 'executeQuery').mockImplementation(() => subject.source);
 
     let renderer: ReactTestRenderer | undefined;
 
@@ -79,13 +78,14 @@ describe('useQuery3', () => {
     test('recieve data at first', () => {
       void act(() => {
         subject.next({
+          operation: {},
           data: {
             value: 'foo',
           },
         });
       });
 
-      expect(mockClient.executeQuery).toBeCalledTimes(1);
+      expect(executeQuery).toBeCalledTimes(1);
 
       required(renderer);
       expect(renderer.root.findByType(DataView).children[0]).toEqual('foo');
@@ -94,13 +94,14 @@ describe('useQuery3', () => {
     test('recieve next data', () => {
       void act(() => {
         subject.next({
+          operation: {},
           data: {
             value: 'bar',
           },
         });
       });
 
-      expect(mockClient.executeQuery).toBeCalledTimes(1);
+      expect(executeQuery).toBeCalledTimes(1);
 
       required(renderer);
       expect(renderer.root.findByType(DataView).children[0]).toEqual('bar');
@@ -109,13 +110,14 @@ describe('useQuery3', () => {
     test('recieve error', () => {
       void act(() => {
         subject.next({
+          operation: {},
           error: new CombinedError({
             networkError: new Error('something wrong'),
           }),
         });
       });
 
-      expect(mockClient.executeQuery).toBeCalledTimes(1);
+      expect(executeQuery).toBeCalledTimes(1);
 
       required(renderer);
       expect(renderer.root.findByType(ErrorFallback).children[0]).toMatch('something wrong');
@@ -136,13 +138,14 @@ describe('useQuery3', () => {
     test('recieve data after refetching', () => {
       void act(() => {
         subject.next({
+          operation: {},
           data: {
             value: 'baz',
           },
         });
       });
 
-      expect(mockClient.executeQuery).toBeCalledTimes(2);
+      expect(executeQuery).toBeCalledTimes(2);
 
       required(renderer);
       expect(renderer.root.findByType(DataView).children[0]).toEqual('baz');
@@ -151,9 +154,8 @@ describe('useQuery3', () => {
 
   describe('failure path', () => {
     const subject = makeSubject<Subject>();
-    const mockClient = {
-      executeQuery: vi.fn(() => subject.source),
-    } as unknown as Client;
+    const mockClient = createClient({ url: 'http://localhost' });
+    const executeQuery = vi.spyOn(mockClient, 'executeQuery').mockImplementation(() => subject.source);
 
     let renderer: ReactTestRenderer | undefined;
 
@@ -173,13 +175,14 @@ describe('useQuery3', () => {
     test('recieve error at first', () => {
       void act(() => {
         subject.next({
+          operation: {},
           error: new CombinedError({
             networkError: new Error('something wrong'),
           }),
         });
       });
 
-      expect(mockClient.executeQuery).toBeCalledTimes(1);
+      expect(executeQuery).toBeCalledTimes(1);
 
       required(renderer);
       expect(renderer.root.findByType(ErrorFallback).children[0]).toMatch('something wrong');
@@ -188,13 +191,14 @@ describe('useQuery3', () => {
     test('recieve next error', () => {
       void act(() => {
         subject.next({
+          operation: {},
           error: new CombinedError({
             networkError: new Error('still failure?'),
           }),
         });
       });
 
-      expect(mockClient.executeQuery).toBeCalledTimes(1);
+      expect(executeQuery).toBeCalledTimes(1);
 
       required(renderer);
       expect(renderer.root.findByType(ErrorFallback).children[0]).toMatch('still failure');
@@ -203,13 +207,14 @@ describe('useQuery3', () => {
     test('recieve data', () => {
       void act(() => {
         subject.next({
+          operation: {},
           data: {
             value: 'foo',
           },
         });
       });
 
-      expect(mockClient.executeQuery).toBeCalledTimes(1);
+      expect(executeQuery).toBeCalledTimes(1);
 
       required(renderer);
       expect(renderer.root.findByType(DataView).children[0]).toEqual('foo');
@@ -230,13 +235,14 @@ describe('useQuery3', () => {
     test('recieve error after refetching', () => {
       void act(() => {
         subject.next({
+          operation: {},
           error: new CombinedError({
             networkError: new Error('no'),
           }),
         });
       });
 
-      expect(mockClient.executeQuery).toBeCalledTimes(2);
+      expect(executeQuery).toBeCalledTimes(2);
 
       required(renderer);
       expect(renderer.root.findByType(ErrorFallback).children[0]).toMatch('no');
@@ -245,9 +251,8 @@ describe('useQuery3', () => {
 
   test('refetch always executeQuery', () => {
     const subject = makeSubject<Subject>();
-    const mockClient = {
-      executeQuery: vi.fn(() => subject.source),
-    } as unknown as Client;
+    const mockClient = createClient({ url: 'http://localhost' });
+    const executeQuery = vi.spyOn(mockClient, 'executeQuery').mockImplementation(() => subject.source);
 
     let renderer: ReactTestRenderer | undefined;
 
@@ -261,6 +266,7 @@ describe('useQuery3', () => {
 
     void act(() => {
       subject.next({
+        operation: {},
         data: {
           value: 'foo',
         },
@@ -275,13 +281,13 @@ describe('useQuery3', () => {
     void act(() => {
       refetch();
     });
-    expect(mockClient.executeQuery).toBeCalledTimes(2);
+    expect(executeQuery).toBeCalledTimes(2);
     renderer.root.findByType(Placeholder);
 
     void act(() => {
       refetch();
     });
-    expect(mockClient.executeQuery).toBeCalledTimes(3);
+    expect(executeQuery).toBeCalledTimes(3);
     renderer.root.findByType(Placeholder);
   });
 });
