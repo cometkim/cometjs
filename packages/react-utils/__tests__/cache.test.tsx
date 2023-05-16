@@ -44,7 +44,7 @@ describe('suspense for a single promise', () => {
     };
 
     const renderer = makeRenderer(
-      <ErrorBoundary fallbackRender={e => <span>{e.error.message}</span>}>
+      <ErrorBoundary fallbackRender={({ error }) => <span>{(error as Error).message}</span>}>
         <React.Suspense fallback={<Placeholder />}>
           <Display />
         </React.Suspense>

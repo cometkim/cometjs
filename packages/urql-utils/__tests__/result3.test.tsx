@@ -22,7 +22,7 @@ describe('useQuery3', () => {
   type Subject = (
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     | { data: Data, operation: any }
-    // eslint-disable-next-line @t
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     | { error: CombinedError, operation: any }
   );
 
