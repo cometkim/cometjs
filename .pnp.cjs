@@ -574,7 +574,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@types/node", "npm:14.18.42"],\
             ["@types/react", "npm:17.0.57"],\
             ["@types/react-dom", "npm:17.0.19"],\
-            ["@types/react-test-renderer", "npm:17.0.1"],\
+            ["@types/react-test-renderer", "npm:18.0.0"],\
             ["c8", "npm:7.13.0"],\
             ["fast-deep-equal", "npm:3.1.3"],\
             ["nanobundle", "virtual:06ae4fcbcd9edd2606b20d70e641dcee0c4437006bc2b757032ad41e035e55241e390b0f628e9f8f7ed6a415f631c596d136981381ae002acd26fa942fabaeef#npm:1.6.0"],\
@@ -612,7 +612,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@cometjs/core", "virtual:5567a4c56c057e9d698ecc666a12029b959be4328ba5bc115ddb9c1d6907c75ce244b903f9789b7cdc4dd46b4d7d805cb3ec8d2f1690b60e7d4945948784ab9f#workspace:packages/core"],\
             ["@types/node", "npm:14.18.42"],\
             ["@types/react", "npm:17.0.57"],\
-            ["@types/react-test-renderer", "npm:17.0.2"],\
+            ["@types/react-test-renderer", "npm:18.0.0"],\
             ["@types/webpack-env", "npm:1.18.0"],\
             ["c8", "npm:7.13.0"],\
             ["graphql", "npm:15.8.0"],\
@@ -1236,19 +1236,11 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         }]\
       ]],\
       ["@types/react-test-renderer", [\
-        ["npm:17.0.1", {\
-          "packageLocation": "./.yarn/cache/@types-react-test-renderer-npm-17.0.1-9a42d8bb68-ecaae8df36.zip/node_modules/@types/react-test-renderer/",\
+        ["npm:18.0.0", {\
+          "packageLocation": "./.yarn/cache/@types-react-test-renderer-npm-18.0.0-159e9589e1-6afc938a1d.zip/node_modules/@types/react-test-renderer/",\
           "packageDependencies": [\
-            ["@types/react-test-renderer", "npm:17.0.1"],\
+            ["@types/react-test-renderer", "npm:18.0.0"],\
             ["@types/react", "npm:18.0.34"]\
-          ],\
-          "linkType": "HARD"\
-        }],\
-        ["npm:17.0.2", {\
-          "packageLocation": "./.yarn/cache/@types-react-test-renderer-npm-17.0.2-71899ad95b-0be325798b.zip/node_modules/@types/react-test-renderer/",\
-          "packageDependencies": [\
-            ["@types/react-test-renderer", "npm:17.0.2"],\
-            ["@types/react", "npm:17.0.57"]\
           ],\
           "linkType": "HARD"\
         }]\
