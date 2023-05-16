@@ -32,8 +32,10 @@ describe('useQuery4', () => {
   };
 
   type Subject = (
-    | { data: Data, operation: unknown }
-    | { error: CombinedError, operation: unknown }
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    | { data: Data, operation: any }
+    // eslint-disable-next-line @t
+    | { error: CombinedError, operation: any }
   );
 
   const QUERY = /* GraphQL */`
