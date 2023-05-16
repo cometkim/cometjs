@@ -1,5 +1,9 @@
 import * as React from 'react';
-import type { CombinedError, UseQueryArgs } from 'urql';
+import {
+  type CombinedError,
+  type UseQueryArgs,
+  type AnyVariables,
+} from 'urql';
 import { Fn } from '@cometjs/core';
 
 import { UseQueryContext } from './urqlContext';
@@ -48,7 +52,7 @@ export function mapResult3<
 
 type UseQuery3Args<
   TData = unknown,
-  TVariables extends Record<string, unknown> = Record<string, unknown>,
+  TVariables extends AnyVariables = AnyVariables,
 > = Pick<
   UseQueryArgs<TVariables, TData>,
   (
@@ -82,12 +86,12 @@ function reducer(_state: State, action: Action): State {
 
 export function useQuery3<
   TData = unknown,
-  TVariables extends Record<string, unknown> = Record<string, unknown>,
+  TVariables extends AnyVariables = AnyVariables,
 >(args: UseQuery3Args<TData, TVariables>): Result3<TData> {
   const [state, dispatch] = React.useReducer(reducer, { _t: 0 /* Loading */ });
 
   const useQuery = React.useContext(UseQueryContext);
-  const [{ data, error }, refetchQuery] = useQuery(args);
+  const [{ data, error }, refetchQuery] = useQuery<TData>(args);
 
   const refetch = () => {
     dispatch({ _t: 0 /* 'FETCH' */ });
