@@ -6,8 +6,7 @@
     "lib": ["ESNext", "DOM"],
     "strict": true,
     "esModuleInterop": true,
-    "allowSyntheticDefaultImports": true,
-    "jsx": "preserve"
+    "allowSyntheticDefaultImports": true
   },
   "exclude": [
     "packages/archive/",
