@@ -1,5 +1,12 @@
 # @cometjs/eslint-plugin
 
+## 2.1.0
+
+### Minor Changes
+
+- 8889990: Support TypeScript v5
+- a3f5a70: Automatically set `env: node` for `.cjs` files
+
 ## 2.0.0
 
 ### Major Changes

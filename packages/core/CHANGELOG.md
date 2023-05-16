@@ -1,5 +1,11 @@
 # @cometjs/core
 
+## 2.3.2
+
+### Patch Changes
+
+- 49070fc: clean an unused dependency
+
 ## 2.3.1
 
 ### Patch Changes
