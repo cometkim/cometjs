@@ -67,4 +67,4 @@ jobs:
           yarn test --coverage
 
       - name: Send coverage reports to CodeCov
-        uses: codecov/codecov-action@v2
+        uses: codecov/codecov-action@v3
