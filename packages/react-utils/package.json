@@ -1,7 +1,7 @@
 {
   "name": "@cometjs/react-utils",
   "description": "cometjs utility collection for React",
-  "version": "2.2.1",
+  "version": "2.2.2",
   "license": "MIT",
   "homepage": "https://github.com/cometkim/cometjs/tree/main/packages/react-utils",
   "repository": {
