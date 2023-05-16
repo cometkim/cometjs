@@ -60,7 +60,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageDependencies": [\
             ["@changesets/cli", "npm:2.26.1"],\
             ["@cometjs/eslint-plugin", "virtual:236ffb23991e44020122de94f575876fe73ed6d13995e5c5ca3b0e47da5cf9346310444b996e0c3f7bd98237a4f62a07e4ea51e2b9b6a0fead8e55bb39384377#workspace:packages/eslint-plugin"],\
-            ["@types/node", "npm:14.14.37"],\
+            ["@types/node", "npm:18.16.10"],\
             ["@types/react", "npm:17.0.57"],\
             ["@typescript-eslint/eslint-plugin", "virtual:236ffb23991e44020122de94f575876fe73ed6d13995e5c5ca3b0e47da5cf9346310444b996e0c3f7bd98237a4f62a07e4ea51e2b9b6a0fead8e55bb39384377#npm:5.14.0"],\
             ["c8", "npm:7.13.0"],\
@@ -549,7 +549,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@cometjs/monorepo", "workspace:."],\
             ["@changesets/cli", "npm:2.26.1"],\
             ["@cometjs/eslint-plugin", "virtual:236ffb23991e44020122de94f575876fe73ed6d13995e5c5ca3b0e47da5cf9346310444b996e0c3f7bd98237a4f62a07e4ea51e2b9b6a0fead8e55bb39384377#workspace:packages/eslint-plugin"],\
-            ["@types/node", "npm:14.14.37"],\
+            ["@types/node", "npm:18.16.10"],\
             ["@types/react", "npm:17.0.57"],\
             ["@typescript-eslint/eslint-plugin", "virtual:236ffb23991e44020122de94f575876fe73ed6d13995e5c5ca3b0e47da5cf9346310444b996e0c3f7bd98237a4f62a07e4ea51e2b9b6a0fead8e55bb39384377#npm:5.14.0"],\
             ["c8", "npm:7.13.0"],\
@@ -571,7 +571,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageDependencies": [\
             ["@cometjs/react-utils", "workspace:packages/react-utils"],\
             ["@cometjs/core", "virtual:5567a4c56c057e9d698ecc666a12029b959be4328ba5bc115ddb9c1d6907c75ce244b903f9789b7cdc4dd46b4d7d805cb3ec8d2f1690b60e7d4945948784ab9f#workspace:packages/core"],\
-            ["@types/node", "npm:14.18.42"],\
+            ["@types/node", "npm:18.16.10"],\
             ["@types/react", "npm:17.0.57"],\
             ["@types/react-dom", "npm:17.0.19"],\
             ["@types/react-test-renderer", "npm:17.0.1"],\
@@ -610,7 +610,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageDependencies": [\
             ["@cometjs/urql-utils", "workspace:packages/urql-utils"],\
             ["@cometjs/core", "virtual:5567a4c56c057e9d698ecc666a12029b959be4328ba5bc115ddb9c1d6907c75ce244b903f9789b7cdc4dd46b4d7d805cb3ec8d2f1690b60e7d4945948784ab9f#workspace:packages/core"],\
-            ["@types/node", "npm:14.18.42"],\
+            ["@types/node", "npm:18.16.10"],\
             ["@types/react", "npm:17.0.57"],\
             ["@types/react-test-renderer", "npm:17.0.2"],\
             ["@types/webpack-env", "npm:1.18.0"],\
@@ -1163,17 +1163,10 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           ],\
           "linkType": "HARD"\
         }],\
-        ["npm:14.14.37", {\
-          "packageLocation": "./.yarn/cache/@types-node-npm-14.14.37-6783f920bd-647e671ac3.zip/node_modules/@types/node/",\
+        ["npm:18.16.10", {\
+          "packageLocation": "./.yarn/cache/@types-node-npm-18.16.10-fad6e82077-1db35543ae.zip/node_modules/@types/node/",\
           "packageDependencies": [\
-            ["@types/node", "npm:14.14.37"]\
-          ],\
-          "linkType": "HARD"\
-        }],\
-        ["npm:14.18.42", {\
-          "packageLocation": "./.yarn/cache/@types-node-npm-14.18.42-dc88adeabc-1c92f04a48.zip/node_modules/@types/node/",\
-          "packageDependencies": [\
-            ["@types/node", "npm:14.18.42"]\
+            ["@types/node", "npm:18.16.10"]\
           ],\
           "linkType": "HARD"\
         }]\

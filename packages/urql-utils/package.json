@@ -47,7 +47,7 @@
     "@cometjs/core": "workspace:^"
   },
   "devDependencies": {
-    "@types/node": "^14.14.33",
+    "@types/node": "^18.0.0",
     "@types/react": "^17.0.3",
     "@types/react-test-renderer": "^17.0.1",
     "@types/webpack-env": "^1.16.0",

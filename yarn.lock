@@ -380,7 +380,7 @@ __metadata:
   dependencies:
     "@changesets/cli": ^2.21.1
     "@cometjs/eslint-plugin": "workspace:^"
-    "@types/node": ^14.14.37
+    "@types/node": ^18.0.0
     "@types/react": ^17.0.3
     "@typescript-eslint/eslint-plugin": ^5.14.0
     c8: ^7.11.0
@@ -400,7 +400,7 @@ __metadata:
   resolution: "@cometjs/react-utils@workspace:packages/react-utils"
   dependencies:
     "@cometjs/core": "workspace:^"
-    "@types/node": ^14.14.21
+    "@types/node": ^18.0.0
     "@types/react": ^17.0.0
     "@types/react-dom": ^17.0.0
     "@types/react-test-renderer": ^17.0.0
@@ -437,7 +437,7 @@ __metadata:
   resolution: "@cometjs/urql-utils@workspace:packages/urql-utils"
   dependencies:
     "@cometjs/core": "workspace:^"
-    "@types/node": ^14.14.33
+    "@types/node": ^18.0.0
     "@types/react": ^17.0.3
     "@types/react-test-renderer": ^17.0.1
     "@types/webpack-env": ^1.16.0
@@ -886,17 +886,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/node@npm:^14.14.21, @types/node@npm:^14.14.33":
-  version: 14.18.42
-  resolution: "@types/node@npm:14.18.42"
-  checksum: 1c92f04a482ab54a21342b3911fc6f0093f04d3314197bc0e2f20012e9efc929c44e2ea41990b9b3cde420d7859c9ed716733f3e65c0cd6c2910a55799465f6b
-  languageName: node
-  linkType: hard
-
-"@types/node@npm:^14.14.37":
-  version: 14.14.37
-  resolution: "@types/node@npm:14.14.37"
-  checksum: 647e671ac3815f428a07ae9353ebab93c5335d4d0a461ca837a79eebf55c04f28bee80f0c43881cdd8696f595feb112bc8eb74f6124125e02f79a7677374c187
+"@types/node@npm:^18.0.0":
+  version: 18.16.10
+  resolution: "@types/node@npm:18.16.10"
+  checksum: 1db35543ae98d4a98731037a11a9478480d1260ff3778da70b9a137a3023666d20bab1573b584c401058f76c0d5f7dfbbc157b70a059452e086c8da5639cc653
   languageName: node
   linkType: hard
 
