@@ -1,5 +1,21 @@
 # @cometjs/urql-utils
 
+## 3.0.0
+
+### Major Changes
+
+- ffdf5bb: Now requires urql v4
+
+### Minor Changes
+
+- 6bf8d83: Remove unnecessary peer constraint (graphql)
+- 943790d: Support React v18
+
+### Patch Changes
+
+- Updated dependencies [49070fc]
+  - @cometjs/core@2.3.2
+
 ## 2.1.1
 
 ### Patch Changes
