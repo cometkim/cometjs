@@ -60,7 +60,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageDependencies": [\
             ["@changesets/cli", "npm:2.26.1"],\
             ["@cometjs/eslint-plugin", "virtual:236ffb23991e44020122de94f575876fe73ed6d13995e5c5ca3b0e47da5cf9346310444b996e0c3f7bd98237a4f62a07e4ea51e2b9b6a0fead8e55bb39384377#workspace:packages/eslint-plugin"],\
-            ["@rushstack/eslint-patch", "npm:1.2.0"],\
+            ["@rushstack/eslint-patch", "npm:1.3.0"],\
             ["@vitest/coverage-c8", "virtual:236ffb23991e44020122de94f575876fe73ed6d13995e5c5ca3b0e47da5cf9346310444b996e0c3f7bd98237a4f62a07e4ea51e2b9b6a0fead8e55bb39384377#npm:0.31.1"],\
             ["eslint", "npm:8.41.0"],\
             ["typescript", "patch:typescript@npm%3A5.0.4#~builtin<compat/typescript>::version=5.0.4&hash=b5f058"],\
@@ -573,7 +573,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@cometjs/monorepo", "workspace:."],\
             ["@changesets/cli", "npm:2.26.1"],\
             ["@cometjs/eslint-plugin", "virtual:236ffb23991e44020122de94f575876fe73ed6d13995e5c5ca3b0e47da5cf9346310444b996e0c3f7bd98237a4f62a07e4ea51e2b9b6a0fead8e55bb39384377#workspace:packages/eslint-plugin"],\
-            ["@rushstack/eslint-patch", "npm:1.2.0"],\
+            ["@rushstack/eslint-patch", "npm:1.3.0"],\
             ["@vitest/coverage-c8", "virtual:236ffb23991e44020122de94f575876fe73ed6d13995e5c5ca3b0e47da5cf9346310444b996e0c3f7bd98237a4f62a07e4ea51e2b9b6a0fead8e55bb39384377#npm:0.31.1"],\
             ["eslint", "npm:8.41.0"],\
             ["typescript", "patch:typescript@npm%3A5.0.4#~builtin<compat/typescript>::version=5.0.4&hash=b5f058"],\
@@ -1295,10 +1295,10 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         }]\
       ]],\
       ["@rushstack/eslint-patch", [\
-        ["npm:1.2.0", {\
-          "packageLocation": "./.yarn/cache/@rushstack-eslint-patch-npm-1.2.0-917f402e4e-faa749faae.zip/node_modules/@rushstack/eslint-patch/",\
+        ["npm:1.3.0", {\
+          "packageLocation": "./.yarn/cache/@rushstack-eslint-patch-npm-1.3.0-72db924468-2860b4adee.zip/node_modules/@rushstack/eslint-patch/",\
           "packageDependencies": [\
-            ["@rushstack/eslint-patch", "npm:1.2.0"]\
+            ["@rushstack/eslint-patch", "npm:1.3.0"]\
           ],\
           "linkType": "HARD"\
         }]\
