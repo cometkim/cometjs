@@ -1022,9 +1022,9 @@ __metadata:
   linkType: hard
 
 "@rushstack/eslint-patch@npm:^1.2.0":
-  version: 1.3.0
-  resolution: "@rushstack/eslint-patch@npm:1.3.0"
-  checksum: 2860b4adeebbab9a13bff68a2737ecf660fe199a3d2eca45b0359132ff92052467622ac4b22837958bc3ad611714d5f2b662db98ffdc5db34df604b4d502d347
+  version: 1.9.0
+  resolution: "@rushstack/eslint-patch@npm:1.9.0"
+  checksum: 28da9f3771254e17fb1bf2c400541d34b947bbe30c580e9836349831d0b4b235a2b6cfb0f172337bc89120f42d9b5b6526c3358985a6200c1716506006b8b77f
   languageName: node
   linkType: hard
 
