@@ -71,17 +71,17 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         }]\
       ]],\
       ["@0no-co/graphql.web", [\
-        ["npm:1.0.1", {\
-          "packageLocation": "./.yarn/cache/@0no-co-graphql.web-npm-1.0.1-955f58dd73-e577a80a21.zip/node_modules/@0no-co/graphql.web/",\
+        ["npm:1.0.7", {\
+          "packageLocation": "./.yarn/cache/@0no-co-graphql.web-npm-1.0.7-62f6f910ff-84a30777b1.zip/node_modules/@0no-co/graphql.web/",\
           "packageDependencies": [\
-            ["@0no-co/graphql.web", "npm:1.0.1"]\
+            ["@0no-co/graphql.web", "npm:1.0.7"]\
           ],\
           "linkType": "SOFT"\
         }],\
-        ["virtual:cbff9223b963ec60aaf6c49849b2e96daeda9ea1113fcece5f82f083f8ac2b57d0e479c1d076a5826f883331a154dd0a2cd016f1be04a8e8eca4aeac32c5113d#npm:1.0.1", {\
-          "packageLocation": "./.yarn/__virtual__/@0no-co-graphql.web-virtual-d1e0724ffb/0/cache/@0no-co-graphql.web-npm-1.0.1-955f58dd73-e577a80a21.zip/node_modules/@0no-co/graphql.web/",\
+        ["virtual:847b690f8aa5cfa2a572ecfde371afed7c12695afc8d8506e4042cf2c1bdff4cf8ee6a46f595eb47f303a9637b264aff49db414aeb9f309c68aeb6337a1d1dfc#npm:1.0.7", {\
+          "packageLocation": "./.yarn/__virtual__/@0no-co-graphql.web-virtual-e5f16044ba/0/cache/@0no-co-graphql.web-npm-1.0.7-62f6f910ff-84a30777b1.zip/node_modules/@0no-co/graphql.web/",\
           "packageDependencies": [\
-            ["@0no-co/graphql.web", "virtual:cbff9223b963ec60aaf6c49849b2e96daeda9ea1113fcece5f82f083f8ac2b57d0e479c1d076a5826f883331a154dd0a2cd016f1be04a8e8eca4aeac32c5113d#npm:1.0.1"],\
+            ["@0no-co/graphql.web", "virtual:847b690f8aa5cfa2a572ecfde371afed7c12695afc8d8506e4042cf2c1bdff4cf8ee6a46f595eb47f303a9637b264aff49db414aeb9f309c68aeb6337a1d1dfc#npm:1.0.7"],\
             ["@types/graphql", null],\
             ["graphql", null]\
           ],\
@@ -640,7 +640,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["react-dom", "virtual:c03f17fa1726ecb594a8dd52523b52167c2eb96176d058df00a4d459b80cf8680028a1d84f5651f99fe17f9f28ece553287d9fa10bced24ab4646eee71564727#npm:18.2.0"],\
             ["react-test-renderer", "virtual:c03f17fa1726ecb594a8dd52523b52167c2eb96176d058df00a4d459b80cf8680028a1d84f5651f99fe17f9f28ece553287d9fa10bced24ab4646eee71564727#npm:18.2.0"],\
             ["typescript", "patch:typescript@npm%3A5.0.4#~builtin<compat/typescript>::version=5.0.4&hash=b5f058"],\
-            ["urql", "virtual:6b672ce5f9acf121a1b3a6f0052447f41fd4c40509526abecc7f84a2c49e88d2e5398bc76b62a0dd5f791c3259cac4452f0f86573586ab9d9c029182fac02fd7#npm:4.0.2"],\
+            ["urql", "virtual:6b672ce5f9acf121a1b3a6f0052447f41fd4c40509526abecc7f84a2c49e88d2e5398bc76b62a0dd5f791c3259cac4452f0f86573586ab9d9c029182fac02fd7#npm:4.1.0"],\
             ["vite", "virtual:8d00b2a880806cc026b0d6ea42c78dc53d390a3b84a5b84f23255b3f5f46ae91c9e68ff576b6e09822e97c0e050a6700350046dc3e5c9f26496af5cc130346bb#npm:4.3.9"],\
             ["vitest", "virtual:236ffb23991e44020122de94f575876fe73ed6d13995e5c5ca3b0e47da5cf9346310444b996e0c3f7bd98237a4f62a07e4ea51e2b9b6a0fead8e55bb39384377#npm:0.31.1"],\
             ["wonka", "npm:6.3.2"]\
@@ -1826,11 +1826,11 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         }]\
       ]],\
       ["@urql/core", [\
-        ["npm:4.0.7", {\
-          "packageLocation": "./.yarn/cache/@urql-core-npm-4.0.7-cbff9223b9-9e8411434b.zip/node_modules/@urql/core/",\
+        ["npm:5.0.3", {\
+          "packageLocation": "./.yarn/cache/@urql-core-npm-5.0.3-847b690f8a-d902f5f7c9.zip/node_modules/@urql/core/",\
           "packageDependencies": [\
-            ["@urql/core", "npm:4.0.7"],\
-            ["@0no-co/graphql.web", "virtual:cbff9223b963ec60aaf6c49849b2e96daeda9ea1113fcece5f82f083f8ac2b57d0e479c1d076a5826f883331a154dd0a2cd016f1be04a8e8eca4aeac32c5113d#npm:1.0.1"],\
+            ["@urql/core", "npm:5.0.3"],\
+            ["@0no-co/graphql.web", "virtual:847b690f8aa5cfa2a572ecfde371afed7c12695afc8d8506e4042cf2c1bdff4cf8ee6a46f595eb47f303a9637b264aff49db414aeb9f309c68aeb6337a1d1dfc#npm:1.0.7"],\
             ["wonka", "npm:6.3.2"]\
           ],\
           "linkType": "HARD"\
@@ -7317,24 +7317,26 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         }]\
       ]],\
       ["urql", [\
-        ["npm:4.0.2", {\
-          "packageLocation": "./.yarn/cache/urql-npm-4.0.2-6b11d9866e-c0f5c2fef3.zip/node_modules/urql/",\
+        ["npm:4.1.0", {\
+          "packageLocation": "./.yarn/cache/urql-npm-4.1.0-1b3c6de93d-b946c32f53.zip/node_modules/urql/",\
           "packageDependencies": [\
-            ["urql", "npm:4.0.2"]\
+            ["urql", "npm:4.1.0"]\
           ],\
           "linkType": "SOFT"\
         }],\
-        ["virtual:6b672ce5f9acf121a1b3a6f0052447f41fd4c40509526abecc7f84a2c49e88d2e5398bc76b62a0dd5f791c3259cac4452f0f86573586ab9d9c029182fac02fd7#npm:4.0.2", {\
-          "packageLocation": "./.yarn/__virtual__/urql-virtual-cd1d1d4c08/0/cache/urql-npm-4.0.2-6b11d9866e-c0f5c2fef3.zip/node_modules/urql/",\
+        ["virtual:6b672ce5f9acf121a1b3a6f0052447f41fd4c40509526abecc7f84a2c49e88d2e5398bc76b62a0dd5f791c3259cac4452f0f86573586ab9d9c029182fac02fd7#npm:4.1.0", {\
+          "packageLocation": "./.yarn/__virtual__/urql-virtual-faa6a938ea/0/cache/urql-npm-4.1.0-1b3c6de93d-b946c32f53.zip/node_modules/urql/",\
           "packageDependencies": [\
-            ["urql", "virtual:6b672ce5f9acf121a1b3a6f0052447f41fd4c40509526abecc7f84a2c49e88d2e5398bc76b62a0dd5f791c3259cac4452f0f86573586ab9d9c029182fac02fd7#npm:4.0.2"],\
+            ["urql", "virtual:6b672ce5f9acf121a1b3a6f0052447f41fd4c40509526abecc7f84a2c49e88d2e5398bc76b62a0dd5f791c3259cac4452f0f86573586ab9d9c029182fac02fd7#npm:4.1.0"],\
             ["@types/react", "npm:18.2.7"],\
-            ["@urql/core", "npm:4.0.7"],\
+            ["@types/urql__core", null],\
+            ["@urql/core", "npm:5.0.3"],\
             ["react", "npm:18.2.0"],\
             ["wonka", "npm:6.3.2"]\
           ],\
           "packagePeers": [\
             "@types/react",\
+            "@types/urql__core",\
             "react"\
           ],\
           "linkType": "HARD"\
