@@ -5,15 +5,15 @@ __metadata:
   version: 6
   cacheKey: 8
 
-"@0no-co/graphql.web@npm:^1.0.1":
-  version: 1.0.1
-  resolution: "@0no-co/graphql.web@npm:1.0.1"
+"@0no-co/graphql.web@npm:^1.0.5":
+  version: 1.0.9
+  resolution: "@0no-co/graphql.web@npm:1.0.9"
   peerDependencies:
     graphql: ^14.0.0 || ^15.0.0 || ^16.0.0
   peerDependenciesMeta:
     graphql:
       optional: true
-  checksum: e577a80a210e48e0b054dcf363efa2107ab67b931ec923b1540300350f55576fc5493b6d4ca7f35379748d20bc0280ee32bdc98c2c2380476c814a472bcf0757
+  checksum: a7580304d3b545b69e11e4a7b95d0c81b5fee3d071f92b1386f0f2e4e4f69703cbe19e0a4f5c489cbb70e7b5ac1ccec3a51f529c85dfbbccf8ebd6370fd6b0e2
   languageName: node
   linkType: hard
 
@@ -1334,13 +1334,13 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@urql/core@npm:^4.0.0":
-  version: 4.0.7
-  resolution: "@urql/core@npm:4.0.7"
+"@urql/core@npm:^5.0.0":
+  version: 5.0.7
+  resolution: "@urql/core@npm:5.0.7"
   dependencies:
-    "@0no-co/graphql.web": ^1.0.1
+    "@0no-co/graphql.web": ^1.0.5
     wonka: ^6.3.2
-  checksum: 9e8411434b61e544f71056f6ed0f76c01ab0aa0197771e3b7ffdd9d7a7e8ac4bcda5f62693c2fb66fafc29de2de9d25e0627cfc3e14be7f757915f61b4a31a94
+  checksum: 2624685209968a24da4cc20f2113d95318bccfa71a32c5fff1e65a24cfb777aa37fa5fb95f19a05815235f7d924274f2385e46afc5f449fbccbc94ec2aa8c69c
   languageName: node
   linkType: hard
 
@@ -6179,14 +6179,15 @@ resolve@^1.10.0:
   linkType: hard
 
 "urql@npm:^4.0.2":
-  version: 4.0.2
-  resolution: "urql@npm:4.0.2"
+  version: 4.2.0
+  resolution: "urql@npm:4.2.0"
   dependencies:
-    "@urql/core": ^4.0.0
+    "@urql/core": ^5.0.0
     wonka: ^6.3.2
   peerDependencies:
+    "@urql/core": ^5.0.0
     react: ">= 16.8.0"
-  checksum: c0f5c2fef38369607cf6208ad76eb0a00157187d439c92c3fe68b6241d4d30ce7ec935531abfaa438b674ce545371d6bc4a8637fb97bfe5634cf576b1807b8be
+  checksum: d61de743010ef5daf2b92d416133fbe11a05c65235158fd7df8e0229dea18197e566b193e21878f7743ddf1cb5cec9ac56410bf57ad8d5fe50b79dbc0eb6b884
   languageName: node
   linkType: hard
 
