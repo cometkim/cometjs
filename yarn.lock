@@ -5,15 +5,15 @@ __metadata:
   version: 6
   cacheKey: 8
 
-"@0no-co/graphql.web@npm:^1.0.1":
-  version: 1.0.1
-  resolution: "@0no-co/graphql.web@npm:1.0.1"
+"@0no-co/graphql.web@npm:^1.0.5":
+  version: 1.0.11
+  resolution: "@0no-co/graphql.web@npm:1.0.11"
   peerDependencies:
     graphql: ^14.0.0 || ^15.0.0 || ^16.0.0
   peerDependenciesMeta:
     graphql:
       optional: true
-  checksum: e577a80a210e48e0b054dcf363efa2107ab67b931ec923b1540300350f55576fc5493b6d4ca7f35379748d20bc0280ee32bdc98c2c2380476c814a472bcf0757
+  checksum: 2f624f831f917a83be7b7e95c47f4b9ee71b0b13f1af23333c0c5db631047abbf6dcf10ea0300afcd046976a11b9c1a9fe3b88f1af9d7d4973e07a6d0a947843
   languageName: node
   linkType: hard
 
@@ -1334,13 +1334,13 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@urql/core@npm:^4.0.0":
-  version: 4.0.7
-  resolution: "@urql/core@npm:4.0.7"
+"@urql/core@npm:^5.0.0":
+  version: 5.0.8
+  resolution: "@urql/core@npm:5.0.8"
   dependencies:
-    "@0no-co/graphql.web": ^1.0.1
+    "@0no-co/graphql.web": ^1.0.5
     wonka: ^6.3.2
-  checksum: 9e8411434b61e544f71056f6ed0f76c01ab0aa0197771e3b7ffdd9d7a7e8ac4bcda5f62693c2fb66fafc29de2de9d25e0627cfc3e14be7f757915f61b4a31a94
+  checksum: 2e0e1791e49585c5a28d24640d8585b8ff663e2feda73ea344a9ab213ca760466293ea16fa9a7bbc104c1ddeb1d61d320a45fda84a44f3b124b06767323df4c6
   languageName: node
   linkType: hard
 
@@ -6179,14 +6179,15 @@ resolve@^1.10.0:
   linkType: hard
 
 "urql@npm:^4.0.2":
-  version: 4.0.2
-  resolution: "urql@npm:4.0.2"
+  version: 4.2.1
+  resolution: "urql@npm:4.2.1"
   dependencies:
-    "@urql/core": ^4.0.0
+    "@urql/core": ^5.0.0
     wonka: ^6.3.2
   peerDependencies:
+    "@urql/core": ^5.0.0
     react: ">= 16.8.0"
-  checksum: c0f5c2fef38369607cf6208ad76eb0a00157187d439c92c3fe68b6241d4d30ce7ec935531abfaa438b674ce545371d6bc4a8637fb97bfe5634cf576b1807b8be
+  checksum: a1205ad0eee604f6f11e13fa7d6f0a1726dd506ea4c7a375171b0ea0db10c56901ad97213fa498a00fe2ee6caa3aae54b97b42beef7a0d1ec41b12ec530c738b
   languageName: node
   linkType: hard
 
