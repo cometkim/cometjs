@@ -1174,9 +1174,9 @@ __metadata:
   linkType: hard
 
 "@types/webpack-env@npm:^1.18.0":
-  version: 1.18.1
-  resolution: "@types/webpack-env@npm:1.18.1"
-  checksum: 10c0/7b7cb8d22fe85fb3f87f592cb5ba2fb3b1057d1d5ce8d770b28728095879f5921085fae97f5bc479bdca55f2cb3111bd9148dc36cd641a5694dfbe001c5fc2f7
+  version: 1.18.8
+  resolution: "@types/webpack-env@npm:1.18.8"
+  checksum: 10c0/527a5d1eb75c5243e4f3665d956c7c340f899955dd25d16c9fd9750406f32e95a3a17d207640295038e8235c0c2a2daf084f420e088e58b965d82fc74f6012d7
   languageName: node
   linkType: hard
 
