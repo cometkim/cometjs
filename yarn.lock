@@ -6448,9 +6448,9 @@ __metadata:
   linkType: hard
 
 "wonka@npm:^6.0.0, wonka@npm:^6.3.2":
-  version: 6.3.2
-  resolution: "wonka@npm:6.3.2"
-  checksum: 10c0/4b144bd4fd2d3ea8a84a2e98b7a3b79491bccfce24e422174f9f8dd55ed06f8e65812e2a3eb6af58c71c27e58856aa6d6f74be0147b535bd83ce5967d32e02d7
+  version: 6.3.6
+  resolution: "wonka@npm:6.3.6"
+  checksum: 10c0/a8887a7766cf9519b4f80b43842fe1b6575a0f5edf397c5a32c267185bd999af9d3c42d91d6d7cd86d3ec89fdc5f8909bb542004d184fcaad794d25e821ff70d
   languageName: node
   linkType: hard
 
